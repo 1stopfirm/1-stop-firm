@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/Organization">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1 Stop Firm | Premium Marketing & Business Growth Agency</title>
+  <meta name="description" content="1 Stop Firm helps local businesses grow with strategy, marketing, branding, and web development.">
+  <link rel="icon" href="Bold Purple _1SF_ Icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <script defer src="scripts/main.js"></script>
+  <style>
+    /* Global styles for Success Stories section */
+    .case-industry, .case-service-tag {
+      color: #1a1a2e !important;
+      font-weight: 600 !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#hero" class="navbar-brand">
+        <img src="Bold Purple _1SF_ Icon.png" alt="1 Stop Firm Logo" width="60" height="60" class="logo-img">
+        <span class="logo-text">1 Stop Firm</span>
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="navbar-menu">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#case-study">Case Studies</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact" class="btn btn-primary">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero-height gradient-animate" id="hero">
+      <div class="hero-background">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+      </div>
+      
+      <div class="container flex-center">
+        <div class="hero-content text-center">
+          <h2 class="typewriter">Transform Your Business</h2>
+          <p class="hero-subtitle reveal">Premium marketing and business growth solutions for local businesses.</p>
+          
+          <div class="hero-features reveal">
+            <span class="hero-feature">Strategy</span>
+            <span class="hero-feature">Marketing</span>
+            <span class="hero-feature">Branding</span>
+            <span class="hero-feature">Web Development</span>
+          </div>
+          
+          <div class="hero-cta reveal">
+            <a href="#contact" class="btn btn-primary btn-large pulse">Book a Free Consultation</a>
+            <a href="#services" class="btn btn-outline btn-large">Explore Services</a>
+          </div>
+          
+          <div class="hero-clients reveal">
+            <p>Trusted by local businesses</p>
+            <div class="hero-client-logos">
+              <img src="mcdonalds.png" alt="McDonald's" width="80" class="client-logo-img">
+              <img src="huawei.png" alt="Huawei" width="80" class="client-logo-img">
+              <img src="firefox.png" alt="Firefox" width="80" class="client-logo-img">
+              <img src="oracle.png" alt="Oracle" width="80" class="client-logo-img">
+              <img src="muse.png" alt="Muse" width="80" class="client-logo-img">
+              <img src="discover.png" alt="Discover" width="80" class="client-logo-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Services</h2>
+          <p class="section-description">Comprehensive solutions to accelerate your business growth, tailored to your specific industry and goals.</p>
+        </div>
+        
+        <style>
+          .services-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+          }
+          
+          .service-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            transition: all 0.3s ease;
+          }
+          
+          .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+          }
+          
+          .service-title {
+            color: #5b21b6;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+          }
+          
+          .service-desc {
+            margin-bottom: 20px;
+            color: #4B5563;
+          }
+          
+          .service-offer-title {
+            color: #5b21b6;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+          }
+          
+          .service-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+          }
+          
+          .service-list-item {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            color: #4B5563;
+          }
+          
+          .service-check {
+            position: absolute;
+            left: 0;
+            color: #5b21b6;
+          }
+          
+          .service-button {
+            display: inline-block;
+            background-color: #5b21b6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+          }
+          
+          .service-button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(91, 33, 182, 0.3);
+          }
+          
+          @media (max-width: 767px) {
+            .services-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+        
+        <div class="services-grid">
+          <!-- Brand Development Card -->
+          <div class="service-box">
+            <h3 class="service-title">Brand Development</h3>
+            <p class="service-desc">Create a memorable brand identity that resonates with your audience and builds loyalty.</p>
+            <div>
+              <h4 class="service-offer-title">What We Offer:</h4>
+              <ul class="service-list">
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Brand Strategy
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Visual Identity Design
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Brand Voice & Messaging
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Brand Guidelines
+                </li>
+              </ul>
+              <a href="brand-development.html" class="service-button">Learn More</a>
+            </div>
+          </div>
+          
+          <!-- Web Development Card -->
+          <div class="service-box">
+            <h3 class="service-title">Website Development</h3>
+            <p class="service-desc">Custom, responsive websites designed to convert visitors into loyal customers.</p>
+            <div>
+              <h4 class="service-offer-title">What We Offer:</h4>
+              <ul class="service-list">
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Custom Web Design
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> E-commerce Solutions
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> SEO Implementation
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Performance Optimization
+                </li>
+              </ul>
+              <a href="fresh-website-development.html" class="service-button">Learn More</a>
+            </div>
+          </div>
+          
+          <!-- Digital Marketing Card -->
+          <div class="service-box">
+            <h3 class="service-title">Digital Marketing</h3>
+            <p class="service-desc">Comprehensive marketing strategies across social media, email, SMS, and paid advertising.</p>
+            <div>
+              <h4 class="service-offer-title">What We Offer:</h4>
+              <ul class="service-list">
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Social Media Management
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Email & SMS Campaigns
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> PPC & Paid Social
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Influencer Marketing
+                </li>
+              </ul>
+              <a href="digital-marketing-service.html" class="service-button">Learn More</a>
+            </div>
+          </div>
+          
+          <!-- Strategy Card -->
+          <div class="service-box">
+            <h3 class="service-title">Strategy Consultation</h3>
+            <p class="service-desc">Data-driven approach to create sustainable growth plans tailored to your business.</p>
+            <div>
+              <h4 class="service-offer-title">What We Offer:</h4>
+              <ul class="service-list">
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Market Analysis
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Competitive Positioning
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Growth Roadmapping
+                </li>
+                <li class="service-list-item">
+                  <span class="service-check">✓</span> Business Model Optimization
+                </li>
+              </ul>
+              <a href="strategy-consultation.html" class="service-button">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="services-cta text-center" style="margin-top: 50px;">
+          <p>Looking for something specific?</p>
+          <a href="#contact" class="btn btn-primary">Get a Custom Solution</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about bg-secondary" id="about">
+      <div class="container">
+        <div class="asymmetric-grid">
+          <div class="about-content">
+            <div class="section-header text-left">
+              <h2>Who We Are</h2>
+            </div>
+            
+            <div class="about-text reveal-left">
+              <p class="lead"><strong>1 Stop Firm</strong> is a premium marketing agency dedicated to helping small and medium-sized businesses achieve sustainable growth.</p>
+              
+              <p>We believe that every local business deserves access to the same high-quality marketing strategies and tools that larger companies enjoy. Our team brings together expertise in strategy, marketing, branding, and technology to deliver comprehensive solutions that drive real results.</p>
+              
+              <p>What sets us apart is our deep understanding of the unique challenges faced by businesses in various industries, from restaurants and hotels to professional services and retail.</p>
+            </div>
+          </div>
+          
+          <div class="about-visual">
+            <div class="about-image-wrapper reveal-right">
+              <div class="about-image parallax-bg">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="1 Stop Firm Team" class="about-main-image">
+              </div>
+              
+              <div class="about-stats">
+                <div class="about-stat">
+                  <span class="counter" data-count="5" data-format='{"suffix":"+"}'></span>
+                  <p>Years Experience</p>
+                </div>
+                
+                <div class="about-stat">
+                  <span class="counter" data-count="50" data-format='{"suffix":"+"}'></span>
+                  <p>Team Members</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Core Values Section -->
+    <section class="core-values" id="values">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Core Values</h2>
+          <p class="section-description">These principles guide everything we do and how we work with our clients.</p>
+        </div>
+        
+        <div class="values-grid">
+          <div class="value-item reveal">
+            <h4>Results-Driven</h4>
+            <p>We measure our success by the tangible results we deliver, with strategies designed for clear goals and measurable outcomes.</p>
+          </div>
+          
+          <div class="value-item reveal">
+            <h4>Innovation</h4>
+            <p>We embrace new technologies and approaches to keep our clients ahead of the curve in the ever-evolving digital landscape.</p>
+          </div>
+          
+          <div class="value-item reveal">
+            <h4>Integrity</h4>
+            <p>Honesty and transparency form the foundation of all our client relationships, doing what's right even when it's not easy.</p>
+          </div>
+          
+          <div class="value-item reveal">
+            <h4>Partnership</h4>
+            <p>We work as an extension of your team, understanding your business to achieve goals together through collaboration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Showcase -->
+    <section class="results bg-primary" id="results">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="text-white">Our Impact</h2>
+          <p class="section-description text-white">We measure our success by the results we deliver to our clients.</p>
+        </div>
+        
+        <div class="results-grid">
+          <!-- Result Item 1 -->
+          <div class="result-item reveal">
+            <div class="result-content">
+              <span class="counter" data-count="150" data-format='{"suffix":"+", "comma": true}'>0</span>
+              <h3>Businesses Served</h3>
+              <div class="result-bar">
+                <div class="result-progress" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Result Item 2 -->
+          <div class="result-item reveal">
+            <div class="result-content">
+              <span class="counter" data-count="10" data-format='{"prefix":"$", "suffix":"M+", "comma": true}'>0</span>
+              <h3>Client Revenue Generated</h3>
+              <div class="result-bar">
+                <div class="result-progress" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Result Item 3 -->
+          <div class="result-item reveal">
+            <div class="result-content">
+              <span class="counter" data-count="200" data-format='{"suffix":"%" }'>0</span>
+              <h3>Average Growth Rate</h3>
+              <div class="result-bar">
+                <div class="result-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Result Item 4 -->
+          <div class="result-item reveal">
+            <div class="result-content">
+              <span class="counter" data-count="98" data-format='{"suffix":"%" }'>0</span>
+              <h3>Client Satisfaction</h3>
+              <div class="result-bar">
+                <div class="result-progress" style="width: 98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="results-cta text-center">
+          <a href="#case-study" class="btn btn-white">View Case Studies</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Case Study -->
+    <section class="case-study" id="case-study">
+      <div class="container">
+        <div class="section-header">
+          <h2>Success Stories</h2>
+          <p class="section-description">See how we've helped businesses like yours achieve remarkable growth.</p>
+        </div>
+        
+        <div class="case-studies-wrapper">
+          <!-- Case Study Tabs -->
+          <div class="case-study-tabs">
+            <button class="case-tab active" data-target="case1">The Crispy Cafe</button>
+            <button class="case-tab" data-target="case2">Summit Education</button>
+            <button class="case-tab" data-target="case3">Pearl Dental</button>
+          </div>
+          
+          <!-- Case Study Content -->
+          <div class="case-studies-content">
+            <!-- Case Study 1 -->
+            <div class="case-study-item active" id="case1">
+              <div class="case-study-grid">
+                <div class="case-study-image reveal-left">
+                  <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Crispy Cafe Case Study" class="case-main-image">
+                </div>
+                
+                <div class="case-study-content reveal-right">
+                  <div class="case-industry">Restaurant</div>
+                  <h3>Doubling Bookings for The Crispy Cafe</h3>
+                  
+                  <div class="case-metrics">
+                    <div class="case-metric">
+                      <span class="case-metric-value">125%</span>
+                      <span class="case-metric-label">Increase in Bookings</span>
+                    </div>
+                    <div class="case-metric">
+                      <span class="case-metric-value">80%</span>
+                      <span class="case-metric-label">Social Media Growth</span>
+                    </div>
+                    <div class="case-metric">
+                      <span class="case-metric-value">3X</span>
+                      <span class="case-metric-label">ROI</span>
+                    </div>
+                  </div>
+                  
+                  <p>The Crispy Cafe was struggling with low customer traffic despite offering excellent food. We implemented a comprehensive digital strategy including website redesign, social media campaigns, and local SEO optimization.</p>
+                  
+                  <div class="case-services">
+                    <span class="case-service-tag">Digital Marketing</span>
+                    <span class="case-service-tag">Website Redesign</span>
+                    <span class="case-service-tag">Social Media</span>
+                  </div>
+                  
+                  <a href="#contact" class="btn btn-primary">Get Similar Results</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Case Study 2 (Hidden Initially) -->
+            <div class="case-study-item" id="case2">
+              <div class="case-study-grid">
+                <div class="case-study-image reveal-left">
+                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Summit Education Case Study" class="case-main-image">
+                </div>
+                
+                <div class="case-study-content reveal-right">
+                  <div class="case-industry">Education</div>
+                  <h3>Growing Student Enrollment for Summit Education</h3>
+                  
+                  <div class="case-metrics">
+                    <div class="case-metric">
+                      <span class="case-metric-value">200+</span>
+                      <span class="case-metric-label">New Students</span>
+                    </div>
+                    <div class="case-metric">
+                      <span class="case-metric-value">45%</span>
+                      <span class="case-metric-label">Conversion Rate</span>
+                    </div>
+                    <div class="case-metric">
+                      <span class="case-metric-value">4.2X</span>
+                      <span class="case-metric-label">ROI</span>
+                    </div>
+                  </div>
+                  
+                  <p>Summit Education needed to increase student enrollment for their coaching center. We developed targeted social media campaigns, email marketing, and a lead generation strategy that dramatically increased inquiries and conversions.</p>
+                  
+                  <div class="case-services">
+                    <span class="case-service-tag">Lead Generation</span>
+                    <span class="case-service-tag">Email Marketing</span>
+                    <span class="case-service-tag">Social Campaigns</span>
+                  </div>
+                  
+                  <a href="#contact" class="btn btn-primary">Get Similar Results</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Case Study 3 (Hidden Initially) -->
+            <div class="case-study-item" id="case3">
+              <div class="case-study-grid">
+                <div class="case-study-image reveal-left">
+                  <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pearl Dental Case Study" class="case-main-image">
+                </div>
+                
+                <div class="case-study-content reveal-right">
+                  <div class="case-industry">Healthcare</div>
+                  <h3>Transforming Online Presence for Pearl Dental</h3>
+                  
+                  <div class="case-metrics">
+                    <div class="case-metric">
+                      <span class="case-metric-value">150%</span>
+                      <span class="case-metric-label">Appointment Increase</span>
+                    </div>
+                    <div class="case-metric">
+                      <span class="case-metric-value">Top 3</span>
+                      <span class="case-metric-label">Google Rankings</span>
+                    </div>
+                    <div class="case-metric">
+                      <span class="case-metric-value">65%</span>
+                      <span class="case-metric-label">New Patients</span>
+                    </div>
+                  </div>
+                  
+                  <p>Pearl Dental was struggling to attract new patients despite high-quality service. We completely revamped their brand identity, created a modern website, and implemented targeted local marketing strategies to reach potential patients.</p>
+                  
+                  <div class="case-services">
+                    <span class="case-service-tag">Branding</span>
+                    <span class="case-service-tag">Web Design</span>
+                    <span class="case-service-tag">Local SEO</span>
+                  </div>
+                  
+                  <a href="#contact" class="btn btn-primary">Get Similar Results</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section class="testimonials bg-light" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Client Testimonials</h2>
+          <p class="section-description">Don't just take our word for it - hear what our clients have to say about working with us.</p>
+        </div>
+        
+        <div class="testimonial-slider">
+          <div class="testimonial-track">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide active">
+              <div class="testimonial-card reveal">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                  </div>
+                  <p class="testimonial-text">"Working with 1 Stop Firm completely transformed our business. They understood our goals and delivered a marketing strategy that exceeded our expectations."</p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Client portrait" class="avatar-img">
+                  </div>
+                  <div class="author-info">
+                    <h4 class="author-name">Sarah Johnson</h4>
+                    <p class="author-position">Owner, The Crispy Cafe</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide">
+              <div class="testimonial-card reveal">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                  </div>
+                  <p class="testimonial-text">"The team at 1 Stop Firm is incredibly knowledgeable and professional. They revamped our entire online presence and helped us reach new customers we never thought possible."</p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Client portrait" class="avatar-img">
+                  </div>
+                  <div class="author-info">
+                    <h4 class="author-name">Michael Chen</h4>
+                    <p class="author-position">Director, Summit Education</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide">
+              <div class="testimonial-card reveal">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                  </div>
+                  <p class="testimonial-text">"I can't recommend 1 Stop Firm enough! Their brand development and digital marketing strategies helped our dental practice stand out in a competitive market."</p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Client portrait" class="avatar-img">
+                  </div>
+                  <div class="author-info">
+                    <h4 class="author-name">Dr. Amanda Rivera</h4>
+                    <p class="author-position">Founder, Pearl Dental</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slider Controls -->
+          <div class="testimonial-controls">
+            <button class="testimonial-arrow prev" aria-label="Previous testimonial">
+              <span class="arrow-icon"></span>
+            </button>
+            
+            <div class="testimonial-dots">
+              <button class="dot active" aria-label="Testimonial 1" data-slide="0"></button>
+              <button class="dot" aria-label="Testimonial 2" data-slide="1"></button>
+              <button class="dot" aria-label="Testimonial 3" data-slide="2"></button>
+            </div>
+            
+            <button class="testimonial-arrow next" aria-label="Next testimonial">
+              <span class="arrow-icon"></span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="testimonial-cta text-center">
+          <a href="#contact" class="btn btn-primary">Become Our Next Success Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="blog-preview" id="blog">
+      <div class="container">
+        <div class="section-header">
+          <h2>Latest Insights</h2>
+          <p class="section-description">Stay updated with the latest trends and strategies in marketing and business growth.</p>
+        </div>
+        
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <article class="blog-card reveal">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Marketing trends blog post" class="blog-thumbnail">
+              <div class="blog-category">Marketing</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">June 15, 2023</span>
+                <span class="blog-read-time">5 min read</span>
+              </div>
+              <h3 class="blog-title">5 Digital Marketing Trends That Will Dominate 2023</h3>
+              <p class="blog-excerpt">Discover the latest trends in digital marketing that are reshaping how businesses connect with their customers and drive growth.</p>
+              <a href="#" class="blog-link">Read Article <span class="arrow-right">→</span></a>
+            </div>
+          </article>
+          
+          <!-- Blog Post 2 -->
+          <article class="blog-card reveal">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Branding blog post" class="blog-thumbnail">
+              <div class="blog-category">Branding</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">May 28, 2023</span>
+                <span class="blog-read-time">4 min read</span>
+              </div>
+              <h3 class="blog-title">Why Brand Consistency is Crucial for Small Business Success</h3>
+              <p class="blog-excerpt">Learn how maintaining a consistent brand identity across all touchpoints can significantly impact customer trust and loyalty.</p>
+              <a href="#" class="blog-link">Read Article <span class="arrow-right">→</span></a>
+            </div>
+          </article>
+          
+          <!-- Blog Post 3 -->
+          <article class="blog-card reveal">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Business growth blog post" class="blog-thumbnail">
+              <div class="blog-category">Strategy</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">May 10, 2023</span>
+                <span class="blog-read-time">6 min read</span>
+              </div>
+              <h3 class="blog-title">How to Create a Growth Strategy That Actually Works</h3>
+              <p class="blog-excerpt">Explore practical steps to develop a sustainable growth strategy tailored to your business goals and market positioning.</p>
+              <a href="#" class="blog-link">Read Article <span class="arrow-right">→</span></a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="blog-cta text-center">
+          <a href="#" class="btn btn-primary">View All Articles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-wrapper">
+          <div class="cta-content">
+            <div class="section-header text-white text-left">
+              <h2>Ready to Grow Your Business?</h2>
+              <p class="section-description">Schedule your free consultation and discover how we can help you achieve your business goals.</p>
+            </div>
+            
+            <ul class="contact-features">
+              <li class="contact-feature-item reveal-left">
+                <span class="contact-feature-icon">✓</span>
+                <span class="contact-feature-text">Free 30-minute consultation</span>
+              </li>
+              <li class="contact-feature-item reveal-left">
+                <span class="contact-feature-icon">✓</span>
+                <span class="contact-feature-text">Custom growth strategy</span>
+              </li>
+              <li class="contact-feature-item reveal-left">
+                <span class="contact-feature-icon">✓</span>
+                <span class="contact-feature-text">No obligation</span>
+              </li>
+              <li class="contact-feature-item reveal-left">
+                <span class="contact-feature-icon">✓</span>
+                <span class="contact-feature-text">Actionable insights</span>
+              </li>
+            </ul>
+            
+            <div class="contact-info reveal-left">
+              <div class="contact-method">
+                <h3>Call Us</h3>
+                <p><a href="tel:+11234567890">(123) 456-7890</a></p>
+              </div>
+              <div class="contact-method">
+                <h3>Email Us</h3>
+                <p><a href="mailto:info@1stopfirm.com">info@1stopfirm.com</a></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-wrapper reveal-right">
+            <form class="contact-form" id="contactForm">
+              <h3 class="form-title">Book Your Free Consultation</h3>
+              
+              <div class="form-group">
+                <label for="name" class="visually-hidden">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="visually-hidden">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone" class="visually-hidden">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="business" class="visually-hidden">Business Name</label>
+                <input type="text" id="business" name="business" placeholder="Your Business Name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="service" class="visually-hidden">Service Interested In</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Service You're Interested In</option>
+                  <option value="strategy">Business Strategy</option>
+                  <option value="marketing">Digital Marketing</option>
+                  <option value="branding">Branding</option>
+                  <option value="web">Web Development</option>
+                  <option value="other">Other Services</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="visually-hidden">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us about your business goals" rows="3"></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-block">Schedule Consultation</button>
+              
+              <p class="form-disclaimer">By submitting this form, you agree to our <a href="#">Privacy Policy</a> and consent to be contacted regarding our services.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Company Info -->
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="Bold Purple _1SF_ Icon.png" alt="1 Stop Firm Logo" width="160" height="50">
+            </div>
+            <p class="footer-about">1 Stop Firm is a premium marketing agency dedicated to helping local businesses achieve sustainable growth through strategic marketing and branding solutions.</p>
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <span class="social-icon">f</span>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <span class="social-icon">t</span>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <span class="social-icon">i</span>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <span class="social-icon">l</span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Our Services</a></li>
+              <li><a href="#case-study">Case Studies</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <!-- Services -->
+          <div class="footer-col">
+            <h3 class="footer-title">Our Services</h3>
+            <ul class="footer-links">
+              <li><a href="#">Strategy Consultation</a></li>
+              <li><a href="digital-marketing-service.html">Digital Marketing</a></li>
+              <li><a href="#">Brand Development</a></li>
+              <li><a href="#">Website Development</a></li>
+              <li><a href="#">Social Media Management</a></li>
+              <li><a href="#">SEO Optimization</a></li>
+              <li><a href="#">Content Creation</a></li>
+            </ul>
+          </div>
+          
+          <!-- Newsletter -->
+          <div class="footer-col">
+            <h3 class="footer-title">Stay Updated</h3>
+            <p class="footer-newsletter-text">Subscribe to our newsletter for the latest marketing tips and insights.</p>
+            <form class="footer-newsletter">
+              <div class="newsletter-form-group">
+                <label for="footer-email" class="visually-hidden">Email Address</label>
+                <input type="email" id="footer-email" placeholder="Your Email Address" required>
+                <button type="submit" class="btn btn-secondary">Subscribe</button>
+              </div>
+            </form>
+            <p class="footer-contact-heading">Have Questions?</p>
+            <p class="footer-contact-info">
+              <a href="tel:+11234567890">(123) 456-7890</a><br>
+              <a href="mailto:info@1stopfirm.com">info@1stopfirm.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <p class="copyright">&copy; 2023 1 Stop Firm. All Rights Reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top" class="back-to-top">
+    <span class="visually-hidden">Back to top</span>
+  </button>
+</body>
+</html> 

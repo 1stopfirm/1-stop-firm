@@ -1,0 +1,40 @@
+# Disable caching for all files
+<FilesMatch ".(html|htm|js|css|php)$">
+  FileETag None
+  <IfModule mod_headers.c>
+    Header unset ETag
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+  </IfModule>
+</FilesMatch>
+
+# Redirect website-development.html to clear-cache.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^website-development\.html$ clear-cache.html [R=302,L]
+  RewriteRule ^updated-website-development\.html$ clear-cache.html [R=302,L]
+</IfModule>
+
+# Set correct MIME types
+<IfModule mod_mime.c>
+  AddType text/cache-manifest .manifest
+</IfModule>
+
+# Disable ETags
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+FileETag None
+
+# Force IE to use the latest rendering engine
+<IfModule mod_headers.c>
+  Header set X-UA-Compatible "IE=edge,chrome=1"
+</IfModule>
+
+# Add security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule> 

@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Services | Transform Your Online Presence</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/digital-marketing.css">
+    <link rel="icon" href="Bold Purple _1SF_ Icon.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- Lottie for lightweight animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+    <style>
+        /* Responsive styles for service cards table */
+        @media (max-width: 768px) {
+            .service-overview table {
+                width: 100%;
+                display: block;
+            }
+            .service-overview tr {
+                display: block;
+                margin-bottom: 20px;
+            }
+            .service-overview td {
+                display: block;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* Button hover effects */
+        .hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .service-card-back .btn:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+        }
+        
+        /* Add an animation for the service card buttons */
+        @keyframes buttonPulse {
+            0% { transform: translateY(-5px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(-5px); }
+        }
+        
+        .service-card-back .btn {
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <header class="main-header" id="main-header">
+        <div class="container flex-between">
+            <a href="index.html" class="logo">
+                <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="50">
+                <span class="logo-text">1StopFirm</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="flex-row">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="digital-marketing-service.html" class="active">Digital Marketing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero modern-hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+            <div class="hero-particles" id="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Digital Marketing Services</div>
+                    <h1 class="split-text">Transform Your <span class="gradient-text">Digital Presence</span></h1>
+                    <p class="hero-subtitle">We combine data-driven strategy with creative excellence to deliver measurable results that grow your business.</p>
+                    <div class="cta-container">
+                        <a href="#contact" class="btn btn-primary btn-lg" style="background: white; color: #2851e3; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; z-index: 5;">Get Your Strategy Session</a>
+                        <a href="#services" class="btn btn-outline btn-lg" style="background: transparent; color: white; border: 2px solid white; padding: 15px 30px; font-size: 1rem; font-weight: 700; position: relative; z-index: 5;">Explore Services</a>
+                    </div>
+                    <div class="hero-clients">
+                        <span class="client-label">Trusted by:</span>
+                        <div class="client-logos">
+                            <img src="mcdonalds.png" alt="McDonald's Logo" width="60">
+                            <img src="huawei.png" alt="Huawei Logo" width="60">
+                            <img src="firefox.png" alt="Firefox Logo" width="60">
+                            <img src="oracle.png" alt="Oracle Logo" width="60">
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <div id="hero-animation" class="lottie-container"></div>
+                        <img src="hand-drawn-illustration-people-with-smartphone-marketing.png" alt="Digital Marketing Concept" class="floating-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview Section -->
+    <section class="service-overview" id="services">
+        <div class="container">
+            <div class="section-header centered">
+                <div class="section-badge">Our Services</div>
+                <h2>Comprehensive <span class="gradient-text">Digital Marketing</span> Solutions</h2>
+                <div class="section-line"></div>
+                <p class="section-description">We offer a full spectrum of digital marketing services to help you reach your target audience, build brand awareness, and drive conversions.</p>
+            </div>
+            
+            <!-- Using a direct table layout for 2x2 services grid -->
+            <table style="width: 100%; border-spacing: 20px; border-collapse: separate; margin: 30px auto; max-width: 1200px;">
+                <tr>
+                    <!-- First Row -->
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- SEO Service Card (First row, first column) -->
+                        <div class="service-card" data-service="seo" id="card-seo">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Search Engine Optimization</h3>
+                                <p>Improve visibility in search results with data-driven SEO strategies</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Search Engine Optimization</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Keyword Research & Strategy</li>
+                                    <li><i class="fas fa-check-circle"></i> On-Page SEO Optimization</li>
+                                    <li><i class="fas fa-check-circle"></i> Technical SEO Audit</li>
+                                    <li><i class="fas fa-check-circle"></i> Content Optimization</li>
+                                    <li><i class="fas fa-check-circle"></i> Link Building</li>
+                                    <li><i class="fas fa-check-circle"></i> Local SEO for Businesses</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(40, 81, 227, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #8342e5; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-rocket" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- PPC Service Card (First row, second column) -->
+                        <div class="service-card" data-service="ppc" id="card-ppc">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Pay-Per-Click Advertising</h3>
+                                <p>Get immediate visibility with targeted PPC campaigns that maximize ROI</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Pay-Per-Click Advertising</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Google Ads Management</li>
+                                    <li><i class="fas fa-check-circle"></i> Facebook & Instagram Ads</li>
+                                    <li><i class="fas fa-check-circle"></i> LinkedIn Advertising</li>
+                                    <li><i class="fas fa-check-circle"></i> Retargeting Campaigns</li>
+                                    <li><i class="fas fa-check-circle"></i> Landing Page Optimization</li>
+                                    <li><i class="fas fa-check-circle"></i> Conversion Tracking</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(40, 81, 227, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #8342e5; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-chart-line" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- Second Row -->
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- Social Media Service Card (Second row, first column) -->
+                        <div class="service-card" data-service="social" id="card-social">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <h3>Social Media Marketing</h3>
+                                <p>Build meaningful connections through strategic social media campaigns</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Social Media Marketing</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Social Media Strategy</li>
+                                    <li><i class="fas fa-check-circle"></i> Content Creation</li>
+                                    <li><i class="fas fa-check-circle"></i> Community Management</li>
+                                    <li><i class="fas fa-check-circle"></i> Influencer Partnerships</li>
+                                    <li><i class="fas fa-check-circle"></i> Analytics & Reporting</li>
+                                    <li><i class="fas fa-check-circle"></i> Trend Monitoring</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(40, 81, 227, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #8342e5; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-share-alt" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- Content Marketing Service Card (Second row, second column) -->
+                        <div class="service-card" data-service="content" id="card-content">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <h3>Content Marketing</h3>
+                                <p>Engage your audience with strategic content that drives conversions</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Content Marketing</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Content Strategy</li>
+                                    <li><i class="fas fa-check-circle"></i> Blog Content Creation</li>
+                                    <li><i class="fas fa-check-circle"></i> Video Marketing</li>
+                                    <li><i class="fas fa-check-circle"></i> Email Marketing</li>
+                                    <li><i class="fas fa-check-circle"></i> eBooks & Whitepapers</li>
+                                    <li><i class="fas fa-check-circle"></i> Content Distribution</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(40, 81, 227, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #8342e5; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-pencil-alt" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Process Visualization Section -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <!-- Section Header with separate lines -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: block; margin: 0 auto 15px; text-align: center;">
+                    <span style="background-color: rgba(131, 66, 229, 0.1); color: #8342e5; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Our Approach</span>
+                </div>
+                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #2851e3;">Our Proven <span style="background: linear-gradient(135deg, #2851e3, #8342e5); -webkit-background-clip: text; background-clip: text; color: transparent;">4-Step</span> Process</h2>
+                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #2851e3, #8342e5); margin: 15px auto;"></div>
+                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">Our systematic process ensures every digital marketing campaign delivers maximum impact and measurable results.</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-visual">
+                    <div id="process-animation" class="lottie-container"></div>
+                </div>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step active" data-step="1">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Research & Discovery</h3>
+                            <p>We analyze your business, industry, competitors, and target audience to identify opportunities and develop a customized strategy.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Competitor Analysis</li>
+                                <li><i class="fas fa-check"></i> Market Research</li>
+                                <li><i class="fas fa-check"></i> Audience Profiling</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step" data-step="2">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Strategy Development</h3>
+                            <p>Based on our research, we create a comprehensive marketing plan with clear objectives, tactics, and key performance indicators.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Channel Selection</li>
+                                <li><i class="fas fa-check"></i> Budget Allocation</li>
+                                <li><i class="fas fa-check"></i> KPI Definition</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step" data-step="3">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Implementation & Execution</h3>
+                            <p>Our team of experts executes the strategy with precision, leveraging the latest tools and platforms to maximize your visibility and reach.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Content Creation</li>
+                                <li><i class="fas fa-check"></i> Campaign Launch</li>
+                                <li><i class="fas fa-check"></i> Platform Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step" data-step="4">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Analysis & Optimization</h3>
+                            <p>We continuously monitor performance metrics, analyze results, and make data-driven optimizations to improve campaign effectiveness.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Performance Tracking</li>
+                                <li><i class="fas fa-check"></i> A/B Testing</li>
+                                <li><i class="fas fa-check"></i> Conversion Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Showcase Section -->
+    <section class="results-section" id="results">
+        <div class="container">
+            <div class="section-header centered">
+                <div class="section-badge">Our Impact</div>
+                <h2>Proven <span class="gradient-text">Results</span> That Speak Volumes</h2>
+                <div class="section-line"></div>
+                <p class="section-description">Our clients experience significant improvements in their key business metrics through our digital marketing solutions.</p>
+            </div>
+            
+            <div class="results-grid">
+                <div class="stats-container">
+                    <div class="stat-card" data-aos="zoom-in">
+                        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="stat-value">
+                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-symbol">%</div>
+                        </div>
+                        <div class="stat-label">Average Increase in Organic Traffic</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-value">
+                            <div class="stat-number" data-count="200">0</div>
+                            <div class="stat-symbol">%</div>
+                        </div>
+                        <div class="stat-label">ROI on PPC Campaigns</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="stat-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="stat-value">
+                            <div class="stat-number" data-count="45">0</div>
+                            <div class="stat-symbol">%</div>
+                        </div>
+                        <div class="stat-label">Improvement in Conversion Rates</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-value">
+                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-symbol">+</div>
+                        </div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                </div>
+                
+                <div class="case-studies">
+                    <div class="case-study-tabs">
+                        <button class="case-tab active" data-case="case1">E-commerce Growth</button>
+                        <button class="case-tab" data-case="case2">B2B Lead Generation</button>
+                        <button class="case-tab" data-case="case3">Local Business</button>
+                    </div>
+                    
+                    <div class="case-study-content">
+                        <!-- Case Study 1 -->
+                        <div class="case-study-panel active" id="case1">
+                            <div class="case-study-grid">
+                                <div class="case-study-visual">
+                                    <div class="case-study-chart">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar" style="height: 30%"><span>Before</span></div>
+                                            <div class="chart-bar highlight" style="height: 90%"><span>After</span></div>
+                                        </div>
+                                        <div class="chart-label">300% Traffic Increase</div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-badge">E-commerce</div>
+                                    <h3>Revenue Growth for Online Retailer</h3>
+                                    <div class="case-study-details">
+                                        <div class="detail-item">
+                                            <h4>Challenge</h4>
+                                            <p>An e-commerce retailer struggling with low website traffic and poor conversion rates.</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h4>Solution</h4>
+                                            <p>Implemented comprehensive SEO, PPC, and conversion rate optimization strategies.</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h4>Results</h4>
+                                            <p><strong>300%</strong> increase in organic traffic and <strong>250%</strong> growth in online revenue within 6 months.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Case Study 2 -->
+                        <div class="case-study-panel" id="case2">
+                            <div class="case-study-grid">
+                                <div class="case-study-visual">
+                                    <div class="case-study-chart">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar" style="height: 40%"><span>Before</span></div>
+                                            <div class="chart-bar highlight" style="height: 75%"><span>After</span></div>
+                                        </div>
+                                        <div class="chart-label">185% Lead Increase</div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-badge">B2B Software</div>
+                                    <h3>Lead Generation for Software Company</h3>
+                                    <div class="case-study-details">
+                                        <div class="detail-item">
+                                            <h4>Challenge</h4>
+                                            <p>A B2B software company struggling to generate qualified leads for their sales team.</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h4>Solution</h4>
+                                            <p>Developed targeted content marketing and LinkedIn advertising campaigns.</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h4>Results</h4>
+                                            <p><strong>185%</strong> increase in qualified leads and <strong>42%</strong> reduction in cost per acquisition.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Case Study 3 -->
+                        <div class="case-study-panel" id="case3">
+                            <div class="case-study-grid">
+                                <div class="case-study-visual">
+                                    <div class="case-study-chart">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar" style="height: 25%"><span>Before</span></div>
+                                            <div class="chart-bar highlight" style="height: 85%"><span>After</span></div>
+                                        </div>
+                                        <div class="chart-label">240% Customer Increase</div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-badge">Local Business</div>
+                                    <h3>Customer Growth for Restaurant Chain</h3>
+                                    <div class="case-study-details">
+                                        <div class="detail-item">
+                                            <h4>Challenge</h4>
+                                            <p>A local restaurant chain looking to increase foot traffic and online orders.</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h4>Solution</h4>
+                                            <p>Implemented local SEO, Google Ads, and social media marketing campaign.</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h4>Results</h4>
+                                            <p><strong>240%</strong> increase in new customers and <strong>180%</strong> growth in online orders.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section class="testimonials-section" id="testimonials" style="background-color: #f8faff; padding: 80px 0; margin: 80px 0;">
+        <div class="container">
+            <!-- Section Header with separate lines -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: block; margin: 0 auto 15px; text-align: center;">
+                    <span style="background-color: rgba(131, 66, 229, 0.1); color: #8342e5; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Client Success Stories</span>
+                </div>
+                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #2851e3;">What Our <span style="background: linear-gradient(135deg, #2851e3, #8342e5); -webkit-background-clip: text; background-clip: text; color: transparent;">Clients Say</span></h2>
+                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #2851e3, #8342e5); margin: 15px auto;"></div>
+                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">Hear directly from businesses we've helped transform through strategic digital marketing.</p>
+            </div>
+            
+            <!-- Static Testimonial Display (no slider) -->
+            <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 30px;">
+                <!-- Testimonial 1 -->
+                <div style="background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+                    <div style="font-size: 2.5rem; color: #8342e5; opacity: 0.2; margin-bottom: 15px;">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #333; font-style: italic;">
+                        "1StopFirm completely transformed our online presence. Their SEO and PPC campaigns increased our organic traffic by 215% and reduced our cost per acquisition by 42%. Our e-commerce sales have doubled in just 6 months. They're not just service providers but true partners in our success."
+                    </p>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Client Photo" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <div>
+                            <h4 style="margin: 0; color: #1a2b63; font-weight: 700;">Sarah Johnson</h4>
+                            <p style="margin: 0; color: #666; font-size: 0.9rem;">Marketing Director, StyleCo Boutique</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                                <span style="display: inline-flex; align-items: center; background-color: rgba(91, 33, 182, 0.08); color: #8342e5; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 30px;">
+                                    <i class="fas fa-chart-line" style="margin-right: 5px;"></i> 215% Traffic Increase
+                                </span>
+                                <span style="display: inline-flex; align-items: center; background-color: rgba(91, 33, 182, 0.08); color: #8342e5; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 30px;">
+                                    <i class="fas fa-shopping-cart" style="margin-right: 5px;"></i> 98% Revenue Growth
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div style="background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+                    <div style="font-size: 2.5rem; color: #8342e5; opacity: 0.2; margin-bottom: 15px;">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #333; font-style: italic;">
+                        "We've worked with several marketing agencies in the past, but none delivered results like 1StopFirm. Their content marketing strategy and LinkedIn campaigns generated 187 qualified leads in our first quarter alone. Their data-driven approach to B2B marketing has fundamentally changed how we acquire new customers."
+                    </p>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Client Photo" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <div>
+                            <h4 style="margin: 0; color: #1a2b63; font-weight: 700;">Michael Chen</h4>
+                            <p style="margin: 0; color: #666; font-size: 0.9rem;">CEO, CloudTech Solutions</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                                <span style="display: inline-flex; align-items: center; background-color: rgba(91, 33, 182, 0.08); color: #8342e5; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 30px;">
+                                    <i class="fas fa-user-check" style="margin-right: 5px;"></i> 187 New Qualified Leads
+                                </span>
+                                <span style="display: inline-flex; align-items: center; background-color: rgba(91, 33, 182, 0.08); color: #8342e5; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 30px;">
+                                    <i class="fas fa-percentage" style="margin-right: 5px;"></i> 32% Conversion Rate
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div style="margin-top: 50px; text-align: center; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p style="margin-bottom: 20px; font-size: 1.2rem; color: #1a2b63;">Join hundreds of satisfied clients who have transformed their digital presence</p>
+                <a href="#contact" class="btn btn-primary" style="display: inline-block; background: linear-gradient(135deg, #2851e3, #8342e5); color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: none;">Start Your Digital Success Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spacer Section -->
+    <div class="section-spacer"></div>
+
+    <!-- Packages/Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header centered">
+                <h2>Flexible Digital Marketing Packages</h2>
+                <p class="section-description">Choose the plan that best fits your business goals and budget. All packages can be customized to meet your specific needs.</p>
+            </div>
+
+            <div class="pricing-toggle">
+                <span>Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="pricingToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Annual <span class="discount-badge">Save 20%</span></span>
+            </div>
+            
+            <div class="pricing-cards">
+                <!-- Basic Package -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="pricing">
+                            <div class="price-monthly">
+                                <span class="currency">$</span>
+                                <span class="amount">999</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="price-annual">
+                                <span class="currency">$</span>
+                                <span class="amount">799</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-description">Perfect for small businesses looking to establish an online presence</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Search Engine Optimization</li>
+                            <li><i class="fas fa-check"></i> Google Business Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> 5 Social Media Posts per Week</li>
+                            <li><i class="fas fa-check"></i> Monthly Performance Report</li>
+                            <li><i class="fas fa-check"></i> Basic Competitor Analysis</li>
+                            <li class="disabled"><i class="fas fa-times"></i> PPC Campaign Management</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Content Marketing Strategy</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Email Marketing</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+                
+                <!-- Professional Package -->
+                <div class="pricing-card recommended">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="pricing">
+                            <div class="price-monthly">
+                                <span class="currency">$</span>
+                                <span class="amount">1,999</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="price-annual">
+                                <span class="currency">$</span>
+                                <span class="amount">1,599</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-description">Ideal for growing businesses seeking to expand their digital footprint</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Advanced SEO Strategy</li>
+                            <li><i class="fas fa-check"></i> Google Business Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> 10 Social Media Posts per Week</li>
+                            <li><i class="fas fa-check"></i> Bi-weekly Performance Reports</li>
+                            <li><i class="fas fa-check"></i> Comprehensive Competitor Analysis</li>
+                            <li><i class="fas fa-check"></i> PPC Campaign Management</li>
+                            <li><i class="fas fa-check"></i> Content Marketing Strategy</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Email Marketing</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Package -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing">
+                            <div class="price-monthly">
+                                <span class="currency">$</span>
+                                <span class="amount">3,999</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="price-annual">
+                                <span class="currency">$</span>
+                                <span class="amount">3,199</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-description">Complete solution for established businesses with aggressive growth goals</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Comprehensive SEO Strategy</li>
+                            <li><i class="fas fa-check"></i> Google Business Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> 15 Social Media Posts per Week</li>
+                            <li><i class="fas fa-check"></i> Weekly Performance Reports</li>
+                            <li><i class="fas fa-check"></i> In-depth Competitor & Market Analysis</li>
+                            <li><i class="fas fa-check"></i> Advanced PPC Campaign Management</li>
+                            <li><i class="fas fa-check"></i> Premium Content Marketing Strategy</li>
+                            <li><i class="fas fa-check"></i> Email Marketing Automation</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="custom-package">
+                <h3>Need a Custom Solution?</h3>
+                <p>We understand that every business has unique needs. Contact us to discuss a customized digital marketing strategy tailored to your specific requirements and objectives.</p>
+                <a href="#contact" class="btn btn-secondary">Request Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="text-white">Ready to Transform Your Digital Presence?</h2>
+                <p>Get in touch today for a free strategy session. Our team of experts will analyze your current digital footprint and provide personalized recommendations to help you achieve your business goals.</p>
+            </div>
+            
+            <div class="grid-2 cta-grid">
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="services">Services You're Interested In</label>
+                            <select id="services" name="services" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="seo">Search Engine Optimization</option>
+                                <option value="ppc">Pay-Per-Click Advertising</option>
+                                <option value="social">Social Media Marketing</option>
+                                <option value="content">Content Marketing</option>
+                                <option value="email">Email Marketing</option>
+                                <option value="all">Comprehensive Digital Marketing</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message">Tell Us About Your Goals</label>
+                            <textarea id="message" name="message" placeholder="Please share your current challenges and what you hope to achieve..." rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg full-width">Get Your Strategy Session</button>
+                    </form>
+                </div>
+                
+                <div class="cta-features">
+                    <h3>What You'll Get From Your Strategy Session</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="feature-text">
+                                <h4>Performance Analysis</h4>
+                                <p>Detailed review of your current digital marketing performance and opportunities for improvement.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon"><i class="fas fa-search"></i></div>
+                            <div class="feature-text">
+                                <h4>Competitor Insights</h4>
+                                <p>Analysis of your top competitors' strategies and how to gain a competitive advantage.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                            <div class="feature-text">
+                                <h4>Custom Strategy Roadmap</h4>
+                                <p>Personalized action plan with tailored recommendations based on your business goals.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="feature-text">
+                                <h4>ROI Projection</h4>
+                                <p>Detailed forecast of expected returns from implementing our recommended strategies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="guarantee">
+                        <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="guarantee-text">
+                            <h4>Our Guarantee</h4>
+                            <p>If you don't find value in your strategy session, we'll refund the full amount of your initial consultation fee. No questions asked.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <button aria-label="Contact Us" class="floating-contact-btn">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/digital-marketing.js"></script>
+</body>
+</html> 

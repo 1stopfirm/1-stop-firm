@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Development Services | Elevate Your Brand Identity</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/brand-development.css">
+    <link rel="icon" href="Bold Purple _1SF_ Icon.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- Lottie for lightweight animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+    <style>
+        /* Responsive styles for service cards table */
+        @media (max-width: 768px) {
+            .service-overview table {
+                width: 100%;
+                display: block;
+            }
+            .service-overview tr {
+                display: block;
+                margin-bottom: 20px;
+            }
+            .service-overview td {
+                display: block;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* Hero section with modern 3D layered effect */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-background {
+            background: linear-gradient(120deg, #ff3e6c, #8342e5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        .hero-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.2);
+            top: -100px;
+            left: -100px;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        
+        .hero-shape-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.15);
+            bottom: -50px;
+            right: 10%;
+            animation: float 15s infinite alternate-reverse ease-in-out;
+        }
+        
+        .hero-shape-3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            top: 30%;
+            right: -50px;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(20px, 20px) rotate(10deg); }
+        }
+        
+        /* Innovative button effects */
+        .btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Add service card button animation and effects */
+        .service-card-back .btn:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+        }
+        
+        /* Add an animation for the service card buttons */
+        @keyframes buttonPulse {
+            0% { transform: translateY(-5px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(-5px); }
+        }
+        
+        .service-card-back .btn {
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+        
+        /* Add a shadow to the hero heading */
+        .split-text {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gradient-text {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        // DEBUG HELPER
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded. Page is ready.');
+            console.log('Testing testimonial navigation:');
+            console.log('Number of testimonials found:', document.querySelectorAll('.testimonial-slide').length);
+            
+            // Preload testimonial images
+            const testimonialsImages = [
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
+                'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+                'https://images.unsplash.com/photo-1560250097-0b93528c311a',
+                'https://images.unsplash.com/photo-1558203728-00f45181dd84',
+                'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c',
+                'https://images.unsplash.com/photo-1580489944761-15a19d654956',
+                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6',
+                'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3',
+                'https://images.unsplash.com/photo-1544005313-94ddf0286df2'
+            ];
+            
+            testimonialsImages.forEach(url => {
+                const img = new Image();
+                img.src = url + '?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80';
+                console.log('Preloading image:', img.src);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <header class="main-header" id="main-header">
+        <div class="container flex-between">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="50">
+                <span class="logo-text" style="font-size: 1.5rem; font-weight: 700; color: #333;">1StopFirm</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="flex-row" style="display: flex; list-style: none; gap: 25px; margin: 0; padding: 0;">
+                    <li><a href="index.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Home</a></li>
+                    <li><a href="services.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Services</a></li>
+                    <li><a href="brand-development.html" class="active" style="color: #ff3e6c; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease; border-bottom: 2px solid #ff3e6c;">Brand Development</a></li>
+                    <li><a href="#" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">About</a></li>
+                    <li><a href="#contact" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero modern-hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+            <div class="hero-particles" id="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Brand Development Services</div>
+                    <h1 class="split-text">Create a <span class="gradient-text">Memorable Brand</span></h1>
+                    <p class="hero-subtitle">We build strategic brand identities that connect with your audience and differentiate you from competitors.</p>
+                    <div class="cta-container">
+                        <a href="#contact" class="btn btn-primary btn-lg" style="background: white; color: #ff3e6c; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; z-index: 5;">Get Your Brand Analysis</a>
+                        <a href="#services" class="btn btn-outline btn-lg" style="background: transparent; color: white; border: 2px solid white; padding: 15px 30px; font-size: 1rem; font-weight: 700; position: relative; z-index: 5;">Explore Services</a>
+                    </div>
+                    <div class="hero-clients">
+                        <span class="client-label">Trusted by:</span>
+                        <div class="client-logos">
+                            <img src="mcdonalds.png" alt="McDonald's Logo" width="60">
+                            <img src="huawei.png" alt="Huawei Logo" width="60">
+                            <img src="firefox.png" alt="Firefox Logo" width="60">
+                            <img src="oracle.png" alt="Oracle Logo" width="60">
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <div id="hero-animation" class="lottie-container"></div>
+                        <img src="abstract-yellow-rocket-ship-concept-cartoon-style-Photoroom.png" alt="Brand Development Concept" class="floating-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview Section -->
+    <section class="service-overview" id="services">
+        <div class="container">
+            <!-- Section Header with separate lines -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: block; margin: 0 auto 15px; text-align: center;">
+                    <span style="background-color: rgba(255, 62, 108, 0.1); color: #ff3e6c; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Our Services</span>
+                </div>
+                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #1a1a2e;">Strategic <span style="background: linear-gradient(135deg, #ff3e6c, #fcb045); -webkit-background-clip: text; background-clip: text; color: transparent;">Brand Development</span> Solutions</h2>
+                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #ff3e6c, #fcb045); margin: 15px auto;"></div>
+                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">We craft comprehensive brand development strategies that help your business connect with your audience and stand out in the marketplace.</p>
+            </div>
+            
+            <!-- Using a direct table layout for 2x2 services grid -->
+            <table style="width: 100%; border-spacing: 20px; border-collapse: separate; margin: 30px auto; max-width: 1200px;">
+                <tr>
+                    <!-- First Row -->
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- Brand Strategy Card -->
+                        <div class="service-card" data-service="strategy" id="card-strategy">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <h3>Brand Strategy</h3>
+                                <p>Develop a roadmap for how your brand will achieve its business objectives</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Brand Strategy</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Market & Competitor Analysis</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Positioning Strategy</li>
+                                    <li><i class="fas fa-check-circle"></i> Target Audience Profiling</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Voice Development</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Messaging Strategy</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Experience Mapping</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(17, 153, 142, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #11998e; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-chess" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- Visual Identity Card -->
+                        <div class="service-card" data-service="identity" id="card-identity">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h3>Visual Identity</h3>
+                                <p>Create a distinctive visual system that conveys your brand's personality</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Visual Identity</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Logo Design & Development</li>
+                                    <li><i class="fas fa-check-circle"></i> Color Palette Creation</li>
+                                    <li><i class="fas fa-check-circle"></i> Typography Selection</li>
+                                    <li><i class="fas fa-check-circle"></i> Visual Element Design</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Guidelines Manual</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Asset Creation</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(142, 45, 226, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #8e2de2; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-palette" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- Second Row -->
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- Brand Messaging Card -->
+                        <div class="service-card" data-service="branding" id="card-branding">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Brand Messaging</h3>
+                                <p>Craft compelling messages that resonate with your audience and drive engagement</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Brand Messaging</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Brand Story Development</li>
+                                    <li><i class="fas fa-check-circle"></i> Value Proposition Creation</li>
+                                    <li><i class="fas fa-check-circle"></i> Tagline & Slogan Crafting</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Voice Guidelines</li>
+                                    <li><i class="fas fa-check-circle"></i> Key Message Framework</li>
+                                    <li><i class="fas fa-check-circle"></i> Content Strategy Alignment</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255, 62, 108, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #ff3e6c; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-comments" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; vertical-align: top;">
+                        <!-- Brand Experience Card -->
+                        <div class="service-card" data-service="experience" id="card-experience">
+                            <div class="service-card-front">
+                                <div class="service-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h3>Brand Experience</h3>
+                                <p>Create meaningful interactions that build brand loyalty and customer advocacy</p>
+                                <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <div class="service-card-back">
+                                <h3>Brand Experience</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check-circle"></i> Customer Journey Mapping</li>
+                                    <li><i class="fas fa-check-circle"></i> Touchpoint Optimization</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Activation Planning</li>
+                                    <li><i class="fas fa-check-circle"></i> User Experience Design</li>
+                                    <li><i class="fas fa-check-circle"></i> Employee Brand Training</li>
+                                    <li><i class="fas fa-check-circle"></i> Brand Loyalty Programs</li>
+                                </ul>
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(101, 78, 163, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
+                                    <a href="#contact" class="btn" style="background: white; color: #654ea3; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                        <i class="fas fa-heart" style="margin-right: 8px;"></i> Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Process Visualization Section -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <!-- Section Header with separate lines -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: block; margin: 0 auto 15px; text-align: center;">
+                    <span style="background-color: rgba(255, 62, 108, 0.1); color: #ff3e6c; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Our Approach</span>
+                </div>
+                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #1a1a2e;">Our Creative <span style="background: linear-gradient(135deg, #ff3e6c, #fcb045); -webkit-background-clip: text; background-clip: text; color: transparent;">Brand Process</span></h2>
+                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #ff3e6c, #fcb045); margin: 15px auto;"></div>
+                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">Our systematic approach ensures every brand we develop is strategic, authentic, and effectively communicates your unique value proposition.</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-visual">
+                    <!-- Visual representation of the process -->
+                    <div style="position: relative; width: 100%; height: 400px;">
+                        <!-- Central circle -->
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 150px; height: 150px; background: linear-gradient(135deg, #ff3e6c, #fcb045); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; font-weight: 700; box-shadow: 0 10px 30px rgba(255, 62, 108, 0.3); z-index: 5;">
+                            YOUR<br>BRAND
+                        </div>
+                        
+                        <!-- Connecting lines (animated with CSS) -->
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; border: 2px dashed rgba(255, 62, 108, 0.3); border-radius: 50%; animation: rotate 30s linear infinite;"></div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 230px; height: 230px; border: 2px dashed rgba(255, 62, 108, 0.4); border-radius: 50%; animation: rotate 20s linear infinite reverse;"></div>
+                        
+                        <!-- Process step icons positioned around the circle -->
+                        <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                            <i class="fas fa-search" style="font-size: 2rem; color: #ff3e6c;"></i>
+                        </div>
+                        
+                        <div style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                            <i class="fas fa-lightbulb" style="font-size: 2rem; color: #fcb045;"></i>
+                        </div>
+                        
+                        <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                            <i class="fas fa-paint-brush" style="font-size: 2rem; color: #8342e5;"></i>
+                        </div>
+                        
+                        <div style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                            <i class="fas fa-rocket" style="font-size: 2rem; color: #11998e;"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step active" data-step="1">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Discovery & Research</h3>
+                            <p>We dive deep into your business, industry, competitors and target audience to uncover insights that inform your brand strategy.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Market Analysis</li>
+                                <li><i class="fas fa-check"></i> Audience Research</li>
+                                <li><i class="fas fa-check"></i> Competitor Review</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step" data-step="2">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Strategy Development</h3>
+                            <p>Based on research insights, we create a comprehensive brand strategy that defines your positioning, personality, and key messaging.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Brand Positioning</li>
+                                <li><i class="fas fa-check"></i> Value Proposition</li>
+                                <li><i class="fas fa-check"></i> Brand Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step" data-step="3">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Identity Creation</h3>
+                            <p>We bring your brand to life with a distinctive visual identity system and consistent messaging that resonates with your audience.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Logo & Visual Elements</li>
+                                <li><i class="fas fa-check"></i> Brand Guidelines</li>
+                                <li><i class="fas fa-check"></i> Messaging Framework</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step" data-step="4">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Implementation & Activation</h3>
+                            <p>We help you roll out your new brand across all touchpoints and create a roadmap for ongoing brand management and growth.</p>
+                            <ul class="step-features">
+                                <li><i class="fas fa-check"></i> Brand Rollout Plan</li>
+                                <li><i class="fas fa-check"></i> Asset Deployment</li>
+                                <li><i class="fas fa-check"></i> Ongoing Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add animated background elements -->
+        <div style="position: absolute; top: 5%; right: 5%; width: 300px; height: 300px; background: linear-gradient(135deg, rgba(255, 62, 108, 0.05), rgba(252, 176, 69, 0.05)); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: morphing 15s ease-in-out infinite; z-index: -1;"></div>
+        <div style="position: absolute; bottom: 5%; left: 5%; width: 250px; height: 250px; background: linear-gradient(135deg, rgba(131, 66, 229, 0.05), rgba(17, 153, 142, 0.05)); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morphing 20s ease-in-out infinite alternate; z-index: -1;"></div>
+        
+        <style>
+            @keyframes rotate {
+                0% { transform: translate(-50%, -50%) rotate(0deg); }
+                100% { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+            
+            @keyframes morphing {
+                0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+                25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+                50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+                75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+                100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            }
+        </style>
+    </section>
+
+    <!-- Portfolio Showcase Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <!-- Section Header with separate lines -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: block; margin: 0 auto 15px; text-align: center;">
+                    <span style="background-color: rgba(255, 62, 108, 0.1); color: #ff3e6c; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Our Work</span>
+                </div>
+                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #1a1a2e;">Brand <span style="background: linear-gradient(135deg, #ff3e6c, #fcb045); -webkit-background-clip: text; background-clip: text; color: transparent;">Success Stories</span></h2>
+                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #ff3e6c, #fcb045); margin: 15px auto;"></div>
+                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">Discover how we've helped businesses across industries develop memorable and effective brand identities.</p>
+            </div>
+            
+            <!-- Replace portfolio grid with case studies -->
+            <div class="case-studies">
+                <div class="case-study-tabs" style="display: flex; justify-content: center; margin-bottom: 40px; gap: 15px;">
+                    <button class="case-tab active" data-case="case1" style="background: transparent; border: none; color: #ff3e6c; font-weight: 600; padding: 10px 20px; cursor: pointer; position: relative; overflow: hidden;">EcoTech Rebrand</button>
+                    <button class="case-tab" data-case="case2" style="background: transparent; border: none; color: #666; font-weight: 600; padding: 10px 20px; cursor: pointer; position: relative; overflow: hidden;">Pure Harvest</button>
+                    <button class="case-tab" data-case="case3" style="background: transparent; border: none; color: #666; font-weight: 600; padding: 10px 20px; cursor: pointer; position: relative; overflow: hidden;">Zenith Wellness</button>
+                </div>
+                
+                <div class="case-study-content">
+                    <!-- Case Study 1 -->
+                    <div class="case-study-panel active" id="case1" style="display: block;">
+                        <div class="case-study-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);">
+                            <div class="case-study-visual" style="position: relative; height: 100%; min-height: 400px;">
+                                <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="EcoTech Rebrand" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; top: 20px; left: 20px; background: rgba(255, 62, 108, 0.9); color: white; padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; font-weight: 600;">Technology</div>
+                            </div>
+                            <div class="case-study-info" style="padding: 40px;">
+                                <div class="case-study-badge" style="display: inline-block; background-color: rgba(255, 62, 108, 0.1); color: #ff3e6c; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px;">Brand Identity</div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: #1a1a2e;">EcoTech Complete Rebrand</h3>
+                                <div class="case-study-metrics" style="display: flex; gap: 25px; margin-bottom: 25px;">
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #ff3e6c; margin-bottom: 5px;">40%</div>
+                                        <div style="font-size: 0.9rem; color: #666;">Brand Recognition</div>
+                                    </div>
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #ff3e6c; margin-bottom: 5px;">65%</div>
+                                        <div style="font-size: 0.9rem; color: #666;">Customer Engagement</div>
+                                    </div>
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #ff3e6c; margin-bottom: 5px;">3X</div>
+                                        <div style="font-size: 0.9rem; color: #666;">ROI</div>
+                                    </div>
+                                </div>
+                                <div class="case-study-details" style="margin-bottom: 25px;">
+                                    <p style="color: #555; line-height: 1.7; margin-bottom: 15px;">EcoTech needed a brand refresh to better reflect their commitment to sustainable technology. We created a modern identity system that resonated with their environmentally conscious audience while maintaining their tech industry credibility.</p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Brand Strategy</span>
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Visual Identity</span>
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Brand Guidelines</span>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; border: none; padding: 12px 25px; font-weight: 600; border-radius: 30px; display: inline-block; box-shadow: 0 5px 15px rgba(255, 62, 108, 0.2);">Get Similar Results</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 2 (Hidden initially) -->
+                    <div class="case-study-panel" id="case2" style="display: none;">
+                        <div class="case-study-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);">
+                            <div class="case-study-visual" style="position: relative; height: 100%; min-height: 400px;">
+                                <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pure Harvest" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; top: 20px; left: 20px; background: rgba(252, 176, 69, 0.9); color: white; padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; font-weight: 600;">Food & Beverage</div>
+                            </div>
+                            <div class="case-study-info" style="padding: 40px;">
+                                <div class="case-study-badge" style="display: inline-block; background-color: rgba(252, 176, 69, 0.1); color: #fcb045; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px;">Brand Identity</div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: #1a1a2e;">Pure Harvest Brand Creation</h3>
+                                <div class="case-study-metrics" style="display: flex; gap: 25px; margin-bottom: 25px;">
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #fcb045; margin-bottom: 5px;">125%</div>
+                                        <div style="font-size: 0.9rem; color: #666;">Sales Growth</div>
+                                    </div>
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #fcb045; margin-bottom: 5px;">85%</div>
+                                        <div style="font-size: 0.9rem; color: #666;">Positive Feedback</div>
+                                    </div>
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #fcb045; margin-bottom: 5px;">4X</div>
+                                        <div style="font-size: 0.9rem; color: #666;">ROI</div>
+                                    </div>
+                                </div>
+                                <div class="case-study-details" style="margin-bottom: 25px;">
+                                    <p style="color: #555; line-height: 1.7; margin-bottom: 15px;">Pure Harvest needed a brand identity that would appeal to health-conscious consumers while standing out in a crowded market. We developed a comprehensive brand system that communicated their commitment to organic quality and sustainability.</p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Brand Strategy</span>
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Packaging Design</span>
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Brand Messaging</span>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn" style="background: linear-gradient(135deg, #fcb045, #fd1d1d); color: white; border: none; padding: 12px 25px; font-weight: 600; border-radius: 30px; display: inline-block; box-shadow: 0 5px 15px rgba(252, 176, 69, 0.2);">Get Similar Results</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 3 (Hidden initially) -->
+                    <div class="case-study-panel" id="case3" style="display: none;">
+                        <div class="case-study-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);">
+                            <div class="case-study-visual" style="position: relative; height: 100%; min-height: 400px;">
+                                <img src="https://images.unsplash.com/photo-1587614313085-5da51cebd8ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Zenith Wellness" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; top: 20px; left: 20px; background: rgba(131, 66, 229, 0.9); color: white; padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; font-weight: 600;">Health & Fitness</div>
+                            </div>
+                            <div class="case-study-info" style="padding: 40px;">
+                                <div class="case-study-badge" style="display: inline-block; background-color: rgba(131, 66, 229, 0.1); color: #8342e5; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px;">Brand Refresh</div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: #1a1a2e;">Zenith Wellness Brand Evolution</h3>
+                                <div class="case-study-metrics" style="display: flex; gap: 25px; margin-bottom: 25px;">
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #8342e5; margin-bottom: 5px;">70%</div>
+                                        <div style="font-size: 0.9rem; color: #666;">New Members</div>
+                                    </div>
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #8342e5; margin-bottom: 5px;">45%</div>
+                                        <div style="font-size: 0.9rem; color: #666;">Retention Rate</div>
+                                    </div>
+                                    <div class="metric" style="text-align: center;">
+                                        <div style="font-size: 2rem; font-weight: 800; color: #8342e5; margin-bottom: 5px;">2.5X</div>
+                                        <div style="font-size: 0.9rem; color: #666;">ROI</div>
+                                    </div>
+                                </div>
+                                <div class="case-study-details" style="margin-bottom: 25px;">
+                                    <p style="color: #555; line-height: 1.7; margin-bottom: 15px;">Zenith Wellness was struggling to differentiate themselves in the competitive fitness industry. We refreshed their brand with a modern, premium identity that attracted their target demographic of health-conscious professionals.</p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Brand Strategy</span>
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Visual Identity</span>
+                                        <span style="background: #f5f5f5; color: #666; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;">Environmental Design</span>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn" style="background: linear-gradient(135deg, #8342e5, #3a1c71); color: white; border: none; padding: 12px 25px; font-weight: 600; border-radius: 30px; display: inline-block; box-shadow: 0 5px 15px rgba(131, 66, 229, 0.2);">Get Similar Results</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; border: none; padding: 12px 30px; font-weight: 600; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 62, 108, 0.2); display: inline-block;">
+                    View All Case Studies
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials" style="background-color: #f8faff; padding: 80px 0; margin: 80px 0 0 0; position: relative; overflow: hidden;">
+        <!-- Animated background shapes -->
+        <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: linear-gradient(135deg, rgba(255, 62, 108, 0.03), rgba(252, 176, 69, 0.03)); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: morphing 15s ease-in-out infinite; z-index: 0;"></div>
+        <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: linear-gradient(135deg, rgba(131, 66, 229, 0.03), rgba(17, 153, 142, 0.03)); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morphing 20s ease-in-out infinite alternate; z-index: 0;"></div>
+        
+        <div class="container" style="position: relative; z-index: 1;">
+            <!-- Section Header with separate lines -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: block; margin: 0 auto 15px; text-align: center;">
+                    <span style="background-color: rgba(255, 62, 108, 0.1); color: #ff3e6c; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Client Success Stories</span>
+                </div>
+                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #1a1a2e;">What Our <span style="background: linear-gradient(135deg, #ff3e6c, #fcb045); -webkit-background-clip: text; background-clip: text; color: transparent;">Clients Say</span></h2>
+                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #ff3e6c, #fcb045); margin: 15px auto;"></div>
+                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">Hear directly from businesses we've helped transform through strategic brand development.</p>
+            </div>
+            
+            <!-- Simple Testimonial Slider -->
+            <div class="simple-testimonial-slider" style="max-width: 900px; margin: 0 auto; position: relative;">
+                <!-- Navigation Buttons -->
+                <button id="prevTestimonial" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: white; color: #ff3e6c; border: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); cursor: pointer; z-index: 10;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                
+                <button id="nextTestimonial" style="position: absolute; top: 50%; right: -30px; transform: translateY(-50%); background: white; color: #ff3e6c; border: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); cursor: pointer; z-index: 10;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                
+                <!-- Testimonial Container -->
+                <div id="testimonialContainer" style="background-color: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); position: relative; min-height: 260px;">
+                    <!-- Testimonial Content - Will be filled by JavaScript -->
+                </div>
+                
+                <!-- Simple Indicators -->
+                <div id="testimonialIndicators" style="display: flex; justify-content: center; margin-top: 30px; gap: 10px;">
+                    <!-- Will be filled by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Brand Trust Indicators -->
+            <div style="margin-top: 80px; text-align: center;">
+                <h3 style="font-size: 1.5rem; color: #1a1a2e; margin-bottom: 30px;">Trusted By Industry Leaders</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; max-width: 900px; margin: 0 auto;">
+                    <img src="mcdonalds.png" alt="McDonald's Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
+                    <img src="huawei.png" alt="Huawei Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
+                    <img src="firefox.png" alt="Firefox Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
+                    <img src="oracle.png" alt="Oracle Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
+                    <img src="muse.png" alt="Muse Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inline JavaScript for Testimonials -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Testimonial data
+                const testimonials = [
+                    {
+                        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+                        quote: '"1StopFirm completely transformed our brand identity. Their strategic approach helped us clearly define our positioning and connect with our target audience. The new visual identity they created perfectly captures our company\'s personality and values. Since the rebrand, we\'ve seen a 40% increase in brand recognition and a significant boost in customer engagement."',
+                        name: 'Michael Thompson',
+                        position: 'CEO, EcoTech Solutions'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+                        quote: '"Working with 1StopFirm on our rebrand was one of the best business decisions we\'ve made. They took the time to understand our business and our goals, and delivered a brand identity that resonates perfectly with our customers. The comprehensive brand guidelines have made it easy for our team to maintain consistency across all touchpoints. We\'re thrilled with the results!"',
+                        name: 'Sarah Johnson',
+                        position: 'Marketing Director, Pure Harvest'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+                        quote: '"As a startup, we needed a brand that would help us stand out in a crowded market. 1StopFirm delivered beyond our expectations. Their strategic approach to brand development gave us a clear understanding of our unique value proposition, and the visual identity they created has helped us make a strong impression with investors and early customers. I highly recommend their services to any business looking to establish a powerful brand."',
+                        name: 'David Chen',
+                        position: 'Founder, Lunar Finance'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+                        quote: '"After struggling with inconsistent branding for years, we partnered with 1StopFirm and they revolutionized our entire brand identity. Their team took the time to understand our unique challenges and developed a cohesive strategy that aligned perfectly with our values. The new brand has resonated so well with our audience that we\'ve seen a 75% increase in social media engagement and a 50% boost in customer retention."',
+                        name: 'Amanda Williams',
+                        position: 'CMO, GreenLeaf Organics'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+                        quote: '"When we decided to expand our business internationally, we knew our brand needed a refresh. 1StopFirm helped us create a global brand identity that maintained our core values while appealing to diverse markets. Their research-driven approach and attention to cultural nuances were impressive. Within six months of launching our new brand, we successfully entered three new markets and exceeded our revenue targets by 35%."',
+                        name: 'Raj Patel',
+                        position: 'Founder & CEO, Nexus Technologies'
+                    }
+                ];
+                
+                // DOM elements
+                const testimonialContainer = document.getElementById('testimonialContainer');
+                const prevButton = document.getElementById('prevTestimonial');
+                const nextButton = document.getElementById('nextTestimonial');
+                const indicatorsContainer = document.getElementById('testimonialIndicators');
+                
+                let currentIndex = 0;
+                
+                // Initialize indicators
+                testimonials.forEach((_, index) => {
+                    const indicator = document.createElement('span');
+                    indicator.style.width = '12px';
+                    indicator.style.height = '12px';
+                    indicator.style.borderRadius = '50%';
+                    indicator.style.background = index === 0 ? '#ff3e6c' : 'rgba(255, 62, 108, 0.3)';
+                    indicator.style.cursor = 'pointer';
+                    indicator.style.transition = 'all 0.3s ease';
+                    indicator.dataset.index = index;
+                    
+                    indicator.addEventListener('click', function() {
+                        currentIndex = parseInt(this.dataset.index);
+                        updateTestimonial();
+                    });
+                    
+                    indicatorsContainer.appendChild(indicator);
+                });
+                
+                // Function to update testimonial content
+                function updateTestimonial() {
+                    const currentTestimonial = testimonials[currentIndex];
+                    
+                    testimonialContainer.innerHTML = `
+                        <div style="font-size: 3rem; color: #ff3e6c; opacity: 0.1; position: absolute; top: 20px; left: 20px;">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div style="display: flex; gap: 30px; align-items: flex-start;">
+                            <div style="flex-shrink: 0;">
+                                <img src="${currentTestimonial.image}" alt="${currentTestimonial.name}" style="width: 100px; height: 100px; border-radius: 12px; object-fit: cover; border: 5px solid white; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
+                            </div>
+                            <div>
+                                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; color: #555; font-style: italic;">
+                                    ${currentTestimonial.quote}
+                                </p>
+                                <div>
+                                    <h4 style="margin: 0 0 5px 0; color: #1a1a2e; font-weight: 700; font-size: 1.2rem;">${currentTestimonial.name}</h4>
+                                    <p style="margin: 0; color: #666; font-size: 0.95rem;">${currentTestimonial.position}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Update indicators
+                    const indicators = indicatorsContainer.querySelectorAll('span');
+                    indicators.forEach((indicator, index) => {
+                        indicator.style.background = index === currentIndex ? '#ff3e6c' : 'rgba(255, 62, 108, 0.3)';
+                    });
+                }
+                
+                // Event listeners for navigation
+                prevButton.addEventListener('click', function() {
+                    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                    updateTestimonial();
+                });
+                
+                nextButton.addEventListener('click', function() {
+                    currentIndex = (currentIndex + 1) % testimonials.length;
+                    updateTestimonial();
+                });
+                
+                // Initialize with first testimonial
+                updateTestimonial();
+                
+                // Optional: Auto-rotate testimonials
+                setInterval(function() {
+                    currentIndex = (currentIndex + 1) % testimonials.length;
+                    updateTestimonial();
+                }, 8000);
+            });
+        </script>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="cta-section" id="contact" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; padding: 100px 0; position: relative; overflow: hidden;">
+        <!-- Animated Shapes -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 15s ease-in-out infinite;"></div>
+            <div style="position: absolute; bottom: -150px; left: -50px; width: 250px; height: 250px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 20s ease-in-out infinite alternate;"></div>
+            <div style="position: absolute; top: 20%; left: 10%; width: 120px; height: 120px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 25s ease-in-out infinite;"></div>
+            <div style="position: absolute; bottom: 30%; right: 10%; width: 180px; height: 180px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 18s ease-in-out infinite alternate;"></div>
+        </div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="cta-content" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2.8rem; margin-bottom: 20px; font-weight: 800;">Ready to Transform Your Brand?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Get in touch today for a free brand consultation. Our team of experts will analyze your current brand and provide personalized recommendations to help you achieve your business goals.</p>
+            </div>
+            
+            <div style="background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); padding: 50px; max-width: 800px; margin: 0 auto; color: #333;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                    <!-- Left Column: Form -->
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Get Your Free Consultation</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div style="margin-bottom: 20px;">
+                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Your email" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label for="company" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Company Name</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <button type="submit" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 62, 108, 0.3);">
+                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Right Column: Contact Info & Benefits -->
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Why Choose Us</h3>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(255, 62, 108, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-globe" style="color: #ff3e6c; font-size: 1.3rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Strategic Approach</h4>
+                                    <p style="margin: 0; color: #666; line-height: 1.6;">We develop brands based on market research and strategic insights.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(252, 176, 69, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-palette" style="color: #fcb045; font-size: 1.3rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Creative Excellence</h4>
+                                    <p style="margin: 0; color: #666; line-height: 1.6;">Our award-winning design team creates memorable visual identities.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(131, 66, 229, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-chart-line" style="color: #8342e5; font-size: 1.3rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Results-Driven</h4>
+                                    <p style="margin: 0; color: #666; line-height: 1.6;">We focus on creating brands that drive business growth.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f9f9f9; padding: 25px; border-radius: 15px; margin-top: 30px;">
+                            <h4 style="margin: 0 0 15px; font-size: 1.2rem; color: #1a1a2e;">Contact Information</h4>
+                            
+                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                                <div style="color: #ff3e6c; flex-shrink: 0;">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <a href="tel:+12345678900" style="color: #666; text-decoration: none; transition: all 0.3s ease;">+1 (234) 567-8900</a>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                                <div style="color: #ff3e6c; flex-shrink: 0;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <a href="mailto:info@1stopfirm.com" style="color: #666; text-decoration: none; transition: all 0.3s ease;">info@1stopfirm.com</a>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 12px;">
+                                <div style="color: #ff3e6c; flex-shrink: 0;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div style="color: #666;">
+                                    1234 Business Avenue, Suite 567<br>
+                                    New York, NY 10001
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            @keyframes floatingSlow {
+                0% { transform: translate(0, 0) rotate(0deg); }
+                50% { transform: translate(20px, 20px) rotate(5deg); }
+                100% { transform: translate(0, 0) rotate(0deg); }
+            }
+            
+            input:focus {
+                outline: none;
+                border-color: #ff3e6c !important;
+                box-shadow: 0 0 0 3px rgba(255, 62, 108, 0.2) !important;
+            }
+            
+            button[type="submit"]:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(255, 62, 108, 0.4);
+            }
+            
+            @media (max-width: 768px) {
+                .cta-content h2 {
+                    font-size: 2.2rem;
+                }
+                
+                .container > div {
+                    padding: 30px;
+                }
+                
+                .container > div > div {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="background: #1a1a2e; color: white; padding: 50px 0 20px;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 50px;">
+                <!-- Column 1: About -->
+                <div>
+                    <a href="index.html" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; text-decoration: none;">
+                        <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="40">
+                        <span style="color: white; font-size: 1.5rem; font-weight: 700;">1StopFirm</span>
+                    </a>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7; margin-bottom: 20px;">We help businesses create powerful brands that connect with their audiences and drive growth.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px;">Our Services</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Brand Strategy</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Visual Identity</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Brand Messaging</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Brand Experience</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Digital Marketing</a></li>
+                        <li><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Website Development</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Home</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">About Us</a></li>
+                        <li style="margin-bottom: 10px;"><a href="services.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Services</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#portfolio" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Portfolio</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#testimonials" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Testimonials</a></li>
+                        <li><a href="#contact" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter -->
+                <div>
+                    <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px;">Newsletter</h4>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7; margin-bottom: 20px;">Subscribe to our newsletter for the latest branding insights and industry news.</p>
+                    <form>
+                        <div style="display: flex;">
+                            <input type="email" placeholder="Your email address" style="flex: 1; padding: 12px 15px; border: none; border-radius: 5px 0 0 5px; font-size: 0.9rem;">
+                            <button type="submit" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; border: none; padding: 12px 15px; border-radius: 0 5px 5px 0; cursor: pointer;">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; text-align: center; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
+                <p>&copy; 2023 1StopFirm. All rights reserved. | <a href="#" style="color: rgba(255, 255, 255, 0.5); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: rgba(255, 255, 255, 0.5); text-decoration: none;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/brand-development.js"></script>
+</body>
+</html>

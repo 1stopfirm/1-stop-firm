@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Website Development Services | 1StopFirm</title>
+    <link rel="icon" href="Bold Purple _1SF_ Icon.png">
+    
+    <!-- Using CDN resources to avoid caching issues -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <style>
+        /* Core styles */
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3c35b3;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --dark: #111827;
+            --light: #F9FAFB;
+            --gradient-primary: linear-gradient(135deg, #4F46E5, #10B981);
+            --gradient-secondary: linear-gradient(135deg, #F59E0B, #EF4444);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Animation Keyframes */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+            50% { box-shadow: 0 15px 35px rgba(79, 70, 229, 0.5); }
+        }
+        
+        @keyframes scanlines {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: rotateX(10deg) rotateY(-15deg) translateZ(0) translateY(0); }
+            50% { transform: rotateX(8deg) rotateY(-12deg) translateZ(10px) translateY(-10px); }
+            100% { transform: rotateX(10deg) rotateY(-15deg) translateZ(0) translateY(0); }
+        }
+        
+        /* Shimmer animation */
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        
+        /* Navbar */
+        .custom-navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 120px 0;
+            background: var(--gradient-primary);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .hero-shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-shape:nth-child(2) {
+            top: 40%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .hero-shape:nth-child(3) {
+            bottom: 10%;
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #6B7280;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            height: 100%;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.8rem;
+            transform: translateZ(20px);
+            box-shadow: var(--shadow);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            transform: translateZ(15px);
+        }
+        
+        .service-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 1.5px;
+        }
+        
+        .service-title .shimmer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover .service-title .shimmer {
+            opacity: 1;
+        }
+        
+        .service-description {
+            color: #6B7280;
+            transform: translateZ(10px);
+        }
+        
+        .shape-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .background-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .background-shape:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .background-shape:nth-child(2) {
+            top: 60%;
+            right: 5%;
+            width: 250px;
+            height: 250px;
+            background: var(--secondary);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .background-shape:nth-child(3) {
+            bottom: 10%;
+            left: 30%;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            animation: float 9s ease-in-out infinite;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 100px 0;
+            background-color: #F3F4F6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-tab {
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            background-color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .portfolio-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            height: 350px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: rotateY(180deg);
+        }
+        
+        .portfolio-front, .portfolio-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .portfolio-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+        
+        .portfolio-back {
+            transform: rotateY(180deg);
+            background: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            z-index: 3;
+        }
+        
+        .portfolio-category {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            background: var(--primary);
+            padding: 3px 10px;
+            border-radius: 15px;
+        }
+        
+        .portfolio-title {
+            margin: 0;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .portfolio-tag {
+            padding: 5px 10px;
+            background: #EEF2FF;
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .portfolio-back-title {
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .portfolio-description {
+            color: #6B7280;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: auto;
+            transition: color 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .portfolio-link i {
+            margin-left: 5px;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 5%;
+            background: var(--primary);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            right: 10%;
+            background: var(--secondary);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 15%;
+            left: 20%;
+            background: var(--accent);
+            animation: float 9s ease-in-out infinite;
+        }
+        
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-item {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            margin: 20px 10px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            transform: translateZ(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-5px) translateZ(10px);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            box-shadow: var(--shadow);
+            transform: translateZ(20px);
+        }
+        
+        .testimonial-client-info {
+            flex: 1;
+            transform: translateZ(15px);
+        }
+        
+        .testimonial-client-name {
+            font-size: 1.2rem;
+            margin: 0 0 5px 0;
+            font-weight: 700;
+        }
+        
+        .testimonial-client-position {
+            font-size: 0.9rem;
+            color: #6B7280;
+            display: flex;
+            align-items: center;
+        }
+        
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #EEF2FF;
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+        }
+        
+        .verified-badge i {
+            margin-right: 3px;
+            font-size: 0.6rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1rem;
+            color: #4B5563;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            transform: translateZ(10px);
+        }
+        
+        .testimonial-rating {
+            color: #F59E0B;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            transform: translateZ(5px);
+        }
+        
+        .testimonial-radial-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+            z-index: 1;
+            animation: pulse 10s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+        
+        .testimonial-nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .client-logo {
+            height: 60px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+            filter: grayscale(0%);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+        
+        .footer-contact {
+            margin-bottom: 30px;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Code Animation */
+        .code-animation {
+            position: relative;
+            background: #1E1E3F;
+            border-radius: 10px;
+            padding: 25px 25px 25px 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            overflow: hidden;
+            min-height: 350px;
+            width: 90%;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transform: rotateX(10deg) rotateY(-15deg) translateZ(0);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: glow 3s ease-in-out infinite alternate, float 6s ease-in-out infinite;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+        
+        .code-animation:hover {
+            transform: rotateX(0deg) rotateY(0deg) translateZ(20px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(79, 70, 229, 0.4);
+            animation: glow 1.5s ease-in-out infinite alternate;
+            border: 1px solid rgba(79, 70, 229, 0.4);
+        }
+        
+        .code-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(79, 70, 229, 0.3), transparent);
+            pointer-events: none;
+        }
+        
+        /* Add scanline effect for retro terminal feel */
+        .code-animation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 51%
+            );
+            background-size: 100% 8px;
+            pointer-events: none;
+            animation: scanlines 8s linear infinite;
+            opacity: 0.3;
+            z-index: 10;
+        }
+        
+        /* Enhanced terminal buttons */
+        .code-animation .terminal-buttons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+        
+        .code-animation .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .code-animation:hover .terminal-button {
+            transform: scale(1.1);
+        }
+        
+        .code-animation .terminal-button.red {
+            background-color: #FF5F56;
+        }
+        
+        .code-animation .terminal-button.yellow {
+            background-color: #FFBD2E;
+        }
+        
+        .code-animation .terminal-button.green {
+            background-color: #27C93F;
+        }
+        
+        .code-animation .terminal-title {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            z-index: 10;
+        }
+        
+        /* Line numbers for code styling */
+        .code-animation {
+            counter-reset: line;
+        }
+        
+        .code-line {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #F8F8F2;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            position: relative;
+            z-index: 5;
+            line-height: 1.4;
+        }
+        
+        .code-line::before {
+            counter-increment: line;
+            content: counter(line);
+            display: inline-block;
+            width: 20px;
+            margin-left: -25px;
+            margin-right: 5px;
+            text-align: right;
+            color: #606060;
+            font-size: 0.8rem;
+        }
+        
+        .code-animation:hover .code-line {
+            text-shadow: 0 0 5px rgba(79, 70, 229, 0.5);
+        }
+        
+        .code-comment {
+            color: #6272A4;
+        }
+        
+        .code-keyword {
+            color: #FF79C6;
+            font-weight: bold;
+        }
+        
+        .code-string {
+            color: #F1FA8C;
+        }
+        
+        .code-function {
+            color: #50FA7B;
+        }
+        
+        .code-variable {
+            color: #BD93F9;
+        }
+        
+        .code-property {
+            color: #8BE9FD;
+        }
+        
+        .code-number {
+            color: #BD93F9;
+        }
+        
+        .code-punctuation {
+            color: #F8F8F2;
+        }
+        
+        .code-tag {
+            color: #FF79C6;
+        }
+        
+        .code-attribute {
+            color: #50FA7B;
+        }
+        
+        .code-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: #F8F8F2;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Hero Clients */
+        .hero-clients {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .client-label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .client-logos {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .client-logos img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logos img:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+        
+        /* Enhanced Portfolio Cards */
+        .portfolio-item {
+            transform-style: preserve-3d;
+            perspective: 2000px;
+        }
+        
+        .portfolio-item:hover .portfolio-front {
+            transform: rotateY(-180deg);
+        }
+        
+        .portfolio-item:hover .portfolio-back {
+            transform: rotateY(0);
+        }
+        
+        .portfolio-front, .portfolio-back {
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backface-visibility: hidden;
+        }
+        
+        .portfolio-front {
+            transform: rotateY(0);
+        }
+        
+        .portfolio-back {
+            transform: rotateY(180deg);
+        }
+        
+        .portfolio-item::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            border-radius: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover::after {
+            opacity: 0.7;
+        }
+        
+        .portfolio-category {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .portfolio-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: -1;
+            transition: transform 0.3s ease;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+        
+        .portfolio-item:hover .portfolio-category::before {
+            transform: scaleX(1);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #4F46E5, #10B981);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            z-index: -1;
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .cta-btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .cta-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .cta-shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -100px;
+            animation: float 15s infinite alternate;
+        }
+        
+        .cta-shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -50px;
+            animation: float 12s infinite alternate-reverse;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <header class="main-header" id="main-header">
+        <div class="container flex-between">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="50">
+                <span class="logo-text" style="font-size: 1.5rem; font-weight: 700; color: #333;">1StopFirm</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="flex-row" style="display: flex; list-style: none; gap: 25px; margin: 0; padding: 0;">
+                    <li><a href="index.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Home</a></li>
+                    <li><a href="services.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Services</a></li>
+                    <li><a href="brand-development.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Brand Development</a></li>
+                    <li><a href="fresh-website-development.html" class="active" style="color: #4F46E5; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease; border-bottom: 2px solid #4F46E5;">Website Development</a></li>
+                    <li><a href="#" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">About</a></li>
+                    <li><a href="#contact" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Code Animation -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <h1 class="hero-title">Modern Website Development Solutions</h1>
+                    <p class="hero-description">We create stunning, responsive websites that drive results for your business. Our expert team delivers custom web solutions that combine beautiful design with powerful functionality.</p>
+                    <a href="#contact" class="btn btn-light btn-lg">Get Started</a>
+                    
+                    <!-- Trusted By Section -->
+                    <div class="hero-clients">
+                        <span class="client-label">Trusted by:</span>
+                        <div class="client-logos">
+                            <img src="mcdonalds.png" alt="McDonald's Logo">
+                            <img src="huawei.png" alt="Huawei Logo">
+                            <img src="firefox.png" alt="Firefox Logo">
+                            <img src="oracle.png" alt="Oracle Logo">
+                            <img src="muse.png" alt="Muse Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Code Animation -->
+                    <div class="code-animation" id="codeAnimation">
+                        <div class="terminal-buttons">
+                            <div class="terminal-button red"></div>
+                            <div class="terminal-button yellow"></div>
+                            <div class="terminal-button green"></div>
+                        </div>
+                        <div class="terminal-title">website-development.js</div>
+                        <div class="code-line">
+                            <span class="code-comment">// Modern website development</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-keyword">const</span> <span class="code-variable">createAwesomeWebsite</span> <span class="code-punctuation">=</span> <span class="code-punctuation">(</span><span class="code-variable">client</span><span class="code-punctuation">)</span> <span class="code-punctuation">=></span> <span class="code-punctuation">{</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-comment">// Initialize project</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-variable">project</span> <span class="code-punctuation">=</span> <span class="code-keyword">new</span> <span class="code-function">Project</span><span class="code-punctuation">(</span><span class="code-variable">client</span><span class="code-punctuation">.</span><span class="code-property">name</span><span class="code-punctuation">)</span><span class="code-punctuation">;</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-comment">// Design phase</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-variable">design</span> <span class="code-punctuation">=</span> <span class="code-function">createDesign</span><span class="code-punctuation">(</span><span class="code-punctuation">{</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">responsive</span><span class="code-punctuation">:</span> <span class="code-keyword">true</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">modern</span><span class="code-punctuation">:</span> <span class="code-keyword">true</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">userFriendly</span><span class="code-punctuation">:</span> <span class="code-keyword">true</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-punctuation">}</span><span class="code-punctuation">)</span><span class="code-punctuation">;</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-comment">// Development phase</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-variable">project</span><span class="code-punctuation">.</span><span class="code-function">setTechnologies</span><span class="code-punctuation">(</span><span class="code-punctuation">[</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'HTML5'</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'CSS3'</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'JavaScript'</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'React'</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-punctuation">]</span><span class="code-punctuation">)</span><span class="code-punctuation">;</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-comment">// Optimization phase</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-function">optimize</span><span class="code-punctuation">(</span><span class="code-variable">project</span><span class="code-punctuation">,</span> <span class="code-punctuation">{</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">seo</span><span class="code-punctuation">:</span> <span class="code-keyword">true</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">performance</span><span class="code-punctuation">:</span> <span class="code-keyword">true</span><span class="code-punctuation">,</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">accessibility</span><span class="code-punctuation">:</span> <span class="code-keyword">true</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-punctuation">}</span><span class="code-punctuation">)</span><span class="code-punctuation">;</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-comment">// Launch</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-variable">project</span><span class="code-punctuation">.</span><span class="code-function">launch</span><span class="code-punctuation">(</span><span class="code-punctuation">)</span><span class="code-punctuation">;</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-punctuation">}</span><span class="code-punctuation">;</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We offer a comprehensive range of website development services tailored to your needs</p>
+            
+            <div class="row">
+                <!-- Custom Website Development -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="service-title">
+                            Custom Website Development
+                            <span class="shimmer"></span>
+                        </h3>
+                        <p class="service-description">Bespoke websites built from scratch, tailored specifically to your brand and business needs. We create custom solutions that stand out from template-based sites.</p>
+                    </div>
+                </div>
+                
+                <!-- E-commerce Development -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="service-title">
+                            E-commerce Development
+                            <span class="shimmer"></span>
+                        </h3>
+                        <p class="service-description">Powerful online stores built on leading platforms like Shopify, WooCommerce, and Magento. We create seamless shopping experiences that drive sales.</p>
+                    </div>
+                </div>
+                
+                <!-- Responsive Web Design -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title">
+                            Responsive Web Design
+                            <span class="shimmer"></span>
+                        </h3>
+                        <p class="service-description">Mobile-first websites that look and function perfectly on all devices and screen sizes. We ensure optimal user experience across desktops, tablets, and smartphones.</p>
+                    </div>
+                </div>
+                
+                <!-- Website Redesign -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-title">
+                            Website Redesign
+                            <span class="shimmer"></span>
+                        </h3>
+                        <p class="service-description">Transform your outdated website into a modern, high-performing digital asset. We refresh your online presence while preserving your brand identity.</p>
+                    </div>
+                </div>
+                
+                <!-- CMS Development -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h3 class="service-title">
+                            CMS Development
+                            <span class="shimmer"></span>
+                        </h3>
+                        <p class="service-description">Custom WordPress, Drupal, and other CMS implementations. We build easy-to-update websites with powerful content management capabilities.</p>
+                    </div>
+                </div>
+                
+                <!-- Web Application Development -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="service-title">
+                            Web Application Development
+                            <span class="shimmer"></span>
+                        </h3>
+                        <p class="service-description">Custom web apps that solve specific business challenges. We create interactive, data-driven applications with robust functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shape-background">
+            <div class="background-shape"></div>
+            <div class="background-shape"></div>
+            <div class="background-shape"></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Work</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Explore our latest website projects and success stories</p>
+            
+            <div class="portfolio-tabs" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-tab active">All</div>
+                <div class="portfolio-tab">E-commerce</div>
+                <div class="portfolio-tab">Corporate</div>
+                <div class="portfolio-tab">Education</div>
+                <div class="portfolio-tab">Healthcare</div>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- E-commerce Portfolio Item -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300" data-category="e-commerce">
+                    <div class="portfolio-front">
+                        <img src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Fashion Boutique Store" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">E-commerce</span>
+                            <h3 class="portfolio-title">Fashion Boutique Store</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-back">
+                        <h3 class="portfolio-back-title">Fashion Boutique Store</h3>
+                        <p class="portfolio-description">A custom e-commerce platform for a high-end fashion boutique with advanced filtering, wishlists, and personalized shopping experiences.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Shopify</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">Responsive</span>
+                            <span class="portfolio-tag">Payment Gateway</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            View Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Corporate Portfolio Item -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400" data-category="corporate">
+                    <div class="portfolio-front">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Global Consulting Firm" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Corporate</span>
+                            <h3 class="portfolio-title">Global Consulting Firm</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-back">
+                        <h3 class="portfolio-back-title">Global Consulting Firm</h3>
+                        <p class="portfolio-description">A sophisticated corporate website for an international consulting firm featuring interactive case studies, team profiles, and multilingual support.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">WordPress</span>
+                            <span class="portfolio-tag">Custom CMS</span>
+                            <span class="portfolio-tag">Multilingual</span>
+                            <span class="portfolio-tag">Analytics</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            View Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Education Portfolio Item -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="500" data-category="education">
+                    <div class="portfolio-front">
+                        <img src="science-study-chemical-test-tube-experiment-laboratory-graphic.jpg" alt="Online Learning Platform" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Education</span>
+                            <h3 class="portfolio-title">Online Learning Platform</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-back">
+                        <h3 class="portfolio-back-title">Online Learning Platform</h3>
+                        <p class="portfolio-description">A comprehensive e-learning platform with course management, live classrooms, progress tracking, and certificate generation features.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">React.js</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">MongoDB</span>
+                            <span class="portfolio-tag">WebRTC</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            View Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Client Feedback</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">What our clients say about our website development services</p>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-item">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="John Smith" class="testimonial-image">
+                            <div class="testimonial-client-info">
+                                <h4 class="testimonial-client-name">John Smith</h4>
+                                <p class="testimonial-client-position">
+                                    CEO, Global Consulting Firm
+                                    <span class="verified-badge">
+                                        <i class="fas fa-check-circle"></i> Verified
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"1StopFirm transformed our online presence with a beautifully designed, high-performing website that perfectly represents our brand. Their team was professional, creative, and delivered exactly what we needed. The results have far exceeded our expectations."</p>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-item">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson" class="testimonial-image">
+                            <div class="testimonial-client-info">
+                                <h4 class="testimonial-client-name">Sarah Johnson</h4>
+                                <p class="testimonial-client-position">
+                                    Marketing Director, Fashion Boutique
+                                    <span class="verified-badge">
+                                        <i class="fas fa-check-circle"></i> Verified
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Working with 1StopFirm on our e-commerce website was an excellent experience. They understood our vision perfectly and built a user-friendly online store that has significantly increased our sales. Their attention to detail and responsive support have been invaluable to our business."</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <button class="testimonial-nav-btn prev-testimonial">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="testimonial-nav-btn next-testimonial">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="client-logos" data-aos="fade-up" data-aos-delay="300">
+                    <img src="mcdonalds.png" alt="McDonald's" class="client-logo">
+                    <img src="oracle.png" alt="Oracle" class="client-logo">
+                    <img src="firefox.png" alt="Firefox" class="client-logo">
+                    <img src="huawei.png" alt="Huawei" class="client-logo">
+                </div>
+            </div>
+            
+            <div class="testimonial-radial-bg"></div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact" style="background: linear-gradient(135deg, #4F46E5, #10B981); color: white; padding: 100px 0; position: relative; overflow: hidden;">
+        <!-- Animated Shapes -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 15s ease-in-out infinite;"></div>
+            <div style="position: absolute; bottom: -150px; left: -50px; width: 250px; height: 250px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 20s ease-in-out infinite alternate;"></div>
+            <div style="position: absolute; top: 20%; left: 10%; width: 120px; height: 120px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 25s ease-in-out infinite;"></div>
+            <div style="position: absolute; bottom: 30%; right: 10%; width: 180px; height: 180px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 18s ease-in-out infinite alternate;"></div>
+        </div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="cta-content" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2.8rem; margin-bottom: 20px; font-weight: 800;">Ready to Transform Your Digital Presence?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Get in touch today for a free website consultation. Our team of experts will analyze your digital needs and provide personalized recommendations to help you achieve your business goals.</p>
+            </div>
+            
+            <div style="background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); padding: 50px; max-width: 800px; margin: 0 auto; color: #333;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                    <!-- Left Column: Form -->
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Get Your Free Consultation</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div style="margin-bottom: 20px;">
+                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Your email" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label for="company" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Company Name</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
+                            </div>
+                            
+                            <button type="submit" style="background: linear-gradient(135deg, #4F46E5, #10B981); color: white; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);">
+                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Right Column: Contact Info & Benefits -->
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Why Choose Us</h3>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(79, 70, 229, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-globe" style="color: #4F46E5; font-size: 1.3rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Strategic Approach</h4>
+                                    <p style="margin: 0; color: #666; line-height: 1.6;">We develop websites based on market research and strategic insights.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(16, 185, 129, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-palette" style="color: #10B981; font-size: 1.3rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Creative Excellence</h4>
+                                    <p style="margin: 0; color: #666; line-height: 1.6;">Our award-winning design team creates memorable visual designs.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(245, 158, 11, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-chart-line" style="color: #F59E0B; font-size: 1.3rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Results-Driven</h4>
+                                    <p style="margin: 0; color: #666; line-height: 1.6;">We focus on creating websites that drive business growth.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f9f9f9; padding: 25px; border-radius: 15px; margin-top: 30px;">
+                            <h4 style="margin: 0 0 15px; font-size: 1.2rem; color: #1a1a2e;">Contact Information</h4>
+                            
+                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                                <div style="color: #4F46E5; flex-shrink: 0;">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <a href="tel:+12345678900" style="color: #666; text-decoration: none; transition: all 0.3s ease;">+1 (234) 567-8900</a>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                                <div style="color: #4F46E5; flex-shrink: 0;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <a href="mailto:info@1stopfirm.com" style="color: #666; text-decoration: none; transition: all 0.3s ease;">info@1stopfirm.com</a>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 12px;">
+                                <div style="color: #4F46E5; flex-shrink: 0;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div style="color: #666;">
+                                    1234 Business Avenue, Suite 567<br>
+                                    New York, NY 10001
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            @keyframes floatingSlow {
+                0% { transform: translate(0, 0) rotate(0deg); }
+                50% { transform: translate(20px, 20px) rotate(5deg); }
+                100% { transform: translate(0, 0) rotate(0deg); }
+            }
+            
+            input:focus {
+                outline: none;
+                border-color: #4F46E5 !important;
+                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
+            }
+            
+            button[type="submit"]:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+            }
+            
+            @media (max-width: 768px) {
+                .cta-content h2 {
+                    font-size: 2.2rem;
+                }
+                
+                .container > div {
+                    padding: 30px;
+                }
+                
+                .container > div > div {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <h3 class="footer-title">Ready to Start Your Website Project?</h3>
+                    <p class="footer-text">Let's discuss how we can help you achieve your business goals with a stunning, high-performing website.</p>
+                    <a href="#contact" class="btn btn-light">Get In Touch</a>
+                    
+                    <div class="footer-social mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <div class="d-flex flex-column">
+                        <a href="#" class="footer-link">Home</a>
+                        <a href="#services" class="footer-link">Services</a>
+                        <a href="#portfolio" class="footer-link">Our Work</a>
+                        <a href="#testimonials" class="footer-link">Testimonials</a>
+                        <a href="#contact" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-heading">Contact Information</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Business Street, New York, NY 10001</p>
+                        <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@1stopfirm.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 1StopFirm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // GUARANTEED CODE ANIMATION INIT
+            initCodeAnimation();
+            
+            // Portfolio tabs functionality
+            const portfolioTabs = document.querySelectorAll('.portfolio-tab');
+            
+            portfolioTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    portfolioTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Filter logic would go here in a real implementation
+                });
+            });
+            
+            // Testimonial slider functionality
+            const prevBtn = document.querySelector('.prev-testimonial');
+            const nextBtn = document.querySelector('.next-testimonial');
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            let currentTestimonial = 0;
+            
+            // Initially hide all testimonials except the first one
+            testimonials.forEach((testimonial, index) => {
+                if (index !== 0) {
+                    testimonial.style.display = 'none';
+                }
+            });
+            
+            // Function to show testimonial by index
+            function showTestimonial(index) {
+                testimonials.forEach(testimonial => {
+                    testimonial.style.display = 'none';
+                });
+                testimonials[index].style.display = 'block';
+            }
+            
+            // Previous button click
+            prevBtn.addEventListener('click', function() {
+                currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            });
+            
+            // Next button click
+            nextBtn.addEventListener('click', function() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            });
+            
+            // Auto-rotate testimonials
+            setInterval(function() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }, 6000);
+        });
+        
+        // Separate animation init function to ensure it's called and works
+        function initCodeAnimation() {
+            const codeAnimation = document.getElementById('codeAnimation');
+            const codeLines = document.querySelectorAll('.code-line');
+            
+            if (!codeAnimation || codeLines.length === 0) {
+                console.error('Code animation elements not found');
+                return;
+            }
+            
+            console.log('Initializing code animation with', codeLines.length, 'lines');
+            
+            // Reset all lines to be invisible initially
+            codeLines.forEach(line => {
+                line.style.opacity = '0';
+                line.style.transform = 'translateX(-20px)';
+            });
+            
+            // Add flicker effect
+            function addFlickerEffect() {
+                setInterval(() => {
+                    if (Math.random() > 0.97) {
+                        codeAnimation.style.opacity = '0.9';
+                        setTimeout(() => {
+                            codeAnimation.style.opacity = '1';
+                        }, 50);
+                    }
+                }, 500);
+            }
+            
+            addFlickerEffect();
+            
+            // Simple sequential animation to ensure it works
+            function animateSequentially() {
+                codeLines.forEach((line, index) => {
+                    setTimeout(() => {
+                        line.style.opacity = '1';
+                        line.style.transform = 'translateX(0)';
+                    }, index * 120);
+                });
+                
+                // After all lines are shown, wait and restart
+                const totalDuration = codeLines.length * 120 + 3000;
+                setTimeout(() => {
+                    // Add a flash effect
+                    codeAnimation.style.boxShadow = '0 0 50px rgba(79, 70, 229, 0.8)';
+                    setTimeout(() => {
+                        codeAnimation.style.boxShadow = '0 15px 35px rgba(0,0,0,0.3)';
+                        // Reset for next animation cycle
+                        codeLines.forEach(line => {
+                            line.style.opacity = '0';
+                            line.style.transform = 'translateX(-20px)';
+                        });
+                        // Start next cycle after a short delay
+                        setTimeout(animateSequentially, 500);
+                    }, 300);
+                }, totalDuration);
+            }
+            
+            // Start the animation
+            animateSequentially();
+        }
+    </script>
+</body>
+</html> 

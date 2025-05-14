@@ -1,0 +1,258 @@
+/*--------------------------------------------------------------
+# Layout Styles
+--------------------------------------------------------------*/
+
+/* Section Layout
+-------------------------------------------------------------- */
+section {
+  padding: var(--spacing-xl) 0;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+.section-header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.section-header h2 {
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-secondary);
+}
+
+.section-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-text-light);
+}
+
+/* Grid Layouts
+-------------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Custom Service Grid Layout
+-------------------------------------------------------------- */
+.services-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Position Brand Development in the first row, first column */
+#card-brand {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Position Web Development in the first row, second column */
+#card-web {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Position Digital Marketing in the second row, first column */
+#card-digital {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Position Strategy in the second row, second column */
+#card-strategy {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 767px) {
+  .services-grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+  
+  #card-brand, #card-web, #card-digital, #card-strategy {
+    grid-column: 1;
+  }
+  
+  #card-brand {
+    grid-row: 1;
+  }
+  
+  #card-web {
+    grid-row: 2;
+  }
+  
+  #card-digital {
+    grid-row: 3;
+  }
+  
+  #card-strategy {
+    grid-row: 4;
+  }
+}
+
+/* Flex Layouts
+-------------------------------------------------------------- */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* Spacing between sections
+-------------------------------------------------------------- */
+.section-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius-pill);
+}
+
+/* Specific Section Heights
+-------------------------------------------------------------- */
+.hero-height {
+  min-height: 100vh;
+}
+
+.section-height-md {
+  min-height: 60vh;
+}
+
+.section-height-sm {
+  min-height: 40vh;
+}
+
+/* Asymmetrical Layouts
+-------------------------------------------------------------- */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: var(--spacing-lg);
+}
+
+.asymmetric-grid-reversed {
+  grid-template-columns: 3fr 2fr;
+}
+
+/* Image Grids
+-------------------------------------------------------------- */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+}
+
+/* Card Grid
+-------------------------------------------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+/* Media Queries for Responsive Layouts
+-------------------------------------------------------------- */
+@media (max-width: 767px) {
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .asymmetric-grid,
+  .asymmetric-grid-reversed {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .section-header h2::after {
+    width: 60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .asymmetric-grid,
+  .asymmetric-grid-reversed {
+    grid-template-columns: 1fr 1fr;
+  }
+} 
