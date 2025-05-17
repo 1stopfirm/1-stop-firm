@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | 1StopFirm</title>
+    <meta name="description" content="Get in touch with 1StopFirm for all your digital marketing, web development, and branding needs.">
+    <link rel="icon" href="Bold Purple _1SF_ Icon.png" type="image/png">
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/components.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --primary-dark: #5b21b6;
+            --secondary: #FF0080;
+            --secondary-dark: #CF006B;
+            --accent: #00CFFD;
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #F4F7FC;
+            --gray-light: #F9FAFC;
+            --text: #333333;
+            --text-light: #777777;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Header/Navbar */
+        .header {
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 38px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        
+        .navbar-menu li {
+            position: relative;
+            margin: 0 5px;
+        }
+        
+        .navbar-menu li a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-menu li a:hover,
+        .navbar-menu li a.active {
+            color: var(--primary);
+        }
+        
+        .navbar-menu li a.btn {
+            padding: 8px 18px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        
+        .navbar-menu li a.btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 4px 15px rgba(109, 40, 217, 0.2);
+        }
+        
+        .navbar-menu li a.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.3);
+        }
+        
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+        
+        .navbar-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--text);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 8px 15px !important;
+            font-weight: 500 !important;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(109, 40, 217, 0.05);
+        }
+        
+        /* Main Content */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0 50px;
+            background-color: var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background elements */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(109, 40, 217, 0.03), rgba(109, 40, 217, 0.08));
+            top: -50px;
+            left: -100px;
+        }
+        
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(255, 0, 128, 0.02), rgba(255, 0, 128, 0.06));
+            bottom: -100px;
+            right: -150px;
+        }
+        
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 207, 253, 0.03), rgba(0, 207, 253, 0.08));
+            top: 20%;
+            right: 10%;
+        }
+        
+        /* Contact container */
+        .contact-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            width: 90%;
+            max-width: 1100px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        /* Contact info section */
+        .contact-info {
+            background: linear-gradient(135deg, #6d28d9, #4f46e5);
+            padding: 60px 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .info-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .info-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .info-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+        
+        .info-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeIn 0.8s 0.2s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            opacity: 0;
+            animation: slideInLeft 0.5s ease-out forwards;
+        }
+        
+        .contact-method:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        
+        .contact-method:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .contact-method:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .method-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover .method-icon {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .method-details h3 {
+            font-size: 1rem;
+            margin: 0 0 5px;
+            font-weight: 600;
+        }
+        
+        .method-details p, .method-details a {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .method-details a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+            opacity: 0;
+            animation: fadeIn 0.8s 0.6s ease-out forwards;
+        }
+        
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Contact form section */
+        .contact-form-wrapper {
+            padding: 60px 40px;
+            position: relative;
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--text);
+            opacity: 0;
+            animation: fadeIn 0.8s 0.2s ease-out forwards;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+            opacity: 0;
+            animation: slideInRight 0.5s ease-out forwards;
+        }
+        
+        .form-group:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        
+        .form-group:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .form-group:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .form-group:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background: var(--gray-light);
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.1);
+            background: white;
+        }
+        
+        .form-label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            font-size: 0.95rem;
+            color: var(--text-light);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label {
+            top: 0;
+            left: 10px;
+            transform: translateY(-50%);
+            background: white;
+            padding: 0 5px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        textarea.form-control + .form-label {
+            top: 25px;
+        }
+        
+        textarea.form-control:focus + .form-label,
+        textarea.form-control:not(:placeholder-shown) + .form-label {
+            top: 0;
+        }
+        
+        .form-group.select-group {
+            position: relative;
+        }
+        
+        .form-group.select-group::after {
+            content: '\\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            pointer-events: none;
+        }
+        
+        select.form-control {
+            appearance: none;
+            cursor: pointer;
+        }
+        
+        select.form-control + .form-label {
+            background: var(--gray-light);
+        }
+        
+        select.form-control:focus + .form-label {
+            background: white;
+        }
+        
+        .form-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(109, 40, 217, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeIn 0.8s 0.7s ease-out forwards;
+        }
+        
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(109, 40, 217, 0.3);
+        }
+        
+        .form-button i {
+            transition: all 0.3s ease;
+        }
+        
+        .form-button:hover i {
+            transform: translateX(5px);
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s 0.8s ease-out forwards;
+            display: none;
+        }
+        
+        .form-message.success {
+            display: block;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        
+        .form-message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .navbar-toggle {
+                display: flex;
+            }
+            
+            .navbar-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+            
+            .navbar-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .navbar-menu li {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+            
+            .navbar-menu li a {
+                padding: 10px 0;
+            }
+            
+            .navbar-menu li a.btn {
+                margin-left: 0;
+                margin-top: 10px;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                padding-left: 20px;
+                display: none;
+            }
+            
+            .has-dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info, .contact-form-wrapper {
+                padding: 40px 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-info, .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+            
+            .info-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-methods {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="navbar-brand">
+                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" class="logo-img">
+                    <span class="logo-text">1StopFirm</span>
+                </a>
+                
+                <button class="navbar-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="navbar-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="brand-development.html" class="dropdown-item">Brand Development</a></li>
+                            <li><a href="fresh-website-development.html" class="dropdown-item">Web Development</a></li>
+                            <li><a href="digital-marketing-service.html" class="dropdown-item">Digital Marketing</a></li>
+                            <li><a href="strategy-consultation.html" class="dropdown-item">Strategy Consultation</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li><a href="contact-us.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Background shapes -->
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        
+        <!-- Contact Container -->
+        <div class="contact-container">
+            <!-- Contact Info Section -->
+            <div class="contact-info">
+                <div class="contact-info-bg"></div>
+                <div class="info-content">
+                    <h1 class="info-title">Get in Touch</h1>
+                    <p class="info-subtitle">We'd love to hear from you. Let us know how we can help your business grow and succeed in the digital world.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Email Us</h3>
+                                <a href="mailto:info@1stopfirm.com">info@1stopfirm.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Call Us</h3>
+                                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Visit Us</h3>
+                                <p>123 Innovation Way,<br>Digital Valley, CA 94103</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form Section -->
+            <div class="contact-form-wrapper">
+                <h2 class="form-title">Send Us a Message</h2>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder=" " required>
+                        <label for="name" class="form-label">Your Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" placeholder=" " required>
+                        <label for="email" class="form-label">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group select-group">
+                        <select class="form-control" id="service" required>
+                            <option value="" selected disabled></option>
+                            <option value="brand-development">Brand Development</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="digital-marketing">Digital Marketing</option>
+                            <option value="strategy-consultation">Strategy Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="service" class="form-label">Service of Interest</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" placeholder=" " rows="4" required></textarea>
+                        <label for="message" class="form-label">Your Message</label>
+                    </div>
+                    
+                    <button type="submit" class="form-button">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
+        
+        if (navbarToggle && navbarMenu) {
+            navbarToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navbarMenu.classList.toggle('active');
+            });
+        }
+        
+        // Mobile dropdown functionality
+        const dropdownItems = document.querySelectorAll('.has-dropdown');
+        
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth < 992) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission
+                const submitBtn = this.querySelector('.form-button');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+                
+                // Simulate API call with timeout
+                setTimeout(function() {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    
+                    // Show success message
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Your message has been sent successfully! We will get back to you soon.';
+                    formMessage.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html> 

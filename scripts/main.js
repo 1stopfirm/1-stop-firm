@@ -205,9 +205,15 @@ function initTypewriterEffect() {
   const typewriterElements = document.querySelectorAll('.typewriter');
   
   if (typewriterElements.length > 0) {
-    // Add animation classes to enable the effect
     typewriterElements.forEach(element => {
+      // Make sure the element is visible
       element.style.visibility = 'visible';
+      
+      // Animation is now controlled by CSS
+      // Add a class after animation to ensure the cursor stays
+      setTimeout(() => {
+        element.classList.add('typewriter-completed');
+      }, 3700); // Slightly longer than the animation duration to ensure it completes
     });
   }
 }

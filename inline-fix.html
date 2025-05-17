@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy Page - Fix Sections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #6d28d9;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        .info {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #6d28d9;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #5b21b6;
+        }
+        .progress {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .progress-bar {
+            height: 4px;
+            background-color: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #6d28d9;
+            animation: progress 3s ease-in-out;
+        }
+        @keyframes progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .success {
+            background-color: #d1fae5;
+            border: 1px solid #10b981;
+        }
+        .error {
+            background-color: #fee2e2;
+            border: 1px solid #ef4444;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Strategy Page Section Visibility Fix</h1>
+    </div>
+    
+    <div class="container">
+        <div class="info">
+            <p>This tool will fix the strategy-consultation.html page by making all sections visible.</p>
+            <p>The fix will be applied <strong>without changing any files</strong> - it just injects CSS that makes all sections appear correctly.</p>
+        </div>
+        
+        <button id="fixButton" class="button">Fix Strategy Page</button>
+        
+        <div id="progress" class="progress">
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <p>Applying fix...</p>
+        </div>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <div class="footer">
+        <p>1StopFirm - Website Section Visibility Fix</p>
+    </div>
+    
+    <script>
+        document.getElementById('fixButton').addEventListener('click', function() {
+            // Show progress indicator
+            document.getElementById('progress').style.display = 'block';
+            document.getElementById('fixButton').disabled = true;
+            
+            // Create the fix script
+            const fixScript = `
+                // Fix invisibility issues in strategy-consultation.html
+                (function() {
+                    // 1. Define CSS variables
+                    const styleElement = document.createElement('style');
+                    styleElement.textContent = \`
+                        :root {
+                            --primary: #6d28d9 !important;
+                            --primary-dark: #5b21b6 !important;
+                            --secondary: #FF0080 !important;
+                            --secondary-dark: #CF006B !important;
+                            --accent: #00CFFD !important;
+                            --dark: #121212 !important;
+                            --light: #FFFFFF !important;
+                            --gray: #F4F7FC !important;
+                            --text: #333333 !important;
+                            --text-light: #777777 !important;
+                        }
+                        
+                        /* Force all sections to be visible */
+                        section, .section, 
+                        #services, #process, #case-studies,
+                        .services-grid, .process-timeline, .tabs-container,
+                        .case-studies-section, .cta-section {
+                            display: block !important;
+                            opacity: 1 !important;
+                            visibility: visible !important;
+                        }
+                        
+                        /* Fix AOS elements */
+                        [data-aos] {
+                            opacity: 1 !important;
+                            transform: none !important;
+                            visibility: visible !important;
+                        }
+                        
+                        /* Success notification */
+                        .fix-notification {
+                            position: fixed;
+                            bottom: 20px;
+                            right: 20px;
+                            background: #6d28d9;
+                            color: white;
+                            padding: 12px 20px;
+                            border-radius: 6px;
+                            font-size: 14px;
+                            z-index: 9999;
+                            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                        }
+                    \`;
+                    document.head.appendChild(styleElement);
+                    
+                    // 2. Initialize AOS if it exists
+                    if (typeof AOS !== 'undefined') {
+                        AOS.init({
+                            duration: 800,
+                            once: true,
+                            mirror: false,
+                            disable: true // Disable animations to ensure visibility
+                        });
+                    }
+                    
+                    // 3. Force show all sections
+                    const selectors = [
+                        'section', '.section', 
+                        '#services', '#process', '#case-studies',
+                        '.services-grid', '.process-timeline', '.tabs-container',
+                        '.case-studies-section', '.cta-section'
+                    ];
+                    
+                    selectors.forEach(selector => {
+                        document.querySelectorAll(selector).forEach(el => {
+                            el.style.display = 'block';
+                            el.style.opacity = '1';
+                            el.style.visibility = 'visible';
+                        });
+                    });
+                    
+                    // 4. Make all AOS elements visible
+                    document.querySelectorAll('[data-aos]').forEach(el => {
+                        el.classList.add('aos-animate');
+                        el.style.opacity = '1';
+                        el.style.transform = 'none';
+                        el.style.visibility = 'visible';
+                    });
+                    
+                    // 5. Show success notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fix-notification';
+                    notification.textContent = 'Page fixed successfully! All sections should now be visible.';
+                    document.body.appendChild(notification);
+                    
+                    // Remove notification after 5 seconds
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 5000);
+                    
+                    return true; // Success indicator
+                })();
+            `;
+            
+            // Create a bookmarklet from the fix script
+            const bookmarkletCode = 'javascript:' + encodeURIComponent('(function(){' + fixScript + '})();');
+            
+            // Simulate fixing process
+            setTimeout(function() {
+                // Create the success message
+                const resultElement = document.getElementById('result');
+                resultElement.innerHTML = `
+                    <p><strong>Success!</strong> Use one of these methods to fix the page:</p>
+                    <ol>
+                        <li>
+                            <p><strong>Bookmark method:</strong> Drag this link to your bookmarks bar:</p>
+                            <p><a href="${bookmarkletCode}" style="text-decoration: underline; color: #6d28d9; font-weight: bold;">Fix Strategy Page</a></p>
+                            <p>Then open <a href="strategy-consultation.html" target="_blank">strategy-consultation.html</a> and click the bookmark.</p>
+                        </li>
+                        <li>
+                            <p><strong>Direct fix:</strong> Open the strategy page and paste this in your browser console:</p>
+                            <pre style="background: #f1f5f9; padding: 10px; border-radius: 6px; overflow-x: auto; font-size: 12px;">${fixScript}</pre>
+                        </li>
+                    </ol>
+                `;
+                resultElement.className = 'result success';
+                resultElement.style.display = 'block';
+                
+                // Hide progress indicator
+                document.getElementById('progress').style.display = 'none';
+                document.getElementById('fixButton').disabled = false;
+            }, 3000);
+        });
+    </script>
+</body>
+</html> 

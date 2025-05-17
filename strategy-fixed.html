@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Consultation Services | 1StopFirm (Fixed)</title>
+    
+    <!-- Original CSS files -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/strategy-consultation.css">
+    <link rel="icon" href="Bold Purple _1SF_ Icon.png">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 1. Load all required JavaScript libraries -->
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Lottie for lightweight animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+    
+    <!-- Three.js for 3D elements -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Typed.js for typing animations -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Particles.js for particle effects -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- 2. Load our fix script -->
+    <script src="strategy-fix.js"></script>
+    
+    <style>
+        /* Emergency fallback CSS variables in case global.css fails to load */
+        :root {
+            --primary: #6d28d9;
+            --primary-dark: #5b21b6;
+            --secondary: #FF0080;
+            --secondary-dark: #CF006B;
+            --accent: #00CFFD;
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #F4F7FC;
+            --text: #333333;
+            --text-light: #777777;
+        }
+        
+        /* Ensure visibility of key elements */
+        #services, #process, #case-studies {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Fix for hiding elements */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+        }
+        
+        /* Fix for loading message */
+        .page-loading-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #6d28d9;
+            color: white;
+            text-align: center;
+            z-index: 9999;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading message -->
+    <div class="page-loading-message">
+        Loading fixed version... If you see this message, JavaScript might be disabled.
+    </div>
+    
+    <!-- Load the original page content in an iframe -->
+    <iframe id="strategy-iframe" src="strategy-consultation.html" style="border: none; width: 100%; height: 100vh; display: none;"></iframe>
+    
+    <script>
+        // Handle the iframe loading process
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('strategy-iframe');
+            const loadingMessage = document.querySelector('.page-loading-message');
+            
+            // Listen for iframe load event
+            iframe.addEventListener('load', function() {
+                try {
+                    // Access the iframe's document
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    // Get the content we need from the iframe
+                    const originalContent = iframeDoc.documentElement.outerHTML;
+                    
+                    // Replace the current document with the iframe content
+                    document.open();
+                    document.write(originalContent);
+                    
+                    // Add our fix script to the new document
+                    const fixScript = document.createElement('script');
+                    fixScript.src = 'strategy-fix.js';
+                    document.head.appendChild(fixScript);
+                    
+                    // Add emergency styles
+                    const emergencyStyles = document.createElement('style');
+                    emergencyStyles.textContent = `
+                        :root {
+                            --primary: #6d28d9;
+                            --primary-dark: #5b21b6;
+                            --secondary: #FF0080;
+                            --secondary-dark: #CF006B;
+                            --accent: #00CFFD;
+                            --dark: #121212;
+                            --light: #FFFFFF;
+                            --gray: #F4F7FC;
+                            --text: #333333;
+                            --text-light: #777777;
+                        }
+                        
+                        /* Ensure visibility of key elements */
+                        #services, #process, #case-studies {
+                            display: block !important;
+                            opacity: 1 !important;
+                            visibility: visible !important;
+                        }
+                        
+                        /* Fix for hiding elements */
+                        [data-aos] {
+                            opacity: 1 !important;
+                            transform: none !important;
+                            visibility: visible !important;
+                        }
+                    `;
+                    document.head.appendChild(emergencyStyles);
+                    
+                    document.close();
+                } catch (error) {
+                    console.error('Error loading iframe content:', error);
+                    loadingMessage.textContent = 'Error loading page content. Please try the debug page instead.';
+                    loadingMessage.style.backgroundColor = '#ef4444';
+                    
+                    // Add a link to the debug page
+                    const debugLink = document.createElement('a');
+                    debugLink.href = 'debug-strategy.html';
+                    debugLink.textContent = 'Go to Debug Page';
+                    debugLink.style.color = 'white';
+                    debugLink.style.marginLeft = '20px';
+                    debugLink.style.textDecoration = 'underline';
+                    loadingMessage.appendChild(debugLink);
+                }
+            });
+            
+            // Show the iframe
+            iframe.style.display = 'block';
+        });
+    </script>
+
+    <!-- Fallback content in case iframe fails -->
+    <div id="fallback-content" style="display: none; padding: 20px; max-width: 800px; margin: 0 auto; text-align: center;">
+        <h1>Strategy Consultation Services</h1>
+        <p>The page content couldn't be loaded. Please try one of these options:</p>
+        <div style="margin-top: 20px;">
+            <a href="strategy-consultation.html" style="display: inline-block; padding: 10px 20px; background-color: #6d28d9; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">View Original Page</a>
+            <a href="debug-strategy.html" style="display: inline-block; padding: 10px 20px; background-color: #6d28d9; color: white; text-decoration: none; border-radius: 5px;">Go to Debug Page</a>
+        </div>
+    </div>
+    
+    <script>
+        // Show fallback content if iframe fails to load after 5 seconds
+        setTimeout(function() {
+            const iframe = document.getElementById('strategy-iframe');
+            const loadingMessage = document.querySelector('.page-loading-message');
+            const fallbackContent = document.getElementById('fallback-content');
+            
+            if (iframe.style.display === 'none' || loadingMessage.textContent.includes('Error')) {
+                loadingMessage.style.display = 'none';
+                fallbackContent.style.display = 'block';
+            }
+        }, 5000);
+    </script>
+</body>
+</html> 

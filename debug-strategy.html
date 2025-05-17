@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Strategy Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #6d28d9;
+        }
+        .diagnostic {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d1fae5;
+            border-color: #10b981;
+        }
+        .error {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #6d28d9;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        pre {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Strategy Consultation Page Diagnostic</h1>
+    
+    <div class="diagnostic" id="browser-info"></div>
+    
+    <div class="diagnostic" id="css-vars-test"></div>
+    
+    <div class="diagnostic" id="js-libraries-test"></div>
+    
+    <div>
+        <h2>Actions</h2>
+        <a href="strategy-consultation.html" class="btn">View Strategy Page</a>
+        <a href="#" class="btn" id="checkScriptsBtn">Check Script Loading</a>
+        <a href="#" class="btn" id="checkStylesBtn">Check CSS Variables</a>
+        <a href="#" class="btn" id="fixAOSBtn">Initialize AOS</a>
+    </div>
+    
+    <div>
+        <h2>Log</h2>
+        <pre id="log"></pre>
+    </div>
+    
+    <!-- Load required libraries for testing -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    
+    <script>
+        // Browser info
+        const browserInfoDiv = document.getElementById('browser-info');
+        browserInfoDiv.innerHTML = `
+            <h2>Browser Information</h2>
+            <p>User Agent: ${navigator.userAgent}</p>
+            <p>Browser: ${navigator.appName}</p>
+            <p>Version: ${navigator.appVersion}</p>
+        `;
+        
+        // Log function
+        function log(message) {
+            const logElement = document.getElementById('log');
+            logElement.textContent += message + '\n';
+        }
+        
+        // Check if CSS variables are working
+        document.getElementById('checkStylesBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const cssVarsDiv = document.getElementById('css-vars-test');
+            cssVarsDiv.innerHTML = '<h2>CSS Variables Test</h2>';
+            
+            // Create a test element
+            const testElement = document.createElement('div');
+            testElement.style.height = '20px';
+            testElement.style.width = '100%';
+            testElement.style.backgroundColor = 'var(--primary, red)';
+            testElement.style.marginBottom = '10px';
+            cssVarsDiv.appendChild(testElement);
+            
+            // Check if the variable worked or fallback was used
+            const computedStyle = getComputedStyle(testElement);
+            const bgColor = computedStyle.backgroundColor;
+            
+            if (bgColor === 'rgb(255, 0, 0)') {
+                // Red means fallback was used, var(--primary) is not defined
+                cssVarsDiv.innerHTML += '<p class="error">CSS Variable --primary is not defined or not working!</p>';
+                log('Error: CSS Variable --primary is not defined or not working');
+            } else {
+                cssVarsDiv.innerHTML += '<p class="success">CSS Variables are working correctly!</p>';
+                log('Success: CSS Variables are working correctly');
+            }
+            
+            cssVarsDiv.innerHTML += `<p>Computed background color: ${bgColor}</p>`;
+        });
+        
+        // Check if JS libraries are loaded
+        document.getElementById('checkScriptsBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const jsLibsDiv = document.getElementById('js-libraries-test');
+            jsLibsDiv.innerHTML = '<h2>JavaScript Libraries Test</h2>';
+            
+            // Test AOS
+            if (typeof AOS !== 'undefined') {
+                jsLibsDiv.innerHTML += '<p class="success">AOS is loaded!</p>';
+                log('Success: AOS is loaded');
+            } else {
+                jsLibsDiv.innerHTML += '<p class="error">AOS is NOT loaded!</p>';
+                log('Error: AOS is NOT loaded');
+            }
+            
+            // Test GSAP
+            if (typeof gsap !== 'undefined') {
+                jsLibsDiv.innerHTML += '<p class="success">GSAP is loaded!</p>';
+                log('Success: GSAP is loaded');
+            } else {
+                jsLibsDiv.innerHTML += '<p class="error">GSAP is NOT loaded!</p>';
+                log('Error: GSAP is NOT loaded');
+            }
+            
+            // Test Particles.js
+            if (typeof particlesJS !== 'undefined') {
+                jsLibsDiv.innerHTML += '<p class="success">Particles.js is loaded!</p>';
+                log('Success: Particles.js is loaded');
+            } else {
+                jsLibsDiv.innerHTML += '<p class="error">Particles.js is NOT loaded!</p>';
+                log('Error: Particles.js is NOT loaded');
+            }
+        });
+        
+        // Initialize AOS
+        document.getElementById('fixAOSBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    mirror: false,
+                    easing: 'ease-in-out'
+                });
+                log('AOS initialized manually');
+                alert('AOS initialized. Please check the strategy page now!');
+            } else {
+                log('Error: Cannot initialize AOS - library not loaded');
+                alert('Error: AOS library is not loaded!');
+            }
+        });
+    </script>
+</body>
+</html> 

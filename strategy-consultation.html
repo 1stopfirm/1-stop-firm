@@ -26,6 +26,110 @@
     <!-- AOS for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Fix for section visibility issues -->
+    <style>
+        /* Ensure CSS variables are properly defined */
+        :root {
+            --primary: #6d28d9 !important;
+            --primary-dark: #5b21b6 !important;
+            --secondary: #FF0080 !important;
+            --secondary-dark: #CF006B !important;
+            --accent: #00CFFD !important;
+            --dark: #121212 !important;
+            --light: #FFFFFF !important;
+            --gray: #F4F7FC !important;
+            --text: #333333 !important;
+            --text-light: #777777 !important;
+        }
+        
+        /* Force all sections to be visible */
+        section, .section, 
+        #services, #process, #case-studies,
+        .services-grid, .process-timeline, .tabs-container,
+        .case-studies-section, .cta-section {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Make all AOS elements visible regardless of animation state */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+        }
+        
+        /* Fix services grid layout as squared cards in 2 rows of 3 */
+        .services-section .services-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            grid-auto-rows: auto !important;
+            gap: 30px !important;
+            margin-top: 50px !important;
+        }
+        
+        .services-section .service-flip-card {
+            display: block !important;
+            aspect-ratio: 1 !important;
+            width: 100% !important;
+            max-width: none !important;
+            height: 0 !important;
+            padding-bottom: 100% !important;
+            position: relative !important;
+        }
+        
+        .services-section .service-flip-card-inner {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+    
+    <script>
+        // Initialize AOS and force visibility on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    mirror: false,
+                    disable: true // Disable AOS to ensure elements are visible
+                });
+            }
+            
+            // Force all sections to be visible after a short delay
+            setTimeout(function() {
+                const selectors = [
+                    'section', '.section', 
+                    '#services', '#process', '#case-studies',
+                    '.services-grid', '.process-timeline', '.tabs-container',
+                    '.case-studies-section', '.cta-section'
+                ];
+                
+                selectors.forEach(selector => {
+                    document.querySelectorAll(selector).forEach(el => {
+                        el.style.display = 'block';
+                        el.style.opacity = '1';
+                        el.style.visibility = 'visible';
+                    });
+                });
+                
+                // Make all AOS elements visible
+                document.querySelectorAll('[data-aos]').forEach(el => {
+                    el.classList.add('aos-animate');
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.style.visibility = 'visible';
+                });
+                
+                console.log('Fix applied: All sections should now be visible');
+            }, 500);
+        });
+    </script>
 </head>
 <body>
     <!-- Sticky Navigation -->
@@ -42,7 +146,8 @@
                     <li><a href="brand-development.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Brand Development</a></li>
                     <li><a href="fresh-website-development.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Website Development</a></li>
                     <li><a href="strategy-consultation.html" class="active" style="color: var(--primary); text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease; border-bottom: 2px solid var(--primary);">Strategy Consultation</a></li>
-                    <li><a href="#" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">About</a></li>
+                    <li><a href="about.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">About</a></li>
+                    <li><a href="blogs.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Blog</a></li>
                     <li><a href="#contact" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Contact</a></li>
                 </ul>
             </nav>
