@@ -67,6 +67,31 @@
             transform: none !important;
             visibility: visible !important;
         }
+        
+        /* Fix for navbar spacing issues */
+        .header .container {
+            width: 92%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            justify-content: space-between;
+        }
+        
+        .navbar-brand {
+            margin-left: 5px;
+        }
+        
+        .navbar-menu {
+            margin-right: 5px;
+        }
+        
+        .navbar-menu li:last-child {
+            margin-right: 5px;
+        }
         :root {
             --primary: #6d28d9;
             --primary-dark: #5b21b6;
@@ -228,13 +253,13 @@
     <!-- Header/Navigation -->
     <header class="header" id="header">
         <div class="container">
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Main navigation">
                 <a href="index.html" class="navbar-brand">
-                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" class="logo-img">
+                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="60" height="60" class="logo-img">
                     <span class="logo-text">1StopFirm</span>
                 </a>
                 
-                <button class="navbar-toggle" aria-label="Toggle navigation">
+                <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -596,16 +621,11 @@
             <div class="hero-content">
                 <div class="hero-badge" data-aos="fade-up" data-aos-delay="100">About 1StopFirm</div>
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
-                    We're <span class="gradient-text">Transforming</span>
-                    <div class="typewriter-container">
-                        <span class="typewriter-text" id="typewriter"></span>
-                        <span class="typewriter-cursor">|</span>
-                    </div>
+                    Leading Digital Marketing Agency With <span class="gradient-text">10+ Years</span> of Industry Excellence
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
-                    As a forward-thinking digital agency, we combine advanced technology, 
-                    creative strategy, and data-driven insights to deliver exceptional 
-                    digital experiences that drive real business growth.
+                    1StopFirm combines innovative strategy, creative excellence, and technical expertise 
+                    to deliver comprehensive digital marketing solutions that transform businesses.
                 </p>
                 <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
                     <a href="#our-mission" class="btn btn-primary btn-light-text">Discover Our Story</a>
@@ -1344,7 +1364,7 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <div class="section-badge">Our Mission</div>
-                <h2 class="section-title">We're on a mission to <span class="gradient-text">redefine digital</span></h2>
+                <h2 class="section-title">Our Mission: <span class="gradient-text">Redefining Digital Marketing Excellence</span></h2>
                 <div class="section-line"></div>
             </div>
             
@@ -1352,8 +1372,9 @@
                 <!-- Mission Statement with Parallax Images -->
                 <div class="mission-statement" data-aos="fade-up" data-aos-delay="100">
                     <p class="lead-text">
-                        At 1StopFirm, we believe in the transformative power of exceptional digital experiences.
-                        We are driven by a commitment to excellence, innovation, and measurable results.
+                        At 1StopFirm, we're a results-driven marketing agency committed to delivering exceptional 
+                        digital experiences that drive measurable business growth through innovative strategies 
+                        and creative solutions.
                     </p>
                     
                     <div class="mission-grid">
@@ -1362,7 +1383,7 @@
                                 <i class="fas fa-rocket"></i>
                             </div>
                             <h3>Innovation First</h3>
-                            <p>We constantly push boundaries and explore cutting-edge technologies to deliver forward-thinking solutions.</p>
+                            <p>Our marketing consultants constantly push boundaries with cutting-edge digital strategies and technologies to deliver forward-thinking marketing solutions.</p>
                         </div>
                         
                         <div class="mission-card" data-aos="zoom-in" data-aos-delay="300">
@@ -1370,7 +1391,7 @@
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                             <h3>Creative Excellence</h3>
-                            <p>We blend artistic vision with strategic thinking to create digital experiences that captivate and convert.</p>
+                            <p>Our agency blends artistic vision with strategic marketing thinking to create digital experiences that captivate audiences and convert visitors.</p>
                         </div>
                         
                         <div class="mission-card" data-aos="zoom-in" data-aos-delay="400">
@@ -1378,7 +1399,7 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h3>Results Driven</h3>
-                            <p>We measure success by the tangible business outcomes we deliver for our clients.</p>
+                            <p>As a performance-focused marketing agency, we measure success by the tangible business outcomes and ROI we deliver for our clients.</p>
                         </div>
                         
                         <div class="mission-card" data-aos="zoom-in" data-aos-delay="500">
@@ -1386,7 +1407,7 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <h3>Client Partnership</h3>
-                            <p>We form true partnerships with our clients, collaborating closely to achieve shared goals.</p>
+                            <p>We form true partnerships with our clients, collaborating closely as an extension of your team to achieve shared business goals.</p>
                         </div>
                     </div>
                 </div>
@@ -2050,10 +2071,10 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <div class="section-badge">Our Team</div>
-                <h2 class="section-title">The <span class="gradient-text">talented minds</span> behind our success</h2>
+                <h2 class="section-title">Expert <span class="gradient-text">Marketing Consultants</span> & Digital Specialists</h2>
                 <div class="section-line"></div>
                 <p class="section-description">
-                    Meet our diverse team of experts who bring passion, creativity, and expertise to every project.
+                    Meet our diverse team of marketing experts and digital specialists who bring passion, creativity, and expertise to every client project.
                 </p>
             </div>
             
@@ -2544,11 +2565,10 @@
             <div class="contact-container">
                 <div class="contact-content" data-aos="fade-right">
                     <div class="section-badge">Get In Touch</div>
-                    <h2 class="contact-title">Ready to <span class="gradient-text">transform</span> your digital presence?</h2>
+                    <h2 class="contact-title">Ready to <span class="gradient-text">Transform</span> Your Digital Marketing Strategy?</h2>
                     
                     <p class="contact-subtitle">
-                        Let's discuss how we can help your business reach its full potential in the digital world. 
-                        Our team of experts is ready to create tailored solutions that drive real results.
+                        Schedule a free consultation with our marketing experts to discover how our agency can boost your online presence and drive real business results.
                     </p>
                     
                     <div class="contact-features">
@@ -2618,7 +2638,7 @@
                 
                 <div class="contact-form-container" data-aos="fade-left">
                     <form class="contact-form" id="contactForm">
-                        <h3>Send Us a Message</h3>
+                        <h3>Start Your Digital Transformation Journey</h3>
                         
                         <div class="form-group">
                             <label for="name">Full Name*</label>
@@ -2639,10 +2659,25 @@
                             <label for="service">Service of Interest</label>
                             <select id="service" name="service">
                                 <option value="">Select a Service</option>
-                                <option value="brand-development">Brand Development</option>
+                                <option value="search-engine-optimization">Search Engine Optimization (SEO)</option>
+                                <option value="ppc-management">Pay-Per-Click (PPC) Management</option>
+                                <option value="social-media-marketing">Social Media Marketing</option>
+                                <option value="content-marketing">Content Marketing</option>
                                 <option value="web-development">Web Development</option>
-                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="brand-development">Brand Development</option>
                                 <option value="strategy-consultation">Strategy Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="source">How did you hear about us?</label>
+                            <select id="source" name="source">
+                                <option value="">Please Select</option>
+                                <option value="search-engine">Search Engine (Google, Bing, etc.)</option>
+                                <option value="social-media">Social Media</option>
+                                <option value="referral">Referral from a Friend/Colleague</option>
+                                <option value="online-review">Online Review Site</option>
+                                <option value="other">Other Source</option>
                             </select>
                         </div>
                         

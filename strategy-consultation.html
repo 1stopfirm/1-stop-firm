@@ -130,32 +130,62 @@
             }, 500);
         });
     </script>
+
+    <style>
+        /* Fix for navbar spacing issues */
+        .header .container {
+          width: 92%;
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        
+        .navbar {
+          padding: 15px 0;
+          justify-content: space-between;
+        }
+        
+        .navbar-brand {
+          margin-left: 5px;
+        }
+        
+        .navbar-menu {
+          margin-right: 5px;
+        }
+        
+        .navbar-menu li:last-child {
+          margin-right: 5px;
+        }
+        
+        /* Strategy Consultation Page Styles */
+        // ... existing code ...
+    </style>
 </head>
 <body>
-    <!-- Sticky Navigation -->
-    <header class="main-header" id="main-header">
-        <div class="container flex-between">
-            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="50">
-                <span class="logo-text" style="font-size: 1.5rem; font-weight: 700; color: #333;">1StopFirm</span>
-            </a>
-            <nav class="main-nav">
-                <ul class="flex-row" style="display: flex; list-style: none; gap: 25px; margin: 0; padding: 0;">
-                    <li><a href="index.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Home</a></li>
-                    <li><a href="services.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Services</a></li>
-                    <li><a href="brand-development.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Brand Development</a></li>
-                    <li><a href="fresh-website-development.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Website Development</a></li>
-                    <li><a href="strategy-consultation.html" class="active" style="color: var(--primary); text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease; border-bottom: 2px solid var(--primary);">Strategy Consultation</a></li>
-                    <li><a href="about.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">About</a></li>
-                    <li><a href="blogs.html" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Blog</a></li>
-                    <li><a href="#contact" style="color: #333; text-decoration: none; font-weight: 600; padding: 10px 0; position: relative; transition: all 0.3s ease;">Contact</a></li>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="index.html" class="navbar-brand">
+                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="60" height="60" class="logo-img">
+                    <span class="logo-text">1 Stop Firm</span>
+                </a>
+                
+                <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="navbar-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#case-study">Case Studies</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li><a href="contact-us.html" class="btn btn-primary">Contact Us</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 

@@ -52,6 +52,13 @@
   background-color: var(--color-white);
   padding: 5px;
   border: 2px solid var(--color-primary);
+  height: 60px;
+  width: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  object-fit: contain;
+  transform: none !important;
+  transition: all var(--transition-normal);
 }
 
 .logo-text {
@@ -72,10 +79,14 @@
 .navbar-brand img {
   max-height: 50px;
   transition: all var(--transition-normal);
+  transform: none !important;
 }
 
 .header.scrolled .navbar-brand img {
   max-height: 40px;
+  transform: none !important;
+  width: auto;
+  height: auto;
 }
 
 .navbar-menu {
@@ -558,26 +569,44 @@
 /* Media Queries for Hero Section
 -------------------------------------------------------------- */
 @media (max-width: 767px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  .hero-content-wrapper {
+    padding: 0 1rem;
+    margin-top: 30px;
+    text-align: center;
   }
-  
+  .client-logos {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .client-logos img {
+    margin: 0 4px 8px 4px;
+    width: 40px !important;
+    height: 40px !important;
+    max-width: 40px;
+    max-height: 40px;
+    min-width: 32px;
+    min-height: 32px;
+    object-fit: contain;
+  }
+  .hero-headline {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
   }
-  
   .hero-cta {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
-  
   .hero-cta .btn {
     width: 100%;
-    max-width: 300px;
-  }
-  
-  .scroll-indicator {
-    bottom: 1rem;
+    max-width: 220px;
   }
 }
 
@@ -629,19 +658,29 @@
 
 @media (max-width: 767px) {
   .navbar {
-    padding: 1rem;
+    padding: 0.75rem 0;
   }
-  
+
   .header.scrolled .navbar {
-    padding: 0.8rem 1rem;
+    padding: 0.5rem 0;
   }
-  
+
   .navbar-brand img {
-    height: 50px;
+    max-height: 40px;
+    transform: none !important;
+    width: auto;
+    min-width: 40px;
+    min-height: 40px;
+    object-fit: contain;
   }
-  
+
   .header.scrolled .navbar-brand img {
-    height: 40px;
+    max-height: 35px;
+    transform: none !important;
+    width: auto;
+    min-width: 35px;
+    min-height: 35px;
+    object-fit: contain;
   }
 }
 

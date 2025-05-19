@@ -30,6 +30,52 @@
       font-weight: 600 !important;
     }
     
+    /* Fix for navbar spacing issues */
+    .header .container {
+      width: 92%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .navbar {
+      padding: 15px 0;
+      justify-content: space-between;
+    }
+    
+    /* Fix for logo squeezing on scroll */
+    .navbar-brand {
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar-brand .logo-img {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      min-height: 60px;
+      object-fit: contain;
+      transition: all 0.3s ease;
+      transform: none !important;
+    }
+    
+    .header.scrolled .navbar-brand .logo-img {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      min-height: 50px;
+      transform: none !important;
+    }
+    
+    .navbar-menu {
+      margin-right: 5px;
+    }
+    
+    .navbar-menu li:last-child {
+      margin-right: 5px;
+    }
+    
     /* Advanced Hero Section Styles */
     .hero-next-gen {
       position: relative;
@@ -130,7 +176,7 @@
     }
     
     .client-logos img {
-      filter: brightness(0) invert(1);
+      /* filter: brightness(0) invert(1); */
       opacity: 0.8;
       transition: all 0.3s ease;
       height: auto;
@@ -563,36 +609,38 @@
 <body>
   <!-- Navigation -->
   <header class="header" id="header">
-    <nav class="navbar" aria-label="Main navigation">
-      <a href="#hero" class="navbar-brand">
-        <img src="Bold Purple _1SF_ Icon.png" alt="1 Stop Firm Logo" width="60" height="60" class="logo-img">
-        <span class="logo-text">1 Stop Firm</span>
-      </a>
-      
-      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      
-      <ul class="navbar-menu">
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li class="has-dropdown">
-          <a href="services.html" class="services-link">Services</a>
-          <ul class="dropdown-menu">
-            <li><a href="brand-development.html" class="dropdown-item">Brand Development</a></li>
-            <li><a href="fresh-website-development.html" class="dropdown-item">Web Development</a></li>
-            <li><a href="digital-marketing-service.html" class="dropdown-item">Digital Marketing</a></li>
-            <li><a href="strategy-consultation.html" class="dropdown-item">Strategy Consultation</a></li>
-          </ul>
-        </li>
-        <li><a href="#case-study">Case Studies</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="blogs.html">Blog</a></li>
-        <li><a href="contact-us.html" class="btn btn-primary">Contact Us</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav class="navbar" aria-label="Main navigation">
+        <a href="#hero" class="navbar-brand">
+          <img src="Bold Purple _1SF_ Icon.png" alt="1 Stop Firm Logo" width="60" height="60" class="logo-img">
+          <span class="logo-text">1 Stop Firm</span>
+        </a>
+        
+        <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <ul class="navbar-menu">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <a href="services.html" class="services-link">Services</a>
+            <ul class="dropdown-menu">
+              <li><a href="brand-development.html" class="dropdown-item">Brand Development</a></li>
+              <li><a href="fresh-website-development.html" class="dropdown-item">Web Development</a></li>
+              <li><a href="digital-marketing-service.html" class="dropdown-item">Digital Marketing</a></li>
+              <li><a href="strategy-consultation.html" class="dropdown-item">Strategy Consultation</a></li>
+            </ul>
+          </li>
+          <li><a href="#case-study">Case Studies</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="blogs.html">Blog</a></li>
+          <li><a href="contact-us.html" class="btn btn-primary">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   
   <main>
@@ -622,10 +670,11 @@
         <div class="hero-clients">
           <span class="client-label">Trusted by:</span>
           <div class="client-logos">
-            <img src="mcdonalds.png" alt="McDonald's Logo" width="60">
-            <img src="huawei.png" alt="Huawei Logo" width="60">
-            <img src="firefox.png" alt="Firefox Logo" width="60">
-            <img src="oracle.png" alt="Oracle Logo" width="60">
+            <img src="07cb23bf-5c60-45f6-8180-685e0699b3cc-removebg-preview.png" alt="Logo 1" width="50" height="50">
+            <img src="adobe.png" alt="Logo 2" width="50" height="50">
+            <img src="behance.png" alt="Logo 3" width="50" height="50">
+            <img src="dribbble.png" alt="Logo 4" width="50" height="50">
+            <img src="firefox.png" alt="Logo 5" width="50" height="50">
           </div>
         </div>
       </div>
