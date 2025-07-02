@@ -17,7 +17,7 @@ const urlsToCache = [
   '/scripts/website-development.js',
   '/scripts/brand-development.js',
   '/scripts/digital-marketing.js',
-  '/Bold Purple _1SF_ Icon.png',
+  '/1StopFirm-Logo.png',
   '/mcdonalds.png',
   '/huawei.png',
   '/firefox.png',

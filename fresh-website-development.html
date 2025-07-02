@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Website Development Services | 1StopFirm</title>
-    <link rel="icon" href="Bold Purple _1SF_ Icon.png">
+    <link rel="icon" href="new.ico" type="image/x-icon">
     
     <!-- Using CDN resources to avoid caching issues -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -87,26 +87,45 @@
         .hero-section {
             position: relative;
             padding: 120px 0;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, #0f0f1b 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1e3c72 100%);
             color: white;
             overflow: hidden;
         }
         
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
         
         .hero-title {
             font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 800;
+            background: linear-gradient(45deg, #ffffff, #4f90cd, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(79, 144, 205, 0.4);
         }
         
         .hero-description {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
         }
         
         .hero-shapes {
@@ -115,38 +134,103 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
-            opacity: 0.5;
+            z-index: 2;
+            opacity: 0.7;
         }
         
-        .hero-shape {
+        /* Floating Tech Elements */
+        .tech-element {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
+            background: linear-gradient(45deg, rgba(79, 144, 205, 0.2), rgba(99, 102, 241, 0.2));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .hero-shape:nth-child(1) {
-            top: 10%;
-            left: 10%;
-            width: 100px;
-            height: 100px;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hero-shape:nth-child(2) {
-            top: 40%;
-            right: 10%;
-            width: 150px;
-            height: 150px;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .hero-shape:nth-child(3) {
-            bottom: 10%;
-            left: 20%;
+        .tech-element:nth-child(1) {
+            top: 15%;
+            left: 5%;
             width: 80px;
             height: 80px;
-            animation: float 7s ease-in-out infinite;
+            animation: techFloat 8s ease-in-out infinite;
+        }
+        
+        .tech-element:nth-child(2) {
+            top: 60%;
+            left: 8%;
+            width: 120px;
+            height: 120px;
+            animation: techFloat 12s ease-in-out infinite reverse;
+        }
+        
+        .tech-element:nth-child(3) {
+            top: 25%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            animation: techFloat 10s ease-in-out infinite;
+        }
+        
+        .tech-element:nth-child(4) {
+            bottom: 20%;
+            left: 25%;
+            width: 90px;
+            height: 90px;
+            animation: techFloat 9s ease-in-out infinite reverse;
+        }
+        
+        /* Binary Rain Effect */
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.1;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            white-space: nowrap;
+            color: #4f90cd;
+            font-size: 14px;
+            animation: binaryFall linear infinite;
+        }
+        
+        @keyframes techFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            75% { transform: translateY(-25px) rotate(270deg); }
+        }
+        
+        @keyframes binaryFall {
+            to { transform: translateY(100vh); }
+        }
+        
+        /* Grid Lines Animation */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.1;
+            background: 
+                linear-gradient(90deg, transparent 79px, rgba(79, 144, 205, 0.5) 81px, transparent 82px),
+                linear-gradient(transparent 79px, rgba(79, 144, 205, 0.5) 81px, transparent 82px);
+            background-size: 80px 80px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
         }
         
         /* Services Section */
@@ -181,23 +265,17 @@
         }
         
         .service-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(145deg, #ffffff, #f8f9ff);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             z-index: 2;
             overflow: hidden;
             height: 100%;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(79, 144, 205, 0.15);
         }
         
         .service-card::before {
@@ -207,70 +285,104 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-primary);
+            background: linear-gradient(145deg, rgba(79, 144, 205, 0.08), rgba(99, 102, 241, 0.08));
             opacity: 0;
             z-index: -1;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #4f90cd, #6366f1, #4f90cd);
+            background-size: 400% 400%;
+            border-radius: 22px;
+            z-index: -2;
+            opacity: 0;
+            animation: gradientShift 3s ease infinite;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(79, 144, 205, 0.25);
         }
         
         .service-card:hover::before {
-            opacity: 0.05;
+            opacity: 1;
+        }
+        
+        .service-card:hover::after {
+            opacity: 1;
         }
         
         .service-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
-            margin-bottom: 20px;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(145deg, #4f90cd, #6366f1);
+            border-radius: 20px;
+            margin-bottom: 25px;
             color: white;
             font-size: 1.8rem;
-            transform: translateZ(20px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 8px 25px rgba(79, 144, 205, 0.4);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 15px 35px rgba(79, 144, 205, 0.6);
         }
         
         .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
             position: relative;
-            display: inline-block;
-            transform: translateZ(15px);
+            color: #1a1a2e;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        
+        .service-card:hover .service-title {
+            color: #0f3460;
         }
         
         .service-title::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -5px;
-            width: 50px;
+            bottom: -8px;
+            width: 0;
             height: 3px;
-            background: var(--gradient-primary);
+            background: linear-gradient(45deg, #4f90cd, #6366f1);
             border-radius: 1.5px;
+            transition: width 0.4s ease;
         }
         
-        .service-title .shimmer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .service-card:hover .service-title .shimmer {
-            opacity: 1;
+        .service-card:hover .service-title::after {
+            width: 60px;
         }
         
         .service-description {
             color: #6B7280;
-            transform: translateZ(10px);
+            line-height: 1.6;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .service-card:hover .service-description {
+            color: #4a5568;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
         .shape-background {
@@ -356,39 +468,68 @@
         
         .portfolio-item {
             position: relative;
-            height: 350px;
-            transform-style: preserve-3d;
-            transition: transform 0.8s;
-            border-radius: 15px;
-            box-shadow: var(--shadow-lg);
+            height: 380px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
             cursor: pointer;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            background: linear-gradient(145deg, #ffffff, #f8f9ff);
+            border: 1px solid rgba(168, 237, 234, 0.2);
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(168, 237, 234, 0.9), rgba(255, 214, 227, 0.9));
+            opacity: 0;
+            z-index: 10;
+            transition: all 0.6s ease;
+            backdrop-filter: blur(10px);
         }
         
         .portfolio-item:hover {
-            transform: rotateY(180deg);
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(168, 237, 234, 0.4);
+        }
+        
+        .portfolio-item:hover::before {
+            opacity: 1;
         }
         
         .portfolio-front, .portfolio-back {
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
+            transition: all 0.6s ease;
         }
         
         .portfolio-front {
             z-index: 2;
-            transform: rotateY(0deg);
         }
         
         .portfolio-back {
-            transform: rotateY(180deg);
-            background: white;
-            padding: 30px;
+            z-index: 15;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 35px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .portfolio-item:hover .portfolio-back {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .portfolio-image {
@@ -621,33 +762,111 @@
             50% { opacity: 1; }
         }
         
-        .testimonial-nav {
+        .testimonial-controls {
             display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            gap: 20px;
-        }
-        
-        .testimonial-nav-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            color: var(--primary);
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            gap: 20px;
+            margin-top: 40px;
         }
         
-        .testimonial-nav-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .testimonial-dot {
+            width: 14px;
+            height: 14px;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-dot::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4f90cd, #6366f1);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .testimonial-dot.active::before,
+        .testimonial-dot:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .testimonial-dot.active {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(79, 144, 205, 0.5);
+        }
+        
+        .testimonial-progress {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .testimonial-progress-bar {
+            height: 100%;
+            background: linear-gradient(45deg, #4f90cd, #6366f1);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(79, 144, 205, 0.5);
+        }
+        
+        /* Mobile Responsive for Testimonial Controls */
+        @media (max-width: 768px) {
+            .testimonial-controls {
+                gap: 15px;
+                margin-top: 30px;
+            }
+            
+            .testimonial-dots {
+                gap: 10px;
+            }
+            
+            .testimonial-dot {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .testimonial-dot.active {
+                transform: scale(1.2);
+            }
+            
+            .testimonial-progress {
+                width: 150px;
+                height: 2px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .testimonial-controls {
+                gap: 12px;
+                margin-top: 25px;
+            }
+            
+            .testimonial-progress {
+                width: 120px;
+            }
         }
         
         .client-logos {
@@ -1191,35 +1410,576 @@
         .navbar-menu li:last-child {
           margin-right: 5px;
         }
+
+        /* Modern Indian Client-Focused Navbar Styles */
+        .header-modern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(112, 71, 235, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            position: relative;
+        }
+
+        /* Logo Section */
+        .navbar-brand-section {
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-static {
+            width: 90px !important;
+            height: 90px !important;
+            object-fit: contain;
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7047EB;
+            letter-spacing: -0.5px;
+        }
+
+        /* Navigation Menu */
+        .navbar-menu-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            color: #7047EB;
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            min-width: 500px;
+            padding: 25px;
+            margin-top: 15px;
+            z-index: 10000 !important;
+            pointer-events: none;
+            display: block;
+        }
+
+        /* Hover bridge to prevent dropdown from hiding */
+        .dropdown-menu::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: transparent;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid white;
+            filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.1));
+            z-index: 10001 !important;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(0) !important;
+            pointer-events: auto !important;
+        }
+
+        /* Ensure dropdown trigger area */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown .nav-link {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .dropdown-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7047EB;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-column a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-column a:hover {
+            color: #7047EB;
+            padding-left: 10px;
+        }
+
+        /* CTA Section */
+        .navbar-cta-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-shrink: 0;
+            height: 45px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            height: 45px;
+        }
+
+        .phone-number {
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            height: 45px;
+            line-height: 1;
+        }
+
+        .phone-number i {
+            color: #7047EB;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #7047EB 0%, #5C39D4 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(112, 71, 235, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            background: white;
+            width: 85%;
+            max-width: 400px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-content {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-logo {
+            width: 90px;
+            height: 90px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-nav {
+            padding: 30px 25px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: #7047EB;
+        }
+
+        .mobile-dropdown-content {
+            padding-left: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-content a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: none;
+        }
+
+        .mobile-contact {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .mobile-phone {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #7047EB 0%, #5C39D4 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 30px;
+            }
+            
+            .contact-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 15px 20px;
+            }
+
+            .navbar-menu-section,
+            .contact-info {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .brand-text {
+                font-size: 20px;
+            }
+
+                    .logo-static {
+            width: 90px !important;
+            height: 90px !important;
+        }
+        }
+
+        /* Scroll Effect */
+        .header-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(112, 71, 235, 0.2);
+        }
+
+        .header-modern.scrolled .navbar-container {
+            padding: 12px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header-modern.scrolled .navbar-container {
+                padding: 12px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="navbar" aria-label="Main navigation">
-                <a href="index.html" class="navbar-brand">
-                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="60" height="60" class="logo-img">
-                    <span class="logo-text">1 Stop Firm</span>
+    <!-- Modern Indian Client-Focused Navbar -->
+    <header class="header-modern">
+        <nav class="navbar-container">
+            <!-- Left Section: Logo -->
+            <div class="navbar-brand-section">
+                <a href="index.html" class="brand-logo">
+                    <img src="1StopFirm-Logo.png" alt="1 Stop Firm" style="width: 70px; height: 70px;">
+                    <span class="brand-text">1StopFirm</span>
                 </a>
-                
-                <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            </div>
+
+            <!-- Center Section: Navigation Menu -->
+            <div class="navbar-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Digital Marketing</h4>
+                                    <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
+                                    <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
+                                    <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
+                                    <a href="digital-marketing-service.html#social">Social Media Marketing</a>
+                                    <a href="digital-marketing-service.html#content">Content Marketing</a>
+                                    <a href="digital-marketing-service.html#email">Email Marketing</a>
+                                    <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
+                                    <a href="digital-marketing-service.html#conversion">Conversion Optimization</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Development & Design</h4>
+                                    <a href="fresh-website-development.html">Website Development</a>
+                                    <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
+                                    <a href="fresh-website-development.html#mobile">Mobile App Development</a>
+                                    <a href="brand-development.html">Brand Development</a>
+                                    <a href="brand-development.html#logo">Logo & Identity Design</a>
+                                    <a href="strategy-consultation.html">Strategy Consultation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact-us.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Section: Contact & CTA -->
+            <div class="navbar-cta-section">
+                <div class="contact-info">
+                    <span class="phone-number">
+                        <i class="fas fa-phone"></i>
+                        +91 85271 19684
+                    </span>
+                </div>
+                <a href="contact-us.html" class="cta-button">
+                    Get Free Quote
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                
-                <ul class="navbar-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#case-study">Case Studies</a></li>
-                    <li><a href="index.html#testimonials">Testimonials</a></li>
-                    <li><a href="blogs.html">Blog</a></li>
-                    <li><a href="contact-us.html" class="btn btn-primary">Contact Us</a></li>
-                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <img src="1StopFirm-Logo.png" alt="1 Stop Firm" style="width: 70px; height: 70px;">
+                    <button class="mobile-close" id="mobileClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <nav class="mobile-nav">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <div class="mobile-dropdown active">
+                        <a href="services.html" class="mobile-nav-link dropdown-toggle">Services</a>
+                        <div class="mobile-dropdown-content">
+                            <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
+                            <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
+                            <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
+                            <a href="digital-marketing-service.html#social">Social Media Marketing</a>
+                            <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
+                            <a href="fresh-website-development.html">Website Development</a>
+                            <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
+                            <a href="brand-development.html">Brand Development</a>
+                            <a href="brand-development.html#logo">Logo & Identity Design</a>
+                            <a href="strategy-consultation.html">Strategy Consultation</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="blogs.html" class="mobile-nav-link">Insights</a>
+                    <a href="contact-us.html" class="mobile-nav-link">Contact</a>
             </nav>
+                <div class="mobile-contact">
+                    <p class="mobile-phone">
+                        <i class="fas fa-phone"></i>
+                        +91 85271 19684
+                    </p>
+                    <a href="contact-us.html" class="mobile-cta">Get Free Quote</a>
+                </div>
+            </div>
         </div>
     </header>
+
+
 
     <!-- Hero Section with Code Animation -->
     <section class="hero-section">
@@ -1230,17 +1990,79 @@
                     <p class="hero-description">We create stunning, responsive websites that drive results for your business. Our expert team delivers custom web solutions that combine beautiful design with powerful functionality.</p>
                     <a href="#contact" class="btn btn-light btn-lg">Get Started</a>
                     
-                    <!-- Trusted By Section -->
-                    <div class="hero-clients">
-                        <span class="client-label">Trusted by:</span>
-                        <div class="client-logos" style="justify-content: flex-start;">
-                            <img src="mcdonalds.png" alt="McDonald's Logo">
-                            <img src="huawei.png" alt="Huawei Logo">
-                            <img src="firefox.png" alt="Firefox Logo">
-                            <img src="oracle.png" alt="Oracle Logo">
-                            <img src="muse.png" alt="Muse Logo">
+                    <!-- Tech Success Metrics -->
+                    <div class="tech-metrics" style="margin-top: 40px;">
+                        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 25px; background: rgba(79, 144, 205, 0.12); backdrop-filter: blur(20px); border: 1px solid rgba(79, 144, 205, 0.25); border-radius: 60px; padding: 20px 30px; flex-wrap: nowrap; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease forwards; animation-delay: 1.5s;">
+                            <div style="display: flex; align-items: center; gap: 12px; white-space: nowrap;">
+                                <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #4f90cd, #6366f1); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(79, 144, 205, 0.4);">
+                                    <i class="fas fa-code" style="color: white; font-size: 18px;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.4rem; font-weight: 800; color: #60a5fa; line-height: 1;">300+</div>
+                                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1; text-transform: uppercase; letter-spacing: 0.5px;">Websites</div>
+                                </div>
+                            </div>
+                            
+                            <div style="width: 2px; height: 35px; background: linear-gradient(45deg, rgba(79, 144, 205, 0.4), rgba(99, 102, 241, 0.4));"></div>
+                            
+                            <div style="display: flex; align-items: center; gap: 12px; white-space: nowrap;">
+                                <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #10b981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);">
+                                    <i class="fas fa-server" style="color: white; font-size: 18px;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.4rem; font-weight: 800; color: #34d399; line-height: 1;">99.9%</div>
+                                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1; text-transform: uppercase; letter-spacing: 0.5px;">Uptime</div>
+                                </div>
+                            </div>
+                            
+                            <div style="width: 2px; height: 35px; background: linear-gradient(45deg, rgba(16, 185, 129, 0.4), rgba(245, 158, 11, 0.4));"></div>
+                            
+                            <div style="display: flex; align-items: center; gap: 12px; white-space: nowrap;">
+                                <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #f59e0b, #d97706); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);">
+                                    <i class="fas fa-bolt" style="color: white; font-size: 18px;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.4rem; font-weight: 800; color: #fbbf24; line-height: 1;">40%</div>
+                                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1; text-transform: uppercase; letter-spacing: 0.5px;">Faster</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    
+                    <style>
+                    @keyframes fadeInUp {
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                    
+                    .tech-metrics div:hover {
+                        transform: translateY(-2px);
+                        transition: all 0.3s ease;
+                    }
+                    
+                    @media (max-width: 768px) {
+                        .tech-metrics div[style*="flex"] {
+                            flex-wrap: wrap !important;
+                            gap: 15px !important;
+                            padding: 15px 20px !important;
+                        }
+                        
+                        .tech-metrics div[style*="font-size: 1.4rem"] {
+                            font-size: 1.2rem !important;
+                        }
+                        
+                        .tech-metrics div[style*="width: 45px"] {
+                            width: 40px !important;
+                            height: 40px !important;
+                        }
+                        
+                        .tech-metrics div[style*="width: 2px"] {
+                            display: none !important;
+                        }
+                    }
+                    </style>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <!-- Code Animation -->
@@ -1348,10 +2170,14 @@
                 </div>
             </div>
         </div>
+        <!-- Tech Background Elements -->
+        <div class="grid-lines"></div>
+        <div class="binary-rain" id="binaryRain"></div>
         <div class="hero-shapes">
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
         </div>
     </section>
 
@@ -1361,7 +2187,7 @@
             <h2 class="section-title" data-aos="fade-up">Our Services</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We offer a comprehensive range of website development services tailored to your needs</p>
             
-            <div class="row">
+            <div class="row" style="gap: 20px 0;">
                 <!-- Custom Website Development -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
@@ -1370,7 +2196,6 @@
                         </div>
                         <h3 class="service-title">
                             Custom Website Development
-                            <span class="shimmer"></span>
                         </h3>
                         <p class="service-description">Bespoke websites built from scratch, tailored specifically to your brand and business needs. We create custom solutions that stand out from template-based sites.</p>
                     </div>
@@ -1384,7 +2209,6 @@
                         </div>
                         <h3 class="service-title">
                             E-commerce Development
-                            <span class="shimmer"></span>
                         </h3>
                         <p class="service-description">Powerful online stores built on leading platforms like Shopify, WooCommerce, and Magento. We create seamless shopping experiences that drive sales.</p>
                     </div>
@@ -1398,7 +2222,6 @@
                         </div>
                         <h3 class="service-title">
                             Responsive Web Design
-                            <span class="shimmer"></span>
                         </h3>
                         <p class="service-description">Mobile-first websites that look and function perfectly on all devices and screen sizes. We ensure optimal user experience across desktops, tablets, and smartphones.</p>
                     </div>
@@ -1412,7 +2235,6 @@
                         </div>
                         <h3 class="service-title">
                             Website Redesign
-                            <span class="shimmer"></span>
                         </h3>
                         <p class="service-description">Transform your outdated website into a modern, high-performing digital asset. We refresh your online presence while preserving your brand identity.</p>
                     </div>
@@ -1426,7 +2248,6 @@
                         </div>
                         <h3 class="service-title">
                             CMS Development
-                            <span class="shimmer"></span>
                         </h3>
                         <p class="service-description">Custom WordPress, Drupal, and other CMS implementations. We build easy-to-update websites with powerful content management capabilities.</p>
                     </div>
@@ -1440,7 +2261,6 @@
                         </div>
                         <h3 class="service-title">
                             Web Application Development
-                            <span class="shimmer"></span>
                         </h3>
                         <p class="service-description">Custom web apps that solve specific business challenges. We create interactive, data-driven applications with robust functionality.</p>
                     </div>
@@ -1558,7 +2378,7 @@
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">What our clients say about our website development services</p>
             
             <div class="testimonial-container">
-                <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="200" style="position: relative; min-height: 300px; border-radius: 15px; overflow: hidden;">
                     <!-- Testimonial 1 -->
                     <div class="testimonial-item">
                         <div class="testimonial-header">
@@ -1606,22 +2426,42 @@
                         </div>
                         <p class="testimonial-text">"Working with 1StopFirm on our e-commerce website was an excellent experience. They understood our vision perfectly and built a user-friendly online store that has significantly increased our sales. Their attention to detail and responsive support have been invaluable to our business."</p>
                     </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-item">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Michael Chen" class="testimonial-image">
+                            <div class="testimonial-client-info">
+                                <h4 class="testimonial-client-name">Michael Chen</h4>
+                                <p class="testimonial-client-position">
+                                    CTO, Tech Startup
+                                    <span class="verified-badge">
+                                        <i class="fas fa-check-circle"></i> Verified
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"1StopFirm's technical expertise and innovative approach to web development is outstanding. They delivered a cutting-edge platform that scales perfectly with our business growth. The performance optimization and modern design have given us a significant competitive advantage."</p>
+                    </div>
                 </div>
                 
-                <div class="testimonial-nav">
-                    <button class="testimonial-nav-btn prev-testimonial">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <button class="testimonial-nav-btn next-testimonial">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-                
-                <div class="client-logos" data-aos="fade-up" data-aos-delay="300">
-                    <img src="mcdonalds.png" alt="McDonald's" class="client-logo">
-                    <img src="oracle.png" alt="Oracle" class="client-logo">
-                    <img src="firefox.png" alt="Firefox" class="client-logo">
-                    <img src="huawei.png" alt="Huawei" class="client-logo">
+                <!-- Dot Navigation & Progress Indicator -->
+                <div class="testimonial-controls">
+                    <div class="testimonial-dots">
+                        <button class="testimonial-dot active" data-slide="0"></button>
+                        <button class="testimonial-dot" data-slide="1"></button>
+                        <button class="testimonial-dot" data-slide="2"></button>
+                    </div>
+                    <div class="testimonial-progress">
+                        <div class="testimonial-progress-bar"></div>
+                    </div>
                 </div>
             </div>
             
@@ -1629,203 +2469,460 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact" style="background: linear-gradient(135deg, #4F46E5, #10B981); color: white; padding: 100px 0; position: relative; overflow: hidden;">
-        <!-- Animated Shapes -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
-            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 15s ease-in-out infinite;"></div>
-            <div style="position: absolute; bottom: -150px; left: -50px; width: 250px; height: 250px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 20s ease-in-out infinite alternate;"></div>
-            <div style="position: absolute; top: 20%; left: 10%; width: 120px; height: 120px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 25s ease-in-out infinite;"></div>
-            <div style="position: absolute; bottom: 30%; right: 10%; width: 180px; height: 180px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 18s ease-in-out infinite alternate;"></div>
+    <!-- Modern CTA Section with Contact Form -->
+    <section class="modern-cta" id="contact" style="padding: 100px 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); position: relative; overflow: hidden;">
+      
+      <!-- Background Elements -->
+      <div style="position: absolute; top: -200px; right: -200px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,0,0.1), transparent 70%); z-index: 1;"></div>
+      <div style="position: absolute; bottom: -150px; left: -150px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,163,0,0.1), transparent 70%); z-index: 1;"></div>
+      
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+        
+        <!-- CTA Header -->
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 3.2rem; font-weight: 900; color: white; margin-bottom: 20px; line-height: 1.2;">
+            Ready to <span style="background: linear-gradient(45deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Transform</span> Your Business?
+          </h2>
+          <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+            Join 200+ successful businesses that have achieved extraordinary growth with our proven strategies.
+          </p>
         </div>
         
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="cta-content" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
-                <h2 style="font-size: 2.8rem; margin-bottom: 20px; font-weight: 800;">Ready to Transform Your Digital Presence?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Get in touch today for a free website consultation. Our team of experts will analyze your digital needs and provide personalized recommendations to help you achieve your business goals.</p>
-            </div>
-            
-            <div style="background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); padding: 50px; max-width: 800px; margin: 0 auto; color: #333;">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
-                    <!-- Left Column: Form -->
-                    <div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Get Your Free Consultation</h3>
-                        <form id="contactForm" class="contact-form">
-                            <div style="margin-bottom: 20px;">
-                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your name" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <div style="margin-bottom: 20px;">
-                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="Your email" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <div style="margin-bottom: 20px;">
-                                <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Your phone number" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <div style="margin-bottom: 20px;">
-                                <label for="company" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Company Name</label>
-                                <input type="text" id="company" name="company" placeholder="Your company name" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <button type="submit" style="background: linear-gradient(135deg, #4F46E5, #10B981); color: white; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);">
-                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <!-- Right Column: Contact Info & Benefits -->
-                    <div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Why Choose Us</h3>
-                        
-                        <div style="margin-bottom: 30px;">
-                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                                <div style="background: rgba(79, 70, 229, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-globe" style="color: #4F46E5; font-size: 1.3rem;"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Strategic Approach</h4>
-                                    <p style="margin: 0; color: #666; line-height: 1.6;">We develop websites based on market research and strategic insights.</p>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                                <div style="background: rgba(16, 185, 129, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-palette" style="color: #10B981; font-size: 1.3rem;"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Creative Excellence</h4>
-                                    <p style="margin: 0; color: #666; line-height: 1.6;">Our award-winning design team creates memorable visual designs.</p>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                                <div style="background: rgba(245, 158, 11, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-chart-line" style="color: #F59E0B; font-size: 1.3rem;"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Results-Driven</h4>
-                                    <p style="margin: 0; color: #666; line-height: 1.6;">We focus on creating websites that drive business growth.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f9f9f9; padding: 25px; border-radius: 15px; margin-top: 30px;">
-                            <h4 style="margin: 0 0 15px; font-size: 1.2rem; color: #1a1a2e;">Contact Information</h4>
-                            
-                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
-                                <div style="color: #4F46E5; flex-shrink: 0;">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <a href="tel:+12345678900" style="color: #666; text-decoration: none; transition: all 0.3s ease;">+1 (234) 567-8900</a>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
-                                <div style="color: #4F46E5; flex-shrink: 0;">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <a href="mailto:info@1stopfirm.com" style="color: #666; text-decoration: none; transition: all 0.3s ease;">info@1stopfirm.com</a>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 12px;">
-                                <div style="color: #4F46E5; flex-shrink: 0;">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div style="color: #666;">
-                                    1234 Business Avenue, Suite 567<br>
-                                    New York, NY 10001
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- CTA Content Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+          
+          <!-- Left Side - Benefits & Contact Info -->
+          <div>
+            <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px;">
+              <h3 style="color: #FFD700; font-size: 1.8rem; font-weight: 700; margin-bottom: 30px;">Why Choose 1StopFirm?</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 25px;">
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-check" style="color: #1a1a2e; font-size: 18px; font-weight: bold;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Free Strategy Session</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Get a personalized 60-minute consultation to identify growth opportunities</p>
+                  </div>
                 </div>
+                
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-chart-line" style="color: #1a1a2e; font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Proven Results</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Average 150% growth in revenue within 6 months</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-users" style="color: #1a1a2e; font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Expert Team</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Dedicated specialists in marketing, design, and strategy</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+            <!-- Quick Contact Buttons -->
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="tel:+919876543210" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+              </a>
+              <a href="mailto:hello@1stopfirm.com" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 15px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease;">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+              </a>
+            </div>
+            
+            <!-- Contact Info -->
+            <div style="margin-top: 30px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-phone" style="color: #FFD700; font-size: 16px;"></i>
+                  <span style="font-size: 1.1rem; font-weight: 600;">+91 9876543210</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-envelope" style="color: #FFD700; font-size: 16px;"></i>
+                  <span style="font-size: 1.1rem; font-weight: 600;">hello@1stopfirm.com</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 16px; margin-top: 2px;"></i>
+                  <span style="font-size: 1rem; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Side - Contact Form -->
+          <div>
+            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="color: #1a1a2e; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">Book Your Free Consultation</h3>
+                <p style="color: #666; font-size: 1rem; margin: 0;">Fill out the form below and we'll get back to you within 24 hours</p>
+              </div>
+              
+              <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Web3Forms Integration -->
+                <input type="hidden" name="access_key" value="4c5dad09-c2dc-44ee-a41e-cffa55bc6d8c">
+                <input type="hidden" name="subject" value="New Client Inquiry from 1StopFirm Website">
+                                        <input type="hidden" name="redirect" value="thank-you.html">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                  <div>
+                    <input type="text" id="firstName" name="name" placeholder="First Name *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                  </div>
+                  <div>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                  </div>
+                </div>
+                
+                <div>
+                  <input type="email" id="email" name="email" placeholder="Email Address *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                </div>
+                
+                <div>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                </div>
+                
+                <div>
+                  <select id="service" name="service" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
+                    <option value="" disabled selected>Which service interests you most? *</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="website-development">Website Development</option>
+                    <option value="brand-development">Brand Development</option>
+                    <option value="strategy-consultation">Strategy Consultation</option>
+                    <option value="complete-package">Complete Business Package</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <select id="budget" name="budget" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
+                    <option value="" disabled selected>Your Budget Range (Optional)</option>
+                    <option value="under-50k">Under ₹50,000</option>
+                    <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                    <option value="1l-2l">₹1,00,000 - ₹2,00,000</option>
+                    <option value="2l-5l">₹2,00,000 - ₹5,00,000</option>
+                    <option value="above-5l">Above ₹5,00,000</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <textarea id="message" name="message" placeholder="Tell us about your business goals and challenges..." rows="4" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; resize: vertical; min-height: 100px;"></textarea>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 18px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+                  <span>Schedule Free Consultation</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <p style="text-align: center; font-size: 14px; color: #666; margin: 15px 0 0 0; line-height: 1.4;">
+                  <i class="fas fa-shield-alt" style="color: #28a745; margin-right: 5px;"></i>
+                  We respect your privacy. Your information is 100% secure and will never be shared.
+                </p>
+              </form>
+            </div>
+          </div>
+          
         </div>
         
-        <style>
-            @keyframes floatingSlow {
-                0% { transform: translate(0, 0) rotate(0deg); }
-                50% { transform: translate(20px, 20px) rotate(5deg); }
-                100% { transform: translate(0, 0) rotate(0deg); }
-            }
-            
-            input:focus {
-                outline: none;
-                border-color: #4F46E5 !important;
-                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
-            }
-            
-            button[type="submit"]:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
-            }
-            
-            @media (max-width: 768px) {
-                .cta-content h2 {
-                    font-size: 2.2rem;
-                }
-                
-                .container > div {
-                    padding: 30px;
-                }
-                
-                .container > div > div {
-                    grid-template-columns: 1fr;
-                }
-            }
-        </style>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <h3 class="footer-title">Ready to Start Your Website Project?</h3>
-                    <p class="footer-text">Let's discuss how we can help you achieve your business goals with a stunning, high-performing website.</p>
-                    <a href="#contact" class="btn btn-light">Get In Touch</a>
-                    
-                    <div class="footer-social mt-4">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <div class="d-flex flex-column">
-                        <a href="#" class="footer-link">Home</a>
-                        <a href="#services" class="footer-link">Services</a>
-                        <a href="#portfolio" class="footer-link">Our Work</a>
-                        <a href="#testimonials" class="footer-link">Testimonials</a>
-                        <a href="#contact" class="footer-link">Contact Us</a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-heading">Contact Information</h3>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Business Street, New York, NY 10001</p>
-                        <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
-                        <p><i class="fas fa-envelope me-2"></i> info@1stopfirm.com</p>
-                    </div>
-                </div>
+    <!-- CTA Form Styles and JavaScript -->
+    <style>
+      .modern-cta input:focus,
+      .modern-cta select:focus,
+      .modern-cta textarea:focus {
+        outline: none;
+        border-color: #FFD700 !important;
+        box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2) !important;
+      }
+      
+      .modern-cta button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4) !important;
+      }
+      
+      .modern-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4);
+      }
+      
+      .modern-cta a:nth-child(2):hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #FFD700;
+      }
+      
+      @media (max-width: 768px) {
+        .modern-cta div[style*="grid-template-columns: 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+          gap: 40px !important;
+        }
+        
+        .modern-cta div[style*="grid-template-columns: 1fr 1fr; gap: 15px"] {
+          grid-template-columns: 1fr !important;
+          gap: 15px !important;
+        }
+        
+        .modern-cta h2 {
+          font-size: 2.4rem !important;
+        }
+        
+        .modern-cta div[style*="padding: 40px"] {
+          padding: 25px !important;
+        }
+      }
+      
+      /* Form submission success animation */
+      .form-success {
+        background: linear-gradient(45deg, #28a745, #20c997) !important;
+        color: white !important;
+      }
+      
+      .form-success::after {
+        content: '✓ Message Sent Successfully!';
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+    </style>
+
+    <script>
+      // Contact Form Handling - Let Web3Forms handle submission
+      document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+          contactForm.addEventListener('submit', function() {
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+              // Just show loading state, let Web3Forms handle the rest
+              submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+              submitButton.disabled = true;
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Modern Footer -->
+    <footer style="background: #0a0a0f; color: white; padding: 60px 0 20px;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        
+        <!-- Footer Content -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+          
+          <!-- Company Info -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                              <img src="1StopFirm-Logo.png" alt="1 Stop Firm" style="width: 70px; height: 70px;">
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #FFD700; margin: 0;">1 Stop Firm</h3>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 1StopFirm. All Rights Reserved.</p>
+            <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px; max-width: 300px;">
+              Your trusted partner for digital transformation, branding, and business growth. We turn your vision into reality.
+            </p>
+            <div style="display: flex; gap: 15px;">
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
+          </div>
+          
+          <!-- Services -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Services</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px;"><a href="digital-marketing.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Digital Marketing</a></li>
+              <li style="margin-bottom: 10px;"><a href="fresh-website-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Website Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="brand-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Brand Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="strategy-consultation.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Strategy Consultation</a></li>
+            </ul>
+          </div>
+          
+          <!-- Company -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Company</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+              <li style="margin-bottom: 10px;"><a href="services.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Our Services</a></li>
+              <li style="margin-bottom: 10px;"><a href="blogs.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Blog</a></li>
+              <li style="margin-bottom: 10px;"><a href="contact-us.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
+            </ul>
+          </div>
+          
+          <!-- Contact -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Contact</h4>
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i class="fas fa-phone" style="color: #FFD700; font-size: 14px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">+91 9876543210</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i class="fas fa-envelope" style="color: #FFD700; font-size: 14px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">hello@1stopfirm.com</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 14px; margin-top: 2px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+              </div>
+            </div>
+          </div>
+          
         </div>
+        
+        <!-- Footer Bottom -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <p style="color: rgba(255,255,255,0.6); margin: 0; font-size: 14px;">
+            © 2024 1 Stop Firm. All rights reserved.
+          </p>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s ease;">Privacy Policy</a>
+            <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s ease;">Terms of Service</a>
+          </div>
+        </div>
+        
+      </div>
     </footer>
+
+    <!-- Footer Hover Effects -->
+    <style>
+      footer a:hover {
+        color: #FFD700 !important;
+      }
+      .modern-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4);
+      }
+      .modern-cta a:nth-child(2):hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #FFD700;
+      }
+      @media (max-width: 768px) {
+        footer div[style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+          gap: 30px !important;
+        }
+        .modern-cta h2 {
+          font-size: 2.4rem !important;
+        }
+        .modern-cta div[style*="flex"] {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+      }
+    </style>
+
+    <!-- Modern Navbar JavaScript -->
+    <script>
+        // Modern Navbar Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header-modern');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const mobileOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileClose = document.getElementById('mobileClose');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+
+            // Scroll effect for navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                mobileToggle.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+            }
+
+            // Mobile menu event listeners
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (mobileClose) {
+                mobileClose.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileOverlay) {
+                        toggleMobileMenu();
+                    }
+                });
+            }
+
+            // Mobile dropdown functionality
+            mobileDropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.mobile-nav-link:not(.dropdown-toggle)').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (mobileOverlay.classList.contains('active')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            // Dropdown hover effect for desktop
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                let enterTimeout, leaveTimeout;
+                
+                dropdown.addEventListener('mouseenter', function() {
+                    clearTimeout(leaveTimeout);
+                    clearTimeout(enterTimeout);
+                    enterTimeout = setTimeout(() => {
+                        this.classList.add('active');
+                    }, 150);
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    clearTimeout(enterTimeout);
+                    leaveTimeout = setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 200);
+                });
+            });
+
+            // Active navigation highlight
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && (currentPath.includes(href) || (currentPath === '/' && href === 'index.html'))) {
+                    link.closest('.nav-item, .mobile-nav-link').classList.add('active');
+                }
+            });
+        });
+    </script>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -1843,6 +2940,9 @@
             // GUARANTEED CODE ANIMATION INIT
             initCodeAnimation();
             
+            // Initialize Binary Rain Animation
+            initBinaryRain();
+            
             // Portfolio tabs functionality
             const portfolioTabs = document.querySelectorAll('.portfolio-tab');
             
@@ -1858,44 +2958,262 @@
                 });
             });
             
-            // Testimonial slider functionality
-            const prevBtn = document.querySelector('.prev-testimonial');
-            const nextBtn = document.querySelector('.next-testimonial');
+            // Modern Testimonial slider with dots, swipe, and progress
             const testimonials = document.querySelectorAll('.testimonial-item');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const progressBar = document.querySelector('.testimonial-progress-bar');
+            const testimonialContainer = document.querySelector('.testimonial-slider');
+            
             let currentTestimonial = 0;
+            let isTransitioning = false;
+            let autoSlideInterval;
+            let startX = 0;
+            let startY = 0;
+            let isScrolling = null;
             
-            // Initially hide all testimonials except the first one
-            testimonials.forEach((testimonial, index) => {
-                if (index !== 0) {
-                    testimonial.style.display = 'none';
+            console.log('Testimonial Setup:', {
+                testimonialsCount: testimonials.length,
+                dotsCount: dots.length,
+                progressBar: !!progressBar,
+                container: !!testimonialContainer
+            });
+            
+            if (testimonials.length > 0 && dots.length > 0) {
+                
+                // Initialize testimonials
+                function initTestimonials() {
+                    testimonials.forEach((testimonial, index) => {
+                        testimonial.style.position = 'absolute';
+                        testimonial.style.top = '0';
+                        testimonial.style.left = '0';
+                        testimonial.style.width = '100%';
+                        testimonial.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                        testimonial.style.opacity = index === 0 ? '1' : '0';
+                        testimonial.style.transform = index === 0 ? 'translateX(0) scale(1)' : 'translateX(30px) scale(0.98)';
+                        testimonial.style.pointerEvents = index === 0 ? 'auto' : 'none';
+                        testimonial.style.zIndex = index === 0 ? '10' : '1';
+                    });
+                    
+                    // Initialize dots
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === 0);
+                    });
                 }
-            });
-            
-            // Function to show testimonial by index
-            function showTestimonial(index) {
-                testimonials.forEach(testimonial => {
-                    testimonial.style.display = 'none';
+                
+                // Update progress bar
+                function updateProgress() {
+                    if (!progressBar) return;
+                    const progress = ((currentTestimonial + 1) / testimonials.length) * 100;
+                    progressBar.style.width = `${progress}%`;
+                }
+                
+                // Show specific testimonial
+                function showTestimonial(index) {
+                    if (isTransitioning || index === currentTestimonial) return;
+                    
+                    isTransitioning = true;
+                    const prevIndex = currentTestimonial;
+                    currentTestimonial = index;
+                    
+                    console.log('Switching testimonial:', prevIndex, '→', index);
+                    
+                    // Update testimonials
+                    testimonials.forEach((testimonial, i) => {
+                        if (i === index) {
+                            testimonial.style.opacity = '1';
+                            testimonial.style.transform = 'translateX(0) scale(1)';
+                            testimonial.style.pointerEvents = 'auto';
+                            testimonial.style.zIndex = '10';
+                        } else {
+                            testimonial.style.opacity = '0';
+                            testimonial.style.transform = i < index ? 'translateX(-30px) scale(0.98)' : 'translateX(30px) scale(0.98)';
+                            testimonial.style.pointerEvents = 'none';
+                            testimonial.style.zIndex = '1';
+                        }
+                    });
+                    
+                    // Update dots
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                    
+                    // Update progress
+                    updateProgress();
+                    
+                    // Reset transition lock
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 600);
+                }
+                
+                // Next testimonial
+                function nextTestimonial() {
+                    const nextIndex = (currentTestimonial + 1) % testimonials.length;
+                    showTestimonial(nextIndex);
+                }
+                
+                // Previous testimonial
+                function prevTestimonial() {
+                    const prevIndex = currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1;
+                    showTestimonial(prevIndex);
+                }
+                
+                // Auto-slide functionality
+                function startAutoSlide() {
+                    stopAutoSlide();
+                    autoSlideInterval = setInterval(nextTestimonial, 5000);
+                }
+                
+                function stopAutoSlide() {
+                    if (autoSlideInterval) {
+                        clearInterval(autoSlideInterval);
+                        autoSlideInterval = null;
+                    }
+                }
+                
+                // Dot navigation
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showTestimonial(index);
+                        stopAutoSlide();
+                        setTimeout(startAutoSlide, 3000); // Restart auto-slide after 3 seconds
+                    });
                 });
-                testimonials[index].style.display = 'block';
+                
+                // Touch/Swipe support
+                if (testimonialContainer) {
+                    testimonialContainer.addEventListener('touchstart', function(e) {
+                        startX = e.touches[0].clientX;
+                        startY = e.touches[0].clientY;
+                        isScrolling = null;
+                    }, { passive: true });
+                    
+                    testimonialContainer.addEventListener('touchmove', function(e) {
+                        if (!startX || !startY) return;
+                        
+                        const diffX = e.touches[0].clientX - startX;
+                        const diffY = e.touches[0].clientY - startY;
+                        
+                        if (isScrolling === null) {
+                            isScrolling = Math.abs(diffY) > Math.abs(diffX);
+                        }
+                        
+                        if (!isScrolling && Math.abs(diffX) > 10) {
+                            e.preventDefault();
+                        }
+                    }, { passive: false });
+                    
+                    testimonialContainer.addEventListener('touchend', function(e) {
+                        if (!startX || isScrolling) return;
+                        
+                        const diffX = e.changedTouches[0].clientX - startX;
+                        const threshold = 50;
+                        
+                        if (Math.abs(diffX) > threshold) {
+                            if (diffX > 0) {
+                                prevTestimonial();
+                            } else {
+                                nextTestimonial();
+                            }
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 3000);
+                        }
+                        
+                        startX = 0;
+                        startY = 0;
+                        isScrolling = null;
+                    }, { passive: true });
+                    
+                    // Mouse drag support for desktop
+                    let isDragging = false;
+                    let mouseStartX = 0;
+                    
+                    testimonialContainer.addEventListener('mousedown', function(e) {
+                        isDragging = true;
+                        mouseStartX = e.clientX;
+                        testimonialContainer.style.cursor = 'grabbing';
+                        e.preventDefault();
+                    });
+                    
+                    testimonialContainer.addEventListener('mousemove', function(e) {
+                        if (!isDragging) return;
+                        e.preventDefault();
+                    });
+                    
+                    testimonialContainer.addEventListener('mouseup', function(e) {
+                        if (!isDragging) return;
+                        
+                        const diffX = e.clientX - mouseStartX;
+                        const threshold = 50;
+                        
+                        if (Math.abs(diffX) > threshold) {
+                            if (diffX > 0) {
+                                prevTestimonial();
+                            } else {
+                                nextTestimonial();
+                            }
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 3000);
+                        }
+                        
+                        isDragging = false;
+                        mouseStartX = 0;
+                        testimonialContainer.style.cursor = 'grab';
+                    });
+                    
+                    testimonialContainer.addEventListener('mouseleave', function() {
+                        isDragging = false;
+                        mouseStartX = 0;
+                        testimonialContainer.style.cursor = 'default';
+                    });
+                    
+                    // Pause on hover
+                    testimonialContainer.addEventListener('mouseenter', stopAutoSlide);
+                    testimonialContainer.addEventListener('mouseleave', startAutoSlide);
+                    
+                    // Set cursor style for better UX
+                    testimonialContainer.style.cursor = 'grab';
+                    testimonialContainer.style.userSelect = 'none';
+                }
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', function(e) {
+                    const testimonialSection = document.querySelector('.testimonial-section');
+                    if (testimonialSection && isElementInViewport(testimonialSection)) {
+                        if (e.key === 'ArrowLeft') {
+                            e.preventDefault();
+                            prevTestimonial();
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 3000);
+                        } else if (e.key === 'ArrowRight') {
+                            e.preventDefault();
+                            nextTestimonial();
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 3000);
+                        }
+                    }
+                });
+                
+                // Helper function to check if element is in viewport
+                function isElementInViewport(el) {
+                    const rect = el.getBoundingClientRect();
+                    return (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                }
+                
+                // Initialize everything
+                initTestimonials();
+                updateProgress();
+                startAutoSlide();
+                
+            } else {
+                console.error('Testimonials or dots not found properly');
             }
-            
-            // Previous button click
-            prevBtn.addEventListener('click', function() {
-                currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-                showTestimonial(currentTestimonial);
-            });
-            
-            // Next button click
-            nextBtn.addEventListener('click', function() {
-                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-                showTestimonial(currentTestimonial);
-            });
-            
-            // Auto-rotate testimonials
-            setInterval(function() {
-                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-                showTestimonial(currentTestimonial);
-            }, 6000);
         });
         
         // Separate animation init function to ensure it's called and works
@@ -1959,6 +3277,42 @@
             
             // Start the animation
             animateSequentially();
+        }
+        
+        // Binary Rain Animation for Tech Effect
+        function initBinaryRain() {
+            const binaryContainer = document.getElementById('binaryRain');
+            if (!binaryContainer) return;
+            
+            const binaryChars = ['0', '1'];
+            const columns = Math.floor(window.innerWidth / 20);
+            
+            function createBinaryColumn(index) {
+                const column = document.createElement('div');
+                column.className = 'binary-column';
+                column.style.left = `${index * 20}px`;
+                column.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                column.style.animationDelay = `${Math.random() * 2}s`;
+                
+                let binaryString = '';
+                for (let i = 0; i < 50; i++) {
+                    binaryString += binaryChars[Math.floor(Math.random() * binaryChars.length)];
+                }
+                column.textContent = binaryString;
+                
+                binaryContainer.appendChild(column);
+                
+                // Remove and recreate column after animation
+                column.addEventListener('animationend', () => {
+                    column.remove();
+                    setTimeout(() => createBinaryColumn(index), Math.random() * 2000);
+                });
+            }
+            
+            // Create initial columns
+            for (let i = 0; i < columns; i++) {
+                setTimeout(() => createBinaryColumn(i), Math.random() * 1000);
+            }
         }
     </script>
 </body>

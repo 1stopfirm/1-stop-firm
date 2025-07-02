@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initSmoothScroll();
   initAccessibility();
+  initWeb3Forms(); // Add Web3Forms handling
   
   // Mobile tap-to-flip for service cards
   const serviceCards = document.querySelectorAll('.service-card');
@@ -41,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Optimize image loading
   optimizeImages();
+
+  // Initialize AOS (Animate On Scroll)
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  }
+  
+  // Initialize all revamped section functionality
+  initImpactSection();
+  initSuccessStoriesSection();
+  initInsightsSection();
 });
 
 /**
@@ -688,7 +703,7 @@ function preloadCriticalAssets() {
     'styles/layout.css',
     'styles/components.css',
     'styles/animations.css',
-    'Bold Purple _1SF_ Icon.png',
+    '1StopFirm-Logo.png',
     'mcdonalds.png',
     'huawei.png',
     'firefox.png',
@@ -819,4 +834,530 @@ function optimizeImages() {
             img.classList.add('loaded');
         }
     });
-} 
+}
+
+/*--------------------------------------------------------------
+# Revamped Sections JavaScript - Modern Interactions
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Impact Section Functionality
+--------------------------------------------------------------*/
+
+function initImpactSection() {
+  // Animated counters
+  const counters = document.querySelectorAll('.metric-counter');
+  const progressBars = document.querySelectorAll('.progress-fill');
+  
+  // Create Intersection Observer for counters
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  // Create Intersection Observer for progress bars
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateProgressBar(entry.target);
+        progressObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  // Observe counters
+  counters.forEach(counter => {
+    counterObserver.observe(counter);
+  });
+  
+  // Observe progress bars
+  progressBars.forEach(bar => {
+    progressObserver.observe(bar);
+  });
+}
+
+function animateCounter(counter) {
+  const targetValue = counter.getAttribute('data-target');
+  const isDecimal = counter.getAttribute('data-decimal') === 'true';
+  const target = parseFloat(targetValue);
+  const duration = 2000; // 2 seconds
+  const steps = 60; // 60 steps for smooth animation
+  const increment = target / steps;
+  const stepDuration = duration / steps;
+  
+  let current = 0;
+  
+  const timer = setInterval(() => {
+    current += increment;
+    
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    
+    // Handle different number formats
+    if (isDecimal) {
+      counter.textContent = current.toFixed(1);
+    } else if (target >= 100) {
+      counter.textContent = Math.floor(current);
+    } else {
+      counter.textContent = Math.floor(current);
+    }
+  }, stepDuration);
+}
+
+function animateProgressBar(bar) {
+  const progress = bar.getAttribute('data-progress');
+  
+  setTimeout(() => {
+    bar.style.width = progress + '%';
+  }, 300);
+}
+
+/*--------------------------------------------------------------
+# Success Stories Section Functionality
+--------------------------------------------------------------*/
+
+function initSuccessStoriesSection() {
+  const storyTabs = document.querySelectorAll('.story-tab');
+  const stories = document.querySelectorAll('.success-story');
+  
+  storyTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetStory = this.getAttribute('data-story');
+      
+      // Remove active class from all tabs and stories
+      storyTabs.forEach(t => t.classList.remove('active'));
+      stories.forEach(s => s.classList.remove('active'));
+      
+      // Add active class to clicked tab
+      this.classList.add('active');
+      
+      // Show target story
+      const targetStoryElement = document.querySelector(`[data-story="${targetStory}"].success-story`);
+      if (targetStoryElement) {
+        targetStoryElement.classList.add('active');
+        
+        // Animate metric circles
+        const metricCircles = targetStoryElement.querySelectorAll('.metric-circle');
+        setTimeout(() => {
+          metricCircles.forEach(circle => {
+            const percentage = circle.getAttribute('data-percentage');
+            if (percentage) {
+              animateMetricCircle(circle, percentage);
+            }
+          });
+        }, 300);
+      }
+    });
+  });
+  
+  // Initialize first story
+  const firstStory = document.querySelector('.success-story.active');
+  if (firstStory) {
+    const metricCircles = firstStory.querySelectorAll('.metric-circle');
+    setTimeout(() => {
+      metricCircles.forEach(circle => {
+        const percentage = circle.getAttribute('data-percentage');
+        if (percentage) {
+          animateMetricCircle(circle, percentage);
+        }
+      });
+    }, 1000);
+  }
+}
+
+function animateMetricCircle(circle, percentage) {
+  const targetPercentage = Math.min(percentage, 100); // Cap at 100%
+  const degrees = (targetPercentage / 100) * 360;
+  
+  // Create conic gradient animation
+  let currentDegrees = 0;
+  const duration = 1500; // 1.5 seconds
+  const steps = 60;
+  const increment = degrees / steps;
+  const stepDuration = duration / steps;
+  
+  const timer = setInterval(() => {
+    currentDegrees += increment;
+    
+    if (currentDegrees >= degrees) {
+      currentDegrees = degrees;
+      clearInterval(timer);
+    }
+    
+    circle.style.background = `conic-gradient(from 0deg, #7047eb ${currentDegrees}deg, #e9ecef ${currentDegrees}deg)`;
+  }, stepDuration);
+}
+
+// Case study modal functionality (placeholder)
+function openCaseStudy(storyType) {
+  // This would open a modal or navigate to a detailed case study page
+  console.log(`Opening case study for: ${storyType}`);
+  // Implementation would depend on your modal/routing system
+}
+
+/*--------------------------------------------------------------
+# Insights Section Functionality
+--------------------------------------------------------------*/
+
+function initInsightsSection() {
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const insightCards = document.querySelectorAll('.insight-card');
+  
+  // Filter functionality
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+      
+      // Remove active class from all tabs
+      filterTabs.forEach(t => t.classList.remove('active'));
+      
+      // Add active class to clicked tab
+      this.classList.add('active');
+      
+      // Filter cards
+      filterInsightCards(category, insightCards);
+    });
+  });
+  
+  // Like button functionality
+  const likeBtns = document.querySelectorAll('.engagement-btn.like');
+  likeBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const icon = this.querySelector('i');
+      const count = this.querySelector('span');
+      const currentCount = parseInt(count.textContent);
+      
+      if (icon.classList.contains('far')) {
+        // Like
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        count.textContent = currentCount + 1;
+        this.style.color = '#ff3366';
+      } else {
+        // Unlike
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+        count.textContent = currentCount - 1;
+        this.style.color = '#999';
+      }
+    });
+  });
+  
+  // Newsletter form
+  const newsletterForm = document.querySelector('.newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      
+      if (email) {
+        // Simulate newsletter signup
+        showNotification('Thank you for subscribing! Check your email for confirmation.', 'success');
+        this.reset();
+      }
+    });
+  }
+}
+
+function filterInsightCards(category, cards) {
+  cards.forEach(card => {
+    const cardCategory = card.getAttribute('data-category');
+    
+    if (category === 'all' || cardCategory === category) {
+      card.style.display = 'block';
+      card.style.animation = 'fadeInUp 0.6s ease-out';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+/*--------------------------------------------------------------
+# Utility Functions
+--------------------------------------------------------------*/
+
+function showNotification(message, type = 'info') {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
+    <div class="notification-content">
+      <span class="notification-message">${message}</span>
+      <button class="notification-close">&times;</button>
+    </div>
+  `;
+  
+  // Add styles
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+  `;
+  
+  // Add to document
+  document.body.appendChild(notification);
+  
+  // Animate in
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+  
+  // Add close functionality
+  const closeBtn = notification.querySelector('.notification-close');
+  closeBtn.addEventListener('click', () => {
+    removeNotification(notification);
+  });
+  
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    removeNotification(notification);
+  }, 5000);
+}
+
+function removeNotification(notification) {
+  notification.style.transform = 'translateX(100%)';
+  setTimeout(() => {
+    if (notification.parentNode) {
+      notification.parentNode.removeChild(notification);
+    }
+  }, 300);
+}
+
+/*--------------------------------------------------------------
+# Enhanced Animations and Effects
+--------------------------------------------------------------*/
+
+// Parallax effect for floating elements
+function initParallaxEffects() {
+  const floatingElements = document.querySelectorAll('.floating-element');
+  
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    floatingElements.forEach((element, index) => {
+      const speed = 0.5 + (index * 0.1);
+      element.style.transform = `translateY(${rate * speed}px)`;
+    });
+  });
+}
+
+// Initialize parallax effects when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  initParallaxEffects();
+});
+
+// Smooth scroll enhancement for CTA buttons
+document.addEventListener('DOMContentLoaded', function() {
+  const ctaButtons = document.querySelectorAll('a[href^="#"]');
+  
+  ctaButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+
+/*--------------------------------------------------------------
+# Performance Optimizations
+--------------------------------------------------------------*/
+
+// Debounce function for scroll events
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+/**
+ * Initialize Web3Forms handling for all forms
+ * Provides smooth form submission with loading states
+ */
+function initWeb3Forms() {
+  // Find all forms that use Web3Forms
+  const forms = document.querySelectorAll('form[action*="web3forms.com"]');
+  
+  forms.forEach(form => {
+    form.addEventListener('submit', function() {
+      // Just show loading state, let Web3Forms handle the actual submission
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Add loading class for additional styling
+        submitBtn.classList.add('loading');
+        form.classList.add('submitting');
+      }
+    });
+  });
+  
+  // Handle form validation feedback
+  forms.forEach(form => {
+    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+          this.classList.add('error');
+        } else {
+          this.classList.remove('error');
+        }
+      });
+      
+      input.addEventListener('input', function() {
+        if (this.classList.contains('error') && this.value.trim() !== '') {
+          this.classList.remove('error');
+        }
+      });
+    });
+  });
+  
+  // Add CSS for form states if not already present
+  if (!document.querySelector('#web3forms-styles')) {
+    const style = document.createElement('style');
+    style.id = 'web3forms-styles';
+    style.textContent = `
+      /* Web3Forms Loading States */
+      form.submitting {
+        opacity: 0.8;
+        pointer-events: none;
+      }
+      
+      button.loading {
+        position: relative;
+        background: #ccc !important;
+        cursor: not-allowed !important;
+      }
+      
+      .form-error {
+        border-color: #dc3545 !important;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+      }
+      
+      .spinner {
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Success state for thank you page */
+      .form-success-message {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        text-align: center;
+        font-weight: 600;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+// Optimized scroll handling
+const optimizedScrollHandler = debounce(() => {
+  // Handle scroll-based animations here
+}, 10);
+
+window.addEventListener('scroll', optimizedScrollHandler);
+
+/*--------------------------------------------------------------
+# Accessibility Enhancements
+--------------------------------------------------------------*/
+
+// Add keyboard navigation for tabs
+document.addEventListener('DOMContentLoaded', function() {
+  const allTabs = document.querySelectorAll('.story-tab, .filter-tab');
+  
+  allTabs.forEach(tab => {
+    // Make tabs focusable
+    tab.setAttribute('tabindex', '0');
+    
+    // Add keyboard event listeners
+    tab.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+});
+
+// Add ARIA labels for better accessibility
+document.addEventListener('DOMContentLoaded', function() {
+  const metricCards = document.querySelectorAll('.impact-metric-card');
+  metricCards.forEach(card => {
+    const label = card.querySelector('.metric-label');
+    if (label) {
+      card.setAttribute('aria-label', `Metric: ${label.textContent}`);
+    }
+  });
+  
+  const insightCards = document.querySelectorAll('.insight-card');
+  insightCards.forEach(card => {
+    const title = card.querySelector('.card-title');
+    if (title) {
+      card.setAttribute('aria-label', `Article: ${title.textContent}`);
+    }
+  });
+});
+
+/*--------------------------------------------------------------
+# Error Handling and Fallbacks
+--------------------------------------------------------------*/
+
+// Fallback for browsers that don't support Intersection Observer
+if (!window.IntersectionObserver) {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Trigger animations immediately for older browsers
+    const counters = document.querySelectorAll('.metric-counter');
+    counters.forEach(counter => {
+      setTimeout(() => animateCounter(counter), 1000);
+    });
+    
+    const progressBars = document.querySelectorAll('.progress-fill');
+    progressBars.forEach(bar => {
+      setTimeout(() => animateProgressBar(bar), 1500);
+    });
+  });
+}
+
+// Console message for development
+console.log('🚀 1StopFirm - Revamped UI/UX sections loaded successfully!');
+console.log('✨ Features: Animated counters, Interactive stories, Smart filtering, Enhanced accessibility'); 

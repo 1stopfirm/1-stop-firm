@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/brand-development.css">
-    <link rel="icon" href="Bold Purple _1SF_ Icon.png">
+    <link rel="icon" href="new.ico" type="image/x-icon">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- GSAP for animations -->
@@ -18,6 +18,415 @@
     <!-- Lottie for lightweight animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
     <style>
+        /* Modern Indian Client-Focused Navbar Styles */
+        .header-modern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(112, 71, 235, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            position: relative;
+        }
+
+        /* Logo Section */
+        .navbar-brand-section {
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-static {
+            width: 90px !important;
+            height: 90px !important;
+            object-fit: contain;
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7047EB;
+            letter-spacing: -0.5px;
+        }
+
+        /* Navigation Menu */
+        .navbar-menu-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            color: #7047EB;
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            min-width: 400px;
+            padding: 25px;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .dropdown-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7047EB;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-column a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-column a:hover {
+            color: #7047EB;
+            padding-left: 10px;
+        }
+
+        /* CTA Section */
+        .navbar-cta-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-shrink: 0;
+            height: 45px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            height: 45px;
+        }
+
+        .phone-number {
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            height: 45px;
+            line-height: 1;
+        }
+
+        .phone-number i {
+            color: #7047EB;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #7047EB 0%, #5C39D4 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(112, 71, 235, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            background: white;
+            width: 85%;
+            max-width: 400px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-content {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-logo {
+            width: 90px;
+            height: 90px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-nav {
+            padding: 30px 25px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: #7047EB;
+        }
+
+        .mobile-dropdown-content {
+            padding-left: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            max-height: 300px;
+        }
+
+        .mobile-dropdown-content a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: none;
+        }
+
+        .mobile-contact {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .mobile-phone {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #7047EB 0%, #5C39D4 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 30px;
+            }
+            
+            .contact-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 15px 20px;
+            }
+
+            .navbar-menu-section,
+            .contact-info {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .brand-text {
+                font-size: 20px;
+            }
+
+                    .logo-static {
+            width: 90px !important;
+            height: 90px !important;
+        }
+        }
+
+        /* Scroll Effect */
+        .header-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(112, 71, 235, 0.2);
+        }
+
+        .header-modern.scrolled .navbar-container {
+            padding: 12px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header-modern.scrolled .navbar-container {
+                padding: 12px 20px;
+            }
+        }
+
         /* Responsive styles for service cards table */
         @media (max-width: 768px) {
             .service-overview table {
@@ -39,6 +448,7 @@
         .hero-content {
             position: relative;
             z-index: 10;
+            padding-top: 80px; /* Add padding for fixed navbar */
         }
         
         .hero-background {
@@ -142,31 +552,6 @@
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
-        /* Fix for navbar spacing issues */
-        .header .container {
-          width: 92%;
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-        
-        .navbar {
-          padding: 15px 0;
-          justify-content: space-between;
-        }
-        
-        .navbar-brand {
-          margin-left: 5px;
-        }
-        
-        .navbar-menu {
-          margin-right: 5px;
-        }
-        
-        .navbar-menu li:last-child {
-          margin-right: 5px;
-        }
-        
         /* Brand Development Page Styles */
         /* ... existing code ... */
     </style>
@@ -195,34 +580,185 @@
                 img.src = url + '?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80';
                 console.log('Preloading image:', img.src);
             });
+
+            // Modern Navbar JavaScript
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileClose = document.getElementById('mobileClose');
+            const header = document.querySelector('.header-modern');
+
+            // Mobile menu functionality
+            if (mobileMenuToggle && mobileMenuOverlay) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenuOverlay.classList.add('active');
+                    mobileMenuToggle.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                function closeMobileMenu() {
+                    mobileMenuOverlay.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                if (mobileClose) {
+                    mobileClose.addEventListener('click', closeMobileMenu);
+                }
+
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) {
+                        closeMobileMenu();
+                    }
+                });
+
+                // Close mobile menu when clicking on mobile nav links
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (!this.classList.contains('dropdown-toggle')) {
+                            closeMobileMenu();
+                        }
+                    });
+                });
+
+                // Mobile dropdown functionality
+                document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            dropdown.classList.toggle('active');
+                        });
+                    }
+                });
+            }
+
+            // Scroll effect for navbar
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
         });
     </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="navbar" aria-label="Main navigation">
-                <a href="index.html" class="navbar-brand">
-                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="60" height="60" class="logo-img">
-                    <span class="logo-text">1 Stop Firm</span>
+    <!-- Modern Indian Client-Focused Navbar -->
+    <header class="header-modern">
+        <nav class="navbar-container">
+            <!-- Left Section: Logo -->
+            <div class="navbar-brand-section">
+                <a href="index.html" class="brand-logo">
+                    <img src="1StopFirm-Logo.png" alt="1 Stop Firm" class="logo-static">
+                    <span class="brand-text">1StopFirm</span>
                 </a>
-                
-                <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            </div>
+
+            <!-- Center Section: Navigation Menu -->
+            <div class="navbar-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Digital Marketing</h4>
+                                    <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
+                                    <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
+                                    <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
+                                    <a href="digital-marketing-service.html#social">Social Media Marketing</a>
+                                    <a href="digital-marketing-service.html#content">Content Marketing</a>
+                                    <a href="digital-marketing-service.html#email">Email Marketing</a>
+                                    <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
+                                    <a href="digital-marketing-service.html#conversion">Conversion Optimization</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Development & Design</h4>
+                                    <a href="fresh-website-development.html">Website Development</a>
+                                    <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
+                                    <a href="fresh-website-development.html#mobile">Mobile App Development</a>
+                                    <a href="brand-development.html">Brand Development</a>
+                                    <a href="brand-development.html#logo">Logo & Identity Design</a>
+                                    <a href="strategy-consultation.html">Strategy Consultation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact-us.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Section: Contact & CTA -->
+            <div class="navbar-cta-section">
+                <div class="contact-info">
+                    <span class="phone-number">
+                        <i class="fas fa-phone"></i>
+                        +91 85271 19684
+                    </span>
+                </div>
+                <a href="contact-us.html" class="cta-button">
+                    Get Free Quote
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                
-                <ul class="navbar-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#case-study">Case Studies</a></li>
-                    <li><a href="index.html#testimonials">Testimonials</a></li>
-                    <li><a href="blogs.html">Blog</a></li>
-                    <li><a href="contact-us.html" class="btn btn-primary">Contact Us</a></li>
-                </ul>
-            </nav>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <img src="1StopFirm-Logo.png" alt="1 Stop Firm" class="mobile-logo">
+                    <button class="mobile-close" id="mobileClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <nav class="mobile-nav">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <div class="mobile-dropdown">
+                        <a href="services.html" class="mobile-nav-link dropdown-toggle">Services</a>
+                        <div class="mobile-dropdown-content">
+                            <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
+                            <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
+                            <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
+                            <a href="digital-marketing-service.html#social">Social Media Marketing</a>
+                            <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
+                            <a href="fresh-website-development.html">Website Development</a>
+                            <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
+                            <a href="brand-development.html">Brand Development</a>
+                            <a href="brand-development.html#logo">Logo & Identity Design</a>
+                            <a href="strategy-consultation.html">Strategy Consultation</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="blogs.html" class="mobile-nav-link">Insights</a>
+                    <a href="contact-us.html" class="mobile-nav-link">Contact</a>
+                </nav>
+                <div class="mobile-contact">
+                    <p class="mobile-phone">
+                        <i class="fas fa-phone"></i>
+                        +91 85271 19684
+                    </p>
+                    <a href="contact-us.html" class="mobile-cta">Get Free Quote</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -245,12 +781,20 @@
                         <a href="#services" class="btn btn-outline btn-lg" style="background: transparent; color: white; border: 2px solid white; padding: 15px 30px; font-size: 1rem; font-weight: 700; position: relative; z-index: 5;">Explore Services</a>
                     </div>
                     <div class="hero-clients">
-                        <span class="client-label">Trusted by:</span>
-                        <div class="client-logos">
-                            <img src="mcdonalds.png" alt="McDonald's Logo" width="60">
-                            <img src="huawei.png" alt="Huawei Logo" width="60">
-                            <img src="firefox.png" alt="Firefox Logo" width="60">
-                            <img src="oracle.png" alt="Oracle Logo" width="60">
+                        <span class="client-label">Proven Results:</span>
+                        <div class="success-metrics">
+                            <div class="metric-item">
+                                <span class="metric-number">150+</span>
+                                <span class="metric-label">Brands Created</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">85%</span>
+                                <span class="metric-label">Brand Recognition</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">4X</span>
+                                <span class="metric-label">Brand Value Increase</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -293,17 +837,19 @@
                                 <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
                             </div>
                             <div class="service-card-back">
-                                <h3>Brand Strategy</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check-circle"></i> Market & Competitor Analysis</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Positioning Strategy</li>
-                                    <li><i class="fas fa-check-circle"></i> Target Audience Profiling</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Voice Development</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Messaging Strategy</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Experience Mapping</li>
-                                </ul>
-                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(17, 153, 142, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
-                                    <a href="#contact" class="btn" style="background: white; color: #11998e; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                <div class="service-card-back-content">
+                                    <h3>Brand Strategy</h3>
+                                    <ul class="service-features">
+                                        <li><i class="fas fa-check-circle"></i> Market & Competitor Analysis</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Positioning Strategy</li>
+                                        <li><i class="fas fa-check-circle"></i> Target Audience Profiling</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Voice Development</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Messaging Strategy</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Experience Mapping</li>
+                                    </ul>
+                                </div>
+                                <div class="service-card-back-button">
+                                    <a href="#contact" class="btn" style="color: #11998e;">
                                         <i class="fas fa-chess" style="margin-right: 8px;"></i> Get Started
                                     </a>
                                 </div>
@@ -322,17 +868,19 @@
                                 <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
                             </div>
                             <div class="service-card-back">
-                                <h3>Visual Identity</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check-circle"></i> Logo Design & Development</li>
-                                    <li><i class="fas fa-check-circle"></i> Color Palette Creation</li>
-                                    <li><i class="fas fa-check-circle"></i> Typography Selection</li>
-                                    <li><i class="fas fa-check-circle"></i> Visual Element Design</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Guidelines Manual</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Asset Creation</li>
-                                </ul>
-                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(142, 45, 226, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
-                                    <a href="#contact" class="btn" style="background: white; color: #8e2de2; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                <div class="service-card-back-content">
+                                    <h3>Visual Identity</h3>
+                                    <ul class="service-features">
+                                        <li><i class="fas fa-check-circle"></i> Logo Design & Development</li>
+                                        <li><i class="fas fa-check-circle"></i> Color Palette Creation</li>
+                                        <li><i class="fas fa-check-circle"></i> Typography Selection</li>
+                                        <li><i class="fas fa-check-circle"></i> Visual Element Design</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Guidelines Manual</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Asset Creation</li>
+                                    </ul>
+                                </div>
+                                <div class="service-card-back-button">
+                                    <a href="#contact" class="btn" style="color: #8e2de2;">
                                         <i class="fas fa-palette" style="margin-right: 8px;"></i> Get Started
                                     </a>
                                 </div>
@@ -354,17 +902,19 @@
                                 <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
                             </div>
                             <div class="service-card-back">
-                                <h3>Brand Messaging</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check-circle"></i> Brand Story Development</li>
-                                    <li><i class="fas fa-check-circle"></i> Value Proposition Creation</li>
-                                    <li><i class="fas fa-check-circle"></i> Tagline & Slogan Crafting</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Voice Guidelines</li>
-                                    <li><i class="fas fa-check-circle"></i> Key Message Framework</li>
-                                    <li><i class="fas fa-check-circle"></i> Content Strategy Alignment</li>
-                                </ul>
-                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255, 62, 108, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
-                                    <a href="#contact" class="btn" style="background: white; color: #ff3e6c; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                <div class="service-card-back-content">
+                                    <h3>Brand Messaging</h3>
+                                    <ul class="service-features">
+                                        <li><i class="fas fa-check-circle"></i> Brand Story Development</li>
+                                        <li><i class="fas fa-check-circle"></i> Value Proposition Creation</li>
+                                        <li><i class="fas fa-check-circle"></i> Tagline & Slogan Crafting</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Voice Guidelines</li>
+                                        <li><i class="fas fa-check-circle"></i> Key Message Framework</li>
+                                        <li><i class="fas fa-check-circle"></i> Content Strategy Alignment</li>
+                                    </ul>
+                                </div>
+                                <div class="service-card-back-button">
+                                    <a href="#contact" class="btn" style="color: #ff3e6c;">
                                         <i class="fas fa-comments" style="margin-right: 8px;"></i> Get Started
                                     </a>
                                 </div>
@@ -383,17 +933,19 @@
                                 <span class="service-card-arrow"><i class="fas fa-arrow-right"></i></span>
                             </div>
                             <div class="service-card-back">
-                                <h3>Brand Experience</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check-circle"></i> Customer Journey Mapping</li>
-                                    <li><i class="fas fa-check-circle"></i> Touchpoint Optimization</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Activation Planning</li>
-                                    <li><i class="fas fa-check-circle"></i> User Experience Design</li>
-                                    <li><i class="fas fa-check-circle"></i> Employee Brand Training</li>
-                                    <li><i class="fas fa-check-circle"></i> Brand Loyalty Programs</li>
-                                </ul>
-                                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(101, 78, 163, 0.7); padding: 15px; text-align: center; border-radius: 0 0 12px 12px; backdrop-filter: blur(5px);">
-                                    <a href="#contact" class="btn" style="background: white; color: #654ea3; border: none; padding: 10px 25px; font-weight: 700; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: inline-block; transform: translateY(-5px);">
+                                <div class="service-card-back-content">
+                                    <h3>Brand Experience</h3>
+                                    <ul class="service-features">
+                                        <li><i class="fas fa-check-circle"></i> Customer Journey Mapping</li>
+                                        <li><i class="fas fa-check-circle"></i> Touchpoint Optimization</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Activation Planning</li>
+                                        <li><i class="fas fa-check-circle"></i> User Experience Design</li>
+                                        <li><i class="fas fa-check-circle"></i> Employee Brand Training</li>
+                                        <li><i class="fas fa-check-circle"></i> Brand Loyalty Programs</li>
+                                    </ul>
+                                </div>
+                                <div class="service-card-back-button">
+                                    <a href="#contact" class="btn" style="color: #654ea3;">
                                         <i class="fas fa-heart" style="margin-right: 8px;"></i> Get Started
                                     </a>
                                 </div>
@@ -843,234 +1395,366 @@
         </script>
     </section>
 
-    <!-- Contact Section -->
-    <section class="cta-section" id="contact" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; padding: 100px 0; position: relative; overflow: hidden;">
-        <!-- Animated Shapes -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
-            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 15s ease-in-out infinite;"></div>
-            <div style="position: absolute; bottom: -150px; left: -50px; width: 250px; height: 250px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 20s ease-in-out infinite alternate;"></div>
-            <div style="position: absolute; top: 20%; left: 10%; width: 120px; height: 120px; background: rgba(255, 255, 255, 0.1); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: floatingSlow 25s ease-in-out infinite;"></div>
-            <div style="position: absolute; bottom: 30%; right: 10%; width: 180px; height: 180px; background: rgba(255, 255, 255, 0.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: floatingSlow 18s ease-in-out infinite alternate;"></div>
+
+
+    <!-- Modern CTA Section with Contact Form -->
+    <section class="modern-cta" id="contact" style="padding: 100px 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); position: relative; overflow: hidden;">
+      
+      <!-- Background Elements -->
+      <div style="position: absolute; top: -200px; right: -200px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,0,0.1), transparent 70%); z-index: 1;"></div>
+      <div style="position: absolute; bottom: -150px; left: -150px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,163,0,0.1), transparent 70%); z-index: 1;"></div>
+      
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+        
+        <!-- CTA Header -->
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 3.2rem; font-weight: 900; color: white; margin-bottom: 20px; line-height: 1.2;">
+            Ready to <span style="background: linear-gradient(45deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Transform</span> Your Business?
+          </h2>
+          <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+            Join 200+ successful businesses that have achieved extraordinary growth with our proven strategies.
+          </p>
         </div>
         
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="cta-content" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
-                <h2 style="font-size: 2.8rem; margin-bottom: 20px; font-weight: 800;">Ready to Transform Your Brand?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Get in touch today for a free brand consultation. Our team of experts will analyze your current brand and provide personalized recommendations to help you achieve your business goals.</p>
-            </div>
-            
-            <div style="background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); padding: 50px; max-width: 800px; margin: 0 auto; color: #333;">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
-                    <!-- Left Column: Form -->
-                    <div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Get Your Free Consultation</h3>
-                        <form id="contactForm" class="contact-form">
-                            <div style="margin-bottom: 20px;">
-                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your name" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <div style="margin-bottom: 20px;">
-                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="Your email" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <div style="margin-bottom: 20px;">
-                                <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Your phone number" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <div style="margin-bottom: 20px;">
-                                <label for="company" style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">Company Name</label>
-                                <input type="text" id="company" name="company" placeholder="Your company name" style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease;">
-                            </div>
-                            
-                            <button type="submit" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; border: none; padding: 15px 30px; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 62, 108, 0.3);">
-                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <!-- Right Column: Contact Info & Benefits -->
-                    <div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #1a1a2e;">Why Choose Us</h3>
-                        
-                        <div style="margin-bottom: 30px;">
-                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                                <div style="background: rgba(255, 62, 108, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-globe" style="color: #ff3e6c; font-size: 1.3rem;"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Strategic Approach</h4>
-                                    <p style="margin: 0; color: #666; line-height: 1.6;">We develop brands based on market research and strategic insights.</p>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                                <div style="background: rgba(252, 176, 69, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-palette" style="color: #fcb045; font-size: 1.3rem;"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Creative Excellence</h4>
-                                    <p style="margin: 0; color: #666; line-height: 1.6;">Our award-winning design team creates memorable visual identities.</p>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                                <div style="background: rgba(131, 66, 229, 0.1); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-chart-line" style="color: #8342e5; font-size: 1.3rem;"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: #1a1a2e;">Results-Driven</h4>
-                                    <p style="margin: 0; color: #666; line-height: 1.6;">We focus on creating brands that drive business growth.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f9f9f9; padding: 25px; border-radius: 15px; margin-top: 30px;">
-                            <h4 style="margin: 0 0 15px; font-size: 1.2rem; color: #1a1a2e;">Contact Information</h4>
-                            
-                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
-                                <div style="color: #ff3e6c; flex-shrink: 0;">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <a href="tel:+12345678900" style="color: #666; text-decoration: none; transition: all 0.3s ease;">+1 (234) 567-8900</a>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 12px; margin-bottom: 15px;">
-                                <div style="color: #ff3e6c; flex-shrink: 0;">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <a href="mailto:info@1stopfirm.com" style="color: #666; text-decoration: none; transition: all 0.3s ease;">info@1stopfirm.com</a>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; gap: 12px;">
-                                <div style="color: #ff3e6c; flex-shrink: 0;">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div style="color: #666;">
-                                    1234 Business Avenue, Suite 567<br>
-                                    New York, NY 10001
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- CTA Content Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+          
+          <!-- Left Side - Benefits & Contact Info -->
+          <div>
+            <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px;">
+              <h3 style="color: #FFD700; font-size: 1.8rem; font-weight: 700; margin-bottom: 30px;">Why Choose 1StopFirm?</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 25px;">
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-check" style="color: #1a1a2e; font-size: 18px; font-weight: bold;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Free Strategy Session</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Get a personalized 60-minute consultation to identify growth opportunities</p>
+                  </div>
                 </div>
+                
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-chart-line" style="color: #1a1a2e; font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Proven Results</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Average 150% growth in revenue within 6 months</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-users" style="color: #1a1a2e; font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Expert Team</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Dedicated specialists in marketing, design, and strategy</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+            <!-- Quick Contact Buttons -->
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="tel:+919876543210" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+              </a>
+              <a href="mailto:hello@1stopfirm.com" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 15px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease;">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+              </a>
+            </div>
+            
+            <!-- Contact Info -->
+            <div style="margin-top: 30px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-phone" style="color: #FFD700; font-size: 16px;"></i>
+                  <span style="font-size: 1.1rem; font-weight: 600;">+91 9876543210</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-envelope" style="color: #FFD700; font-size: 16px;"></i>
+                  <span style="font-size: 1.1rem; font-weight: 600;">hello@1stopfirm.com</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 16px; margin-top: 2px;"></i>
+                  <span style="font-size: 1rem; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Side - Contact Form -->
+          <div>
+            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="color: #1a1a2e; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">Book Your Free Consultation</h3>
+                <p style="color: #666; font-size: 1rem; margin: 0;">Fill out the form below and we'll get back to you within 24 hours</p>
+              </div>
+              
+              <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Web3Forms Integration -->
+                <input type="hidden" name="access_key" value="4c5dad09-c2dc-44ee-a41e-cffa55bc6d8c">
+                <input type="hidden" name="subject" value="New Client Inquiry from 1StopFirm Website">
+                                        <input type="hidden" name="redirect" value="thank-you.html">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                  <div>
+                    <input type="text" id="firstName" name="name" placeholder="First Name *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                  </div>
+                  <div>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                  </div>
+                </div>
+                
+                <div>
+                  <input type="email" id="email" name="email" placeholder="Email Address *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                </div>
+                
+                <div>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                </div>
+                
+                <div>
+                  <select id="service" name="service" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
+                    <option value="" disabled selected>Which service interests you most? *</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="website-development">Website Development</option>
+                    <option value="brand-development">Brand Development</option>
+                    <option value="strategy-consultation">Strategy Consultation</option>
+                    <option value="complete-package">Complete Business Package</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <select id="budget" name="budget" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
+                    <option value="" disabled selected>Your Budget Range (Optional)</option>
+                    <option value="under-50k">Under ₹50,000</option>
+                    <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                    <option value="1l-2l">₹1,00,000 - ₹2,00,000</option>
+                    <option value="2l-5l">₹2,00,000 - ₹5,00,000</option>
+                    <option value="above-5l">Above ₹5,00,000</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <textarea id="message" name="message" placeholder="Tell us about your business goals and challenges..." rows="4" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; resize: vertical; min-height: 100px;"></textarea>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 18px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+                  <span>Schedule Free Consultation</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <p style="text-align: center; font-size: 14px; color: #666; margin: 15px 0 0 0; line-height: 1.4;">
+                  <i class="fas fa-shield-alt" style="color: #28a745; margin-right: 5px;"></i>
+                  We respect your privacy. Your information is 100% secure and will never be shared.
+                </p>
+              </form>
+            </div>
+          </div>
+          
         </div>
         
-        <style>
-            @keyframes floatingSlow {
-                0% { transform: translate(0, 0) rotate(0deg); }
-                50% { transform: translate(20px, 20px) rotate(5deg); }
-                100% { transform: translate(0, 0) rotate(0deg); }
-            }
-            
-            input:focus {
-                outline: none;
-                border-color: #ff3e6c !important;
-                box-shadow: 0 0 0 3px rgba(255, 62, 108, 0.2) !important;
-            }
-            
-            button[type="submit"]:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 8px 20px rgba(255, 62, 108, 0.4);
-            }
-            
-            @media (max-width: 768px) {
-                .cta-content h2 {
-                    font-size: 2.2rem;
-                }
-                
-                .container > div {
-                    padding: 30px;
-                }
-                
-                .container > div > div {
-                    grid-template-columns: 1fr;
-                }
-            }
-        </style>
+      </div>
     </section>
-    
-    <!-- Footer -->
-    <footer style="background: #1a1a2e; color: white; padding: 50px 0 20px;">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 50px;">
-                <!-- Column 1: About -->
-                <div>
-                    <a href="index.html" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; text-decoration: none;">
-                        <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="40">
-                        <span style="color: white; font-size: 1.5rem; font-weight: 700;">1StopFirm</span>
-                    </a>
-                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7; margin-bottom: 20px;">We help businesses create powerful brands that connect with their audiences and drive growth.</p>
-                    <div style="display: flex; gap: 15px;">
-                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" style="color: white; background: rgba(255, 255, 255, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Column 2: Services -->
-                <div>
-                    <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px;">Our Services</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Brand Strategy</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Visual Identity</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Brand Messaging</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Brand Experience</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Digital Marketing</a></li>
-                        <li><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Website Development</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 3: Quick Links -->
-                <div>
-                    <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px;">Quick Links</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Home</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#about" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">About Us</a></li>
-                        <li style="margin-bottom: 10px;"><a href="services.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Services</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#portfolio" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Portfolio</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#testimonials" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Testimonials</a></li>
-                        <li><a href="#contact" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease;">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 4: Newsletter -->
-                <div>
-                    <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px;">Newsletter</h4>
-                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7; margin-bottom: 20px;">Subscribe to our newsletter for the latest branding insights and industry news.</p>
-                    <form>
-                        <div style="display: flex;">
-                            <input type="email" placeholder="Your email address" style="flex: 1; padding: 12px 15px; border: none; border-radius: 5px 0 0 5px; font-size: 0.9rem;">
-                            <button type="submit" style="background: linear-gradient(135deg, #ff3e6c, #fcb045); color: white; border: none; padding: 12px 15px; border-radius: 0 5px 5px 0; cursor: pointer;">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+
+    <!-- CTA Form Styles and JavaScript -->
+    <style>
+      .modern-cta input:focus,
+      .modern-cta select:focus,
+      .modern-cta textarea:focus {
+        outline: none;
+        border-color: #FFD700 !important;
+        box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2) !important;
+      }
+      
+      .modern-cta button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4) !important;
+      }
+      
+      .modern-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4);
+      }
+      
+      .modern-cta a:nth-child(2):hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #FFD700;
+      }
+      
+      @media (max-width: 768px) {
+        .modern-cta div[style*="grid-template-columns: 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+          gap: 40px !important;
+        }
+        
+        .modern-cta div[style*="grid-template-columns: 1fr 1fr; gap: 15px"] {
+          grid-template-columns: 1fr !important;
+          gap: 15px !important;
+        }
+        
+        .modern-cta h2 {
+          font-size: 2.4rem !important;
+        }
+        
+        .modern-cta div[style*="padding: 40px"] {
+          padding: 25px !important;
+        }
+      }
+      
+      /* Form submission success animation */
+      .form-success {
+        background: linear-gradient(45deg, #28a745, #20c997) !important;
+        color: white !important;
+      }
+      
+      .form-success::after {
+        content: '✓ Message Sent Successfully!';
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+    </style>
+
+    <script>
+      // Contact Form Handling - Let Web3Forms handle submission
+      document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+          contactForm.addEventListener('submit', function() {
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+              // Just show loading state, let Web3Forms handle the rest
+              submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+              submitButton.disabled = true;
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Modern Footer -->
+    <footer style="background: #0a0a0f; color: white; padding: 60px 0 20px;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        
+        <!-- Footer Content -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+          
+          <!-- Company Info -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                              <img src="1StopFirm-Logo.png" alt="1 Stop Firm" style="width: 70px; height: 70px;">
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #FFD700; margin: 0;">1 Stop Firm</h3>
             </div>
-            
-            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; text-align: center; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
-                <p>&copy; 2023 1StopFirm. All rights reserved. | <a href="#" style="color: rgba(255, 255, 255, 0.5); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: rgba(255, 255, 255, 0.5); text-decoration: none;">Terms of Service</a></p>
+            <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px; max-width: 300px;">
+              Your trusted partner for digital transformation, branding, and business growth. We turn your vision into reality.
+            </p>
+            <div style="display: flex; gap: 15px;">
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
+          </div>
+          
+          <!-- Services -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Services</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px;"><a href="digital-marketing.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Digital Marketing</a></li>
+              <li style="margin-bottom: 10px;"><a href="fresh-website-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Website Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="brand-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Brand Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="strategy-consultation.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Strategy Consultation</a></li>
+            </ul>
+          </div>
+          
+          <!-- Company -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Company</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+              <li style="margin-bottom: 10px;"><a href="services.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Our Services</a></li>
+              <li style="margin-bottom: 10px;"><a href="blogs.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Blog</a></li>
+              <li style="margin-bottom: 10px;"><a href="contact-us.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
+            </ul>
+          </div>
+          
+          <!-- Contact -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Contact</h4>
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i class="fas fa-phone" style="color: #FFD700; font-size: 14px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">+91 9876543210</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i class="fas fa-envelope" style="color: #FFD700; font-size: 14px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">hello@1stopfirm.com</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 14px; margin-top: 2px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+              </div>
+            </div>
+          </div>
+          
         </div>
+        
+        <!-- Footer Bottom -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <p style="color: rgba(255,255,255,0.6); margin: 0; font-size: 14px;">
+            © 2024 1 Stop Firm. All rights reserved.
+          </p>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s ease;">Privacy Policy</a>
+            <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s ease;">Terms of Service</a>
+          </div>
+        </div>
+        
+      </div>
     </footer>
-    
+
+    <!-- Footer Hover Effects -->
+    <style>
+      footer a:hover {
+        color: #FFD700 !important;
+      }
+      .modern-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4);
+      }
+      .modern-cta a:nth-child(2):hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #FFD700;
+      }
+      @media (max-width: 768px) {
+        footer div[style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+          gap: 30px !important;
+        }
+        .modern-cta h2 {
+          font-size: 2.4rem !important;
+        }
+        .modern-cta div[style*="flex"] {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+      }
+    </style>
+
     <!-- JavaScript -->
     <script src="scripts/main.js"></script>
     <script src="scripts/brand-development.js"></script>

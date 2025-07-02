@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | 1StopFirm - Digital Insights & Industry Trends</title>
     <meta name="description" content="Explore 1StopFirm's blog for the latest insights on digital marketing, web development, branding strategies, and industry trends.">
-    <link rel="icon" href="Bold Purple _1SF_ Icon.png" type="image/png">
+    <link rel="icon" href="new.ico" type="image/x-icon">
     
     <!-- Core CSS -->
     <link rel="stylesheet" href="styles/global.css">
@@ -30,6 +30,479 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <style>
+        /* Modern Indian Client-Focused Navbar Styles */
+        .header-modern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(112, 71, 235, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            position: relative;
+        }
+        
+        /* Adjust navbar menu section to take less space */
+        .navbar-menu-section {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Logo Section */
+        .navbar-brand-section {
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-static {
+            width: 90px !important;
+            height: 90px !important;
+            object-fit: contain;
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7047EB;
+            letter-spacing: -0.5px;
+        }
+
+        /* Navigation Menu */
+        .navbar-menu-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            color: #7047EB;
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            min-width: 500px;
+            padding: 25px;
+            margin-top: 15px;
+            z-index: 1001;
+            pointer-events: none;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid white;
+            filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid white;
+            filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.1));
+            z-index: 1002;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .dropdown-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7047EB;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-column a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-column a:hover {
+            color: #7047EB;
+            padding-left: 10px;
+        }
+
+        /* CTA Section */
+        .navbar-cta-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+            height: 45px;
+            flex: 1;
+            justify-content: flex-end;
+            max-width: 400px;
+        }
+
+        .contact-info {
+            display: contents;
+        }
+
+        .phone-number {
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            height: 45px;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .phone-number i {
+            color: #7047EB;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #7047EB 0%, #5C39D4 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(112, 71, 235, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            background: white;
+            width: 85%;
+            max-width: 400px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-content {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-logo {
+            width: 90px;
+            height: 90px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-nav {
+            padding: 30px 25px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: #7047EB;
+        }
+
+        .mobile-dropdown-content {
+            padding-left: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-content a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: none;
+        }
+
+        .mobile-contact {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .mobile-phone {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #7047EB 0%, #5C39D4 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 30px;
+            }
+            
+            .navbar-cta-section {
+                gap: 12px;
+            }
+            
+            .phone-number {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .navbar-cta-section {
+                gap: 10px;
+            }
+            
+            .cta-button {
+                padding: 11px 24px;
+                font-size: 14px;
+            }
+            
+            .phone-number {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 15px 20px;
+            }
+
+            .navbar-menu-section,
+            .contact-info {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .brand-text {
+                font-size: 20px;
+            }
+
+                    .logo-static {
+            width: 90px !important;
+            height: 90px !important;
+        }
+        }
+
+        /* Scroll Effect */
+        .header-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(112, 71, 235, 0.2);
+        }
+
+        .header-modern.scrolled .navbar-container {
+            padding: 12px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header-modern.scrolled .navbar-container {
+                padding: 12px 20px;
+            }
+        }
+        
         /* Core Blog page styles */
         :root {
             --primary: #6d28d9;
@@ -1591,37 +2064,119 @@
         </div>
     </div>
     
-    <!-- Header/Navigation -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="navbar-brand">
-                    <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" class="logo-img">
-                    <span class="logo-text">1StopFirm</span>
+    <!-- Modern Indian Client-Focused Navbar -->
+    <header class="header-modern">
+        <nav class="navbar-container">
+            <!-- Left Section: Logo -->
+            <div class="navbar-brand-section">
+                <a href="index.html" class="brand-logo">
+                    <img src="1StopFirm-Logo.png" alt="1 Stop Firm" class="logo-static">
+                    <span class="brand-text">1StopFirm</span>
                 </a>
-                
-                <button class="navbar-toggle" aria-label="Toggle navigation">
+            </div>
+
+            <!-- Center Section: Navigation Menu -->
+            <div class="navbar-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Digital Marketing</h4>
+                                    <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
+                                    <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
+                                    <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
+                                    <a href="digital-marketing-service.html#social">Social Media Marketing</a>
+                                    <a href="digital-marketing-service.html#content">Content Marketing</a>
+                                    <a href="digital-marketing-service.html#email">Email Marketing</a>
+                                    <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
+                                    <a href="digital-marketing-service.html#conversion">Conversion Optimization</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Development & Design</h4>
+                                    <a href="fresh-website-development.html">Website Development</a>
+                                    <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
+                                    <a href="fresh-website-development.html#mobile">Mobile App Development</a>
+                                    <a href="brand-development.html">Brand Development</a>
+                                    <a href="brand-development.html#logo">Logo & Identity Design</a>
+                                    <a href="strategy-consultation.html">Strategy Consultation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="blogs.html" class="nav-link">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact-us.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Section: Contact & CTA -->
+            <div class="navbar-cta-section">
+                <div class="contact-info">
+                    <span class="phone-number">
+                        <i class="fas fa-phone"></i>
+                        +91 85271 19684
+                    </span>
+                </div>
+                <a href="contact-us.html" class="cta-button">
+                    Get Free Quote
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                
-                <ul class="navbar-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li class="has-dropdown">
-                        <a href="services.html">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="brand-development.html" class="dropdown-item">Brand Development</a></li>
-                            <li><a href="fresh-website-development.html" class="dropdown-item">Web Development</a></li>
-                            <li><a href="digital-marketing-service.html" class="dropdown-item">Digital Marketing</a></li>
-                            <li><a href="strategy-consultation.html" class="dropdown-item">Strategy Consultation</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="blogs.html" class="active">Blog</a></li>
-                    <li><a href="contact-us.html" class="btn btn-primary">Contact Us</a></li>
-                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <img src="1StopFirm-Logo.png" alt="1 Stop Firm" class="mobile-logo">
+                    <button class="mobile-close" id="mobileClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <nav class="mobile-nav">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <div class="mobile-dropdown">
+                        <a href="services.html" class="mobile-nav-link dropdown-toggle">Services</a>
+                        <div class="mobile-dropdown-content">
+                            <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
+                            <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
+                            <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
+                            <a href="digital-marketing-service.html#social">Social Media Marketing</a>
+                            <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
+                            <a href="fresh-website-development.html">Website Development</a>
+                            <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
+                            <a href="brand-development.html">Brand Development</a>
+                            <a href="brand-development.html#logo">Logo & Identity Design</a>
+                            <a href="strategy-consultation.html">Strategy Consultation</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="blogs.html" class="mobile-nav-link active">Insights</a>
+                    <a href="contact-us.html" class="mobile-nav-link">Contact</a>
             </nav>
+                <div class="mobile-contact">
+                    <p class="mobile-phone">
+                        <i class="fas fa-phone"></i>
+                        +91 85271 19684
+                    </p>
+                    <a href="contact-us.html" class="mobile-cta">Get Free Quote</a>
+                </div>
+            </div>
         </div>
     </header>
     
@@ -1808,9 +2363,14 @@
                     <p class="newsletter-description">Get the latest insights, tips, and resources delivered straight to your inbox.</p>
                 </div>
                 
-                <form class="newsletter-form">
+                <form class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Integration -->
+                    <input type="hidden" name="access_key" value="4c5dad09-c2dc-44ee-a41e-cffa55bc6d8c">
+                    <input type="hidden" name="subject" value="Newsletter Subscription from 1StopFirm Website">
+                    <input type="hidden" name="redirect" value="thank-you.html">
+                    
                     <div class="form-group">
-                        <input type="email" placeholder="Your email address" required>
+                        <input type="email" name="email" placeholder="Your email address" required>
                         <button type="submit" class="submit-btn">
                             <span>Subscribe</span>
                             <i class="fas fa-paper-plane"></i>
@@ -1822,221 +2382,462 @@
         </div>
     </section>
     
-    <!-- Contact Section with 3D Elements -->
-    <section id="contact" class="contact-section">
-        <div class="contact-background">
-            <div class="bg-gradient"></div>
-            <div class="bg-pattern"></div>
-        </div>
-        
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-content" data-aos="fade-right">
-                    <div class="section-badge">Get In Touch</div>
-                    <h2 class="contact-title">Ready to <span class="gradient-text">transform</span> your digital presence?</h2>
-                    
-                    <p class="contact-subtitle">
-                        Let's discuss how we can help your business reach its full potential in the digital world. 
-                        Our team of experts is ready to create tailored solutions that drive real results.
-                    </p>
-                    
-                    <div class="contact-features">
-                        <div class="contact-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Creative Excellence</h4>
-                                <p>Innovative designs that capture your brand's unique essence</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Technical Expertise</h4>
-                                <p>Cutting-edge development using the latest technologies</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Results-Driven Approach</h4>
-                                <p>Strategies focused on delivering measurable business outcomes</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="info-text">
-                                <h4>Email Us</h4>
-                                <a href="mailto:info@1stopfirm.com" class="info-detail">info@1stopfirm.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="info-text">
-                                <h4>Call Us</h4>
-                                <a href="tel:+1234567890" class="info-detail">+1 (234) 567-890</a>
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="info-text">
-                                <h4>Visit Us</h4>
-                                <span class="info-detail">123 Innovation Way,<br>Digital Valley, CA 94103</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form-container" data-aos="fade-left">
-                    <form class="contact-form" id="contactForm">
-                        <h3>Send Us a Message</h3>
-                        
-                        <div class="form-group">
-                            <label for="name">Full Name*</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address*</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service of Interest</label>
-                            <select id="service" name="service">
-                                <option value="">Select a Service</option>
-                                <option value="brand-development">Brand Development</option>
-                                <option value="web-development">Web Development</option>
-                                <option value="digital-marketing">Digital Marketing</option>
-                                <option value="strategy-consultation">Strategy Consultation</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                        
-                        <div class="form-message" id="formMessage"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+
     
-    <!-- Footer Section -->
-    <footer class="footer-section">
-        <div class="footer-background">
-            <div class="footer-gradient"></div>
-            <div class="footer-pattern"></div>
+    <!-- Modern CTA Section with Contact Form -->
+    <section class="modern-cta" id="contact" style="padding: 100px 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); position: relative; overflow: hidden;">
+      
+      <!-- Background Elements -->
+      <div style="position: absolute; top: -200px; right: -200px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,0,0.1), transparent 70%); z-index: 1;"></div>
+      <div style="position: absolute; bottom: -150px; left: -150px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,163,0,0.1), transparent 70%); z-index: 1;"></div>
+      
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+        
+        <!-- CTA Header -->
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 3.2rem; font-weight: 900; color: white; margin-bottom: 20px; line-height: 1.2;">
+            Ready to <span style="background: linear-gradient(45deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Transform</span> Your Business?
+          </h2>
+          <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+            Join 200+ successful businesses that have achieved extraordinary growth with our proven strategies.
+          </p>
         </div>
         
-        <div class="container">
-            <div class="footer-content">
-                <!-- Company Info -->
-                <div class="footer-company">
-                    <a href="index.html" class="footer-logo">
-                        <img src="Bold Purple _1SF_ Icon.png" alt="1StopFirm Logo" width="50">
-                        <span>1StopFirm</span>
-                    </a>
-                    <p class="company-description">
-                        Empowering businesses with innovative digital solutions that drive growth, engagement, and results.
-                    </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </div>
+        <!-- CTA Content Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+          
+          <!-- Left Side - Benefits & Contact Info -->
+          <div>
+            <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px;">
+              <h3 style="color: #FFD700; font-size: 1.8rem; font-weight: 700; margin-bottom: 30px;">Why Choose 1StopFirm?</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 25px;">
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-check" style="color: #1a1a2e; font-size: 18px; font-weight: bold;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Free Strategy Session</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Get a personalized 60-minute consultation to identify growth opportunities</p>
+                  </div>
                 </div>
                 
-                <!-- Quick Links -->
-                <div class="footer-links">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-chart-line" style="color: #1a1a2e; font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Proven Results</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Average 150% growth in revenue within 6 months</p>
+                  </div>
                 </div>
                 
-                <!-- Services Links -->
-                <div class="footer-links">
-                    <h3 class="footer-title">Our Services</h3>
-                    <ul class="footer-menu">
-                        <li><a href="brand-development.html">Brand Development</a></li>
-                        <li><a href="fresh-website-development.html">Web Development</a></li>
-                        <li><a href="digital-marketing-service.html">Digital Marketing</a></li>
-                        <li><a href="strategy-consultation.html">Strategy Consultation</a></li>
-                        <li><a href="services.html">View All Services</a></li>
-                    </ul>
+                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                  <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-users" style="color: #1a1a2e; font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0 0 8px 0;">Expert Team</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Dedicated specialists in marketing, design, and strategy</p>
+                  </div>
                 </div>
-                
-                <!-- Newsletter Signup -->
-                <div class="footer-newsletter">
-                    <h3 class="footer-title">Stay Updated</h3>
-                    <p>Subscribe to our newsletter for the latest updates, insights, and digital trends.</p>
-                    
-                    <form class="newsletter-form" id="newsletterForm">
-                        <div class="newsletter-input-container">
-                            <input type="email" id="newsletter-email" placeholder="Your email address" required>
-                            <button type="submit">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        <div class="newsletter-message" id="newsletterMessage"></div>
-                    </form>
-                </div>
+              </div>
             </div>
             
-            <!-- Bottom Bar with Copyright and Terms -->
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; <span id="currentYear">2023</span> 1StopFirm. All rights reserved.</p>
-                </div>
-                <div class="bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Sitemap</a>
-                </div>
+            <!-- Quick Contact Buttons -->
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="tel:+919876543210" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+              </a>
+              <a href="mailto:hello@1stopfirm.com" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 15px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease;">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+              </a>
             </div>
+            
+            <!-- Contact Info -->
+            <div style="margin-top: 30px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-phone" style="color: #FFD700; font-size: 16px;"></i>
+                  <span style="font-size: 1.1rem; font-weight: 600;">+91 9876543210</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-envelope" style="color: #FFD700; font-size: 16px;"></i>
+                  <span style="font-size: 1.1rem; font-weight: 600;">hello@1stopfirm.com</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.9);">
+                  <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 16px; margin-top: 2px;"></i>
+                  <span style="font-size: 1rem; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Side - Contact Form -->
+          <div>
+            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="color: #1a1a2e; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">Book Your Free Consultation</h3>
+                <p style="color: #666; font-size: 1rem; margin: 0;">Fill out the form below and we'll get back to you within 24 hours</p>
+              </div>
+              
+              <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Web3Forms Integration -->
+                <input type="hidden" name="access_key" value="4c5dad09-c2dc-44ee-a41e-cffa55bc6d8c">
+                <input type="hidden" name="subject" value="New Client Inquiry from 1StopFirm Website">
+                <input type="hidden" name="redirect" value="thank-you.html">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                  <div>
+                    <input type="text" id="firstName" name="name" placeholder="First Name *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                  </div>
+                  <div>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                  </div>
+                </div>
+                
+                <div>
+                  <input type="email" id="email" name="email" placeholder="Email Address *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                </div>
+                
+                <div>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa;">
+                </div>
+                
+                <div>
+                  <select id="service" name="service" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
+                    <option value="" disabled selected>Which service interests you most? *</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="website-development">Website Development</option>
+                    <option value="brand-development">Brand Development</option>
+                    <option value="strategy-consultation">Strategy Consultation</option>
+                    <option value="complete-package">Complete Business Package</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <select id="budget" name="budget" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
+                    <option value="" disabled selected>Your Budget Range (Optional)</option>
+                    <option value="under-50k">Under ₹50,000</option>
+                    <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                    <option value="1l-2l">₹1,00,000 - ₹2,00,000</option>
+                    <option value="2l-5l">₹2,00,000 - ₹5,00,000</option>
+                    <option value="above-5l">Above ₹5,00,000</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <textarea id="message" name="message" placeholder="Tell us about your business goals and challenges..." rows="4" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; resize: vertical; min-height: 100px;"></textarea>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 18px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+                  <span>Schedule Free Consultation</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <p style="text-align: center; font-size: 14px; color: #666; margin: 15px 0 0 0; line-height: 1.4;">
+                  <i class="fas fa-shield-alt" style="color: #28a745; margin-right: 5px;"></i>
+                  We respect your privacy. Your information is 100% secure and will never be shared.
+                </p>
+              </form>
+            </div>
+          </div>
+          
         </div>
         
-        <!-- Animated scroll to top button -->
-        <button id="scrollToTop" class="scroll-top" aria-label="Scroll to top">
-            <i class="fas fa-chevron-up"></i>
-        </button>
+      </div>
+    </section>
+
+    <!-- CTA Form Styles and JavaScript -->
+    <style>
+      .modern-cta input:focus,
+      .modern-cta select:focus,
+      .modern-cta textarea:focus {
+        outline: none;
+        border-color: #FFD700 !important;
+        box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2) !important;
+      }
+      
+      .modern-cta button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4) !important;
+      }
+      
+      .modern-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4);
+      }
+      
+      .modern-cta a:nth-child(2):hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #FFD700;
+      }
+      
+      @media (max-width: 768px) {
+        .modern-cta div[style*="grid-template-columns: 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+          gap: 40px !important;
+        }
+        
+        .modern-cta div[style*="grid-template-columns: 1fr 1fr; gap: 15px"] {
+          grid-template-columns: 1fr !important;
+          gap: 15px !important;
+        }
+        
+        .modern-cta h2 {
+          font-size: 2.4rem !important;
+        }
+        
+        .modern-cta div[style*="padding: 40px"] {
+          padding: 25px !important;
+        }
+      }
+      
+      /* Form submission success animation */
+      .form-success {
+        background: linear-gradient(45deg, #28a745, #20c997) !important;
+        color: white !important;
+      }
+      
+      .form-success::after {
+        content: '✓ Message Sent Successfully!';
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+    </style>
+
+    <script>
+      // Contact Form Handling - Let Web3Forms handle submission
+      document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+          contactForm.addEventListener('submit', function() {
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+              // Just show loading state, let Web3Forms handle the rest
+              submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+              submitButton.disabled = true;
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Modern Footer -->
+    <footer style="background: #0a0a0f; color: white; padding: 60px 0 20px;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        
+        <!-- Footer Content -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+          
+          <!-- Company Info -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                              <img src="1StopFirm-Logo.png" alt="1 Stop Firm" style="width: 70px; height: 70px;">
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #FFD700; margin: 0;">1 Stop Firm</h3>
+            </div>
+            <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px; max-width: 300px;">
+              Your trusted partner for digital transformation, branding, and business growth. We turn your vision into reality.
+            </p>
+            <div style="display: flex; gap: 15px;">
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" style="width: 40px; height: 40px; background: rgba(255,215,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; text-decoration: none; transition: all 0.3s ease;">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Services -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Services</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px;"><a href="digital-marketing.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Digital Marketing</a></li>
+              <li style="margin-bottom: 10px;"><a href="fresh-website-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Website Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="brand-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Brand Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="strategy-consultation.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Strategy Consultation</a></li>
+            </ul>
+          </div>
+          
+          <!-- Company -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Company</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+              <li style="margin-bottom: 10px;"><a href="services.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Our Services</a></li>
+              <li style="margin-bottom: 10px;"><a href="blogs.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Blog</a></li>
+              <li style="margin-bottom: 10px;"><a href="contact-us.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
+            </ul>
+          </div>
+          
+          <!-- Contact -->
+          <div>
+            <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Contact</h4>
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i class="fas fa-phone" style="color: #FFD700; font-size: 14px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">+91 9876543210</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i class="fas fa-envelope" style="color: #FFD700; font-size: 14px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">hello@1stopfirm.com</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 14px; margin-top: 2px;"></i>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <p style="color: rgba(255,255,255,0.6); margin: 0; font-size: 14px;">
+            © 2024 1 Stop Firm. All rights reserved.
+          </p>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s ease;">Privacy Policy</a>
+            <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s ease;">Terms of Service</a>
+          </div>
+        </div>
+        
+      </div>
     </footer>
+
+    <!-- Footer Hover Effects -->
+    <style>
+      footer a:hover {
+        color: #FFD700 !important;
+      }
+      .modern-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.4);
+      }
+      .modern-cta a:nth-child(2):hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #FFD700;
+      }
+      @media (max-width: 768px) {
+        footer div[style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+          gap: 30px !important;
+        }
+        .modern-cta h2 {
+          font-size: 2.4rem !important;
+        }
+        .modern-cta div[style*="flex"] {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+      }
+    </style>
+    
+    <!-- Modern Navbar JavaScript -->
+    <script>
+        // Modern Navbar Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header-modern');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const mobileOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileClose = document.getElementById('mobileClose');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+
+            // Scroll effect for navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                mobileToggle.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+            }
+
+            // Mobile menu event listeners
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (mobileClose) {
+                mobileClose.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileOverlay) {
+                        toggleMobileMenu();
+                    }
+                });
+            }
+
+            // Mobile dropdown functionality
+            mobileDropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.mobile-nav-link:not(.dropdown-toggle)').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (mobileOverlay.classList.contains('active')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            // Dropdown hover effect for desktop
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                let enterTimeout, leaveTimeout;
+                
+                dropdown.addEventListener('mouseenter', function() {
+                    clearTimeout(leaveTimeout);
+                    clearTimeout(enterTimeout);
+                    enterTimeout = setTimeout(() => {
+                        this.classList.add('active');
+                    }, 150);
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    clearTimeout(enterTimeout);
+                    leaveTimeout = setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 200);
+                });
+            });
+
+            // Active navigation highlight
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && (currentPath.includes(href) || (currentPath === '/' && href === 'index.html'))) {
+                    link.closest('.nav-item, .mobile-nav-link').classList.add('active');
+                }
+            });
+        });
+    </script>
     
     <!-- Initialize scripts for advanced animations -->
     <script>
@@ -2142,38 +2943,17 @@
                 });
             }
             
-            // Form submission handling
+            // Form submission handling - Let Web3Forms handle it
             const contactForm = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
             
-            if (contactForm && formMessage) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Simulate form submission
-                    const submitBtn = contactForm.querySelector('.submit-btn');
-                    const originalBtnText = submitBtn.innerHTML;
-                    
-                    submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
-                    submitBtn.disabled = true;
-                    
-                    // Simulate API call with timeout
-                    setTimeout(function() {
-                        submitBtn.innerHTML = originalBtnText;
-                        submitBtn.disabled = false;
-                        
-                        // Show success message
-                        formMessage.className = 'form-message success';
-                        formMessage.textContent = 'Your message has been sent successfully!';
-                        
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Hide success message after 5 seconds
-                        setTimeout(function() {
-                            formMessage.style.display = 'none';
-                        }, 5000);
-                    }, 2000);
+            if (contactForm) {
+                contactForm.addEventListener('submit', function() {
+                    const submitBtn = contactForm.querySelector('.submit-btn') || contactForm.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+                        submitBtn.disabled = true;
+                    }
                 });
             }
         });

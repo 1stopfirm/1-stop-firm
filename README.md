@@ -1,6 +1,6 @@
 # 1StopFirm - Premium Marketing & Business Growth Agency
 
-![1StopFirm Logo](Bold%20Purple%20_1SF_%20Icon.png)
+![1StopFirm Logo](1StopFirm-Logo.png)
 
 ## Overview
 1StopFirm is a comprehensive marketing and business growth agency website designed to help small and medium-sized businesses achieve sustainable growth through strategic marketing and innovative solutions. The website showcases the company's services, expertise, case studies, and provides a way for potential clients to connect.
