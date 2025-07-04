@@ -926,10 +926,6 @@
         </div>
         
         <!-- Scroll Indicator -->
-        <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: white; text-align: center; animation: bounce 2s infinite;">
-            <div style="font-size: 12px; margin-bottom: 10px; opacity: 0.8;">Scroll to explore</div>
-            <i class="fas fa-chevron-down" style="font-size: 20px;"></i>
-        </div>
         
         <!-- Floating Animation Keyframes -->
         <style>
@@ -2429,7 +2425,7 @@
                     clearTimeout(enterTimeout);
                     leaveTimeout = setTimeout(() => {
                         this.classList.remove('active');
-                    }, 200);
+                    }, 2000);
                 });
             });
 
