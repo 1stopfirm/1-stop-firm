@@ -2903,12 +2903,12 @@
                     }, 150);
                 });
                 
-                            dropdown.addEventListener('mouseleave', function() {
-                clearTimeout(enterTimeout);
-                leaveTimeout = setTimeout(() => {
-                    this.classList.remove('active');
+                dropdown.addEventListener('mouseleave', function() {
+                    clearTimeout(enterTimeout);
+                    leaveTimeout = setTimeout(() => {
+                        this.classList.remove('active');
                 }, 2000);
-            });
+                });
             });
 
             // Active navigation highlight
