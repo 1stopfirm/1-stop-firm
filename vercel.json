@@ -1,16 +1,54 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/home", "destination": "/index.html" },
-    { "source": "/services", "destination": "/services.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/contact", "destination": "/contact-us.html" },
-    { "source": "/blogs", "destination": "/blogs.html" },
-    { "source": "/insights", "destination": "/blogs.html" },
-    { "source": "/brand-development", "destination": "/brand-development.html" },
-    { "source": "/digital-marketing", "destination": "/digital-marketing-service.html" },
-    { "source": "/web-development", "destination": "/fresh-website-development.html" },
-    { "source": "/website-development", "destination": "/fresh-website-development.html" },
-    { "source": "/strategy-consultation", "destination": "/strategy-consultation.html" },
-    { "source": "/thank-you", "destination": "/thank-you.html" }
+    {
+      "source": "/home",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact-us.html"
+    },
+    {
+      "source": "/blogs",
+      "destination": "/blogs.html"
+    },
+    {
+      "source": "/insights",
+      "destination": "/blogs.html"
+    },
+    {
+      "source": "/brand-development",
+      "destination": "/brand-development.html"
+    },
+    {
+      "source": "/digital-marketing",
+      "destination": "/digital-marketing-service.html"
+    },
+    {
+      "source": "/web-development",
+      "destination": "/fresh-website-development.html"
+    },
+    {
+      "source": "/website-development",
+      "destination": "/fresh-website-development.html"
+    },
+    {
+      "source": "/strategy-consultation",
+      "destination": "/strategy-consultation.html"
+    },
+    {
+      "source": "/thank-you",
+      "destination": "/thank-you.html"
+    }
   ]
 } 
