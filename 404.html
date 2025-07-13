@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - 1StopFirm</title>
+    <title>Redirecting... - 1StopFirm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,13 +19,10 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
+        .loading {
+            font-size: 18px;
+            color: #007bff;
+            margin: 20px 0;
         }
         .btn {
             display: inline-block;
@@ -36,21 +33,16 @@
             border-radius: 5px;
             margin-top: 20px;
         }
-        .btn:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Page Not Found</h1>
-        <p>Sorry, the page you are looking for doesn't exist.</p>
-        <p>You might want to check the URL or go back to our homepage.</p>
-        <a href="/" class="btn">Go to Homepage</a>
+        <div class="loading">Redirecting you to the correct page...</div>
+        <p>If you are not redirected automatically, <a href="/" class="btn">click here to go to homepage</a></p>
     </div>
 
     <script>
-        // Handle client-side routing for known routes
+        // Immediate redirect for known routes
         const path = window.location.pathname;
         const routes = {
             '/home': '/',
@@ -67,8 +59,14 @@
             '/thank-you': '/thank-you.html'
         };
 
+        // Immediate redirect
         if (routes[path]) {
             window.location.replace(routes[path]);
+        } else {
+            // If no match found, redirect to home after 2 seconds
+            setTimeout(() => {
+                window.location.replace('/');
+            }, 2000);
         }
     </script>
 </body>
