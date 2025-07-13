@@ -727,51 +727,19 @@ function preloadCriticalAssets() {
 
 // Handle page navigation with proper state management
 function handleNavigation() {
-  document.querySelectorAll('a').forEach(link => {
-    // Only handle internal links that aren't anchors
-    if (link.href.includes(window.location.origin) && !link.href.includes('#')) {
-      link.addEventListener('click', function(e) {
-        // Don't handle anchor links here
-        if (this.getAttribute('href').startsWith('#')) return;
-        
-        e.preventDefault();
-        const destination = this.href;
-        
-        // Show loading state
-        document.body.classList.add('page-transitioning');
-        
-        // Fetch the new page
-        fetch(destination + '?v=' + new Date().getTime(), {
-          headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-            'Expires': '0'
-          }
-        })
-        .then(response => response.text())
-        .then(html => {
-          // Update browser history
-          window.history.pushState({}, '', destination);
-          
-          // Small delay to ensure smooth transition
-          setTimeout(() => {
-            window.location.href = destination;
-          }, 200);
-        })
-        .catch(err => {
-          console.error('Navigation error:', err);
-          window.location.href = destination; // Fallback to regular navigation
-        });
-      });
-    }
-  });
+  // Simple navigation handling without forced refreshes
+  // Let the browser handle navigation naturally
+  console.log('Navigation initialized - using browser default navigation');
 }
 
-// Force refresh on back/forward navigation
+// Handle back/forward navigation without forced refresh
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
     // Page was restored from back/forward cache
-    window.location.reload();
+    // Just reinitialize animations instead of reloading
+    if (typeof AOS !== 'undefined') {
+      AOS.refresh();
+    }
   }
 });
 

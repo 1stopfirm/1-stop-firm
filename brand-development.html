@@ -17,6 +17,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <!-- Lottie for lightweight animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+    <!-- Swiper.js for testimonial slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
         /* Modern Indian Client-Focused Navbar Styles */
         .header-modern {
@@ -651,7 +654,7 @@
         <nav class="navbar-container">
             <!-- Left Section: Logo -->
             <div class="navbar-brand-section">
-                <a href="index.html" class="brand-logo">
+                <a href="home" class="brand-logo">
                     <img src="1StopFirm-Logo.png" alt="1 Stop Firm" class="logo-static">
                     <span class="brand-text">1StopFirm</span>
                 </a>
@@ -661,43 +664,43 @@
             <div class="navbar-menu-section">
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                        <a href="services" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
                             <div class="dropdown-grid">
                                 <div class="dropdown-column">
                                     <h4>Digital Marketing</h4>
-                                    <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
-                                    <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
-                                    <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
-                                    <a href="digital-marketing-service.html#social">Social Media Marketing</a>
-                                    <a href="digital-marketing-service.html#content">Content Marketing</a>
-                                    <a href="digital-marketing-service.html#email">Email Marketing</a>
-                                    <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
-                                    <a href="digital-marketing-service.html#conversion">Conversion Optimization</a>
+                                    <a href="digital-marketing">Digital Marketing Strategy</a>
+                                    <a href="/digital-marketing"#seo">Search Engine Optimization</a>
+                                    <a href="/digital-marketing"#ppc">Pay-Per-Click Advertising</a>
+                                    <a href="/digital-marketing"#social">Social Media Marketing</a>
+                                    <a href="/digital-marketing"#content">Content Marketing</a>
+                                    <a href="/digital-marketing"#email">Email Marketing</a>
+                                    <a href="/digital-marketing"#analytics">Analytics & Reporting</a>
+                                    <a href="/digital-marketing"#conversion">Conversion Optimization</a>
                                 </div>
                                 <div class="dropdown-column">
                                     <h4>Development & Design</h4>
-                                    <a href="fresh-website-development.html">Website Development</a>
-                                    <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
-                                    <a href="fresh-website-development.html#mobile">Mobile App Development</a>
-                                    <a href="brand-development.html">Brand Development</a>
-                                    <a href="brand-development.html#logo">Logo & Identity Design</a>
-                                    <a href="strategy-consultation.html">Strategy Consultation</a>
+                                    <a href="/web-development">Website Development</a>
+                                    <a href="/web-development#ecommerce">E-commerce Development</a>
+                                    <a href="/web-development#mobile">Mobile App Development</a>
+                                    <a href="brand-development">Brand Development</a>
+                                    <a href="/brand-development"#logo">Logo & Identity Design</a>
+                                    <a href="strategy-consultation">Strategy Consultation</a>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a href="about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="blogs.html" class="nav-link">Insights</a>
+                        <a href="/blogs" class="nav-link">Insights</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contact-us.html" class="nav-link">Contact</a>
+                        <a href="contact-us" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -710,7 +713,7 @@
                         +91 85271 19684
                     </span>
                 </div>
-                <a href="contact-us.html" class="cta-button">
+                <a href="contact-us" class="cta-button">
                     Get Free Quote
                 </a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -731,32 +734,32 @@
                     </button>
                 </div>
                 <nav class="mobile-nav">
-                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="home" class="mobile-nav-link">Home</a>
                     <div class="mobile-dropdown">
-                        <a href="services.html" class="mobile-nav-link dropdown-toggle">Services</a>
+                        <a href="services" class="mobile-nav-link dropdown-toggle">Services</a>
                         <div class="mobile-dropdown-content">
-                            <a href="digital-marketing-service.html">Digital Marketing Strategy</a>
-                            <a href="digital-marketing-service.html#seo">Search Engine Optimization</a>
-                            <a href="digital-marketing-service.html#ppc">Pay-Per-Click Advertising</a>
-                            <a href="digital-marketing-service.html#social">Social Media Marketing</a>
-                            <a href="digital-marketing-service.html#analytics">Analytics & Reporting</a>
-                            <a href="fresh-website-development.html">Website Development</a>
-                            <a href="fresh-website-development.html#ecommerce">E-commerce Development</a>
-                            <a href="brand-development.html">Brand Development</a>
-                            <a href="brand-development.html#logo">Logo & Identity Design</a>
-                            <a href="strategy-consultation.html">Strategy Consultation</a>
+                            <a href="digital-marketing">Digital Marketing Strategy</a>
+                            <a href="/digital-marketing"#seo">Search Engine Optimization</a>
+                            <a href="/digital-marketing"#ppc">Pay-Per-Click Advertising</a>
+                            <a href="/digital-marketing"#social">Social Media Marketing</a>
+                            <a href="/digital-marketing"#analytics">Analytics & Reporting</a>
+                            <a href="/web-development">Website Development</a>
+                            <a href="/web-development#ecommerce">E-commerce Development</a>
+                            <a href="brand-development">Brand Development</a>
+                            <a href="/brand-development"#logo">Logo & Identity Design</a>
+                            <a href="strategy-consultation">Strategy Consultation</a>
                         </div>
                     </div>
-                    <a href="about.html" class="mobile-nav-link">About</a>
-                    <a href="blogs.html" class="mobile-nav-link">Insights</a>
-                    <a href="contact-us.html" class="mobile-nav-link">Contact</a>
+                    <a href="about" class="mobile-nav-link">About</a>
+                    <a href="/blogs" class="mobile-nav-link">Insights</a>
+                    <a href="contact-us" class="mobile-nav-link">Contact</a>
                 </nav>
                 <div class="mobile-contact">
                     <p class="mobile-phone">
                         <i class="fas fa-phone"></i>
                         +91 85271 19684
                     </p>
-                    <a href="contact-us.html" class="mobile-cta">Get Free Quote</a>
+                    <a href="contact-us" class="mobile-cta">Get Free Quote</a>
                 </div>
             </div>
         </div>
@@ -784,15 +787,15 @@
                         <span class="client-label">Proven Results:</span>
                         <div class="success-metrics">
                             <div class="metric-item">
-                                <span class="metric-number">150+</span>
+                                <span class="metric-number">20+</span>
                                 <span class="metric-label">Brands Created</span>
                             </div>
                             <div class="metric-item">
-                                <span class="metric-number">85%</span>
+                                <span class="metric-number">75%</span>
                                 <span class="metric-label">Brand Recognition</span>
                             </div>
                             <div class="metric-item">
-                                <span class="metric-number">4X</span>
+                                <span class="metric-number">2.5X</span>
                                 <span class="metric-label">Brand Value Increase</span>
                             </div>
                         </div>
@@ -1225,172 +1228,304 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonials" style="background-color: #f8faff; padding: 80px 0; margin: 80px 0 0 0; position: relative; overflow: hidden;">
-        <!-- Animated background shapes -->
-        <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: linear-gradient(135deg, rgba(255, 62, 108, 0.03), rgba(252, 176, 69, 0.03)); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: morphing 15s ease-in-out infinite; z-index: 0;"></div>
-        <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: linear-gradient(135deg, rgba(131, 66, 229, 0.03), rgba(17, 153, 142, 0.03)); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morphing 20s ease-in-out infinite alternate; z-index: 0;"></div>
+    <!-- Modern Testimonials Section -->
+    <section class="modern-testimonials" id="testimonials" style="padding: 80px 0 60px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative; overflow: hidden;">
+      
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
         
-        <div class="container" style="position: relative; z-index: 1;">
-            <!-- Section Header with separate lines -->
+        <!-- Header -->
             <div style="text-align: center; margin-bottom: 60px;">
-                <div style="display: block; margin: 0 auto 15px; text-align: center;">
-                    <span style="background-color: rgba(255, 62, 108, 0.1); color: #ff3e6c; padding: 8px 20px; border-radius: 30px; font-size: 1rem; font-weight: 600;">Client Success Stories</span>
+          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.15); padding: 12px 24px; border-radius: 50px; margin-bottom: 20px; backdrop-filter: blur(10px);">
+            <span style="font-size: 20px;">💬</span>
+            <span style="color: white; font-weight: 600;">Client Testimonials</span>
                 </div>
-                <h2 style="font-size: 2.8rem; margin: 20px 0; color: #1a1a2e;">What Our <span style="background: linear-gradient(135deg, #ff3e6c, #fcb045); -webkit-background-clip: text; background-clip: text; color: transparent;">Clients Say</span></h2>
-                <div style="width: 80px; height: 3px; background: linear-gradient(135deg, #ff3e6c, #fcb045); margin: 15px auto;"></div>
-                <p style="max-width: 700px; margin: 15px auto; color: #666; font-size: 1.1rem;">Hear directly from businesses we've helped transform through strategic brand development.</p>
+          <h2 style="font-size: 2.8rem; font-weight: 900; color: white; margin-bottom: 15px; line-height: 1.2;">
+            What Our <span style="background: linear-gradient(45deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Clients Say</span>
+          </h2>
+          <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Real experiences from real businesses who trusted us with their growth journey.
+          </p>
             </div>
             
-            <!-- Simple Testimonial Slider -->
-            <div class="simple-testimonial-slider" style="max-width: 900px; margin: 0 auto; position: relative;">
-                <!-- Navigation Buttons -->
-                <button id="prevTestimonial" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: white; color: #ff3e6c; border: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); cursor: pointer; z-index: 10;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <!-- Testimonial Slider Container -->
+        <div style="max-width: 800px; margin: 0 auto; position: relative;">
+          <!-- Navigation Arrows -->
+          <button class="testimonial-prev" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: all 0.3s ease;">
+            <i class="fas fa-chevron-left" style="font-size: 1.2rem;"></i>
                 </button>
                 
-                <button id="nextTestimonial" style="position: absolute; top: 50%; right: -30px; transform: translateY(-50%); background: white; color: #ff3e6c; border: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); cursor: pointer; z-index: 10;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <button class="testimonial-next" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: all 0.3s ease;">
+            <i class="fas fa-chevron-right" style="font-size: 1.2rem;"></i>
                 </button>
                 
-                <!-- Testimonial Container -->
-                <div id="testimonialContainer" style="background-color: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); position: relative; min-height: 260px;">
-                    <!-- Testimonial Content - Will be filled by JavaScript -->
+          <!-- Swiper Container -->
+          <div class="swiper testimonial-swiper" style="padding: 0 20px;">
+            <div class="swiper-wrapper">
+              <!-- Testimonial 1 -->
+              <div class="swiper-slide">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.5s ease-in-out; position: relative; min-height: 300px;">
+                  <div style="position: absolute; top: -10px; left: 40px; width: 50px; height: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-weight: bold;">"</div>
+                  
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px; justify-content: center;">
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1rem; margin-bottom: 0; text-align: center; font-style: italic;">"The onboarding process was incredibly smooth and professional. Their strategic approach helped us achieve a 180% growth in student engagement within just 6 months. Outstanding results!"</p>
                 </div>
                 
-                <!-- Simple Indicators -->
-                <div id="testimonialIndicators" style="display: flex; justify-content: center; margin-top: 30px; gap: 10px;">
-                    <!-- Will be filled by JavaScript -->
+                  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Dr. Ahamad" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);" loading="lazy">
+                    <div style="text-align: left;">
+                      <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin: 0 0 5px 0;">Dr. Ahamad</h4>
+                      <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;">HOD Physics, SRM University</p>
+                    </div>
+                  </div>
                 </div>
             </div>
             
-            <!-- Brand Trust Indicators -->
-            <div style="margin-top: 80px; text-align: center;">
-                <h3 style="font-size: 1.5rem; color: #1a1a2e; margin-bottom: 30px;">Trusted By Industry Leaders</h3>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; max-width: 900px; margin: 0 auto;">
-                    <img src="mcdonalds.png" alt="McDonald's Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
-                    <img src="huawei.png" alt="Huawei Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
-                    <img src="firefox.png" alt="Firefox Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
-                    <img src="oracle.png" alt="Oracle Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
-                    <img src="muse.png" alt="Muse Logo" style="height: 40px; opacity: 0.7; filter: grayscale(100%); transition: all 0.3s ease;">
+              <!-- Testimonial 2 -->
+              <div class="swiper-slide">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.5s ease-in-out; position: relative; min-height: 300px;">
+                  <div style="position: absolute; top: -10px; left: 40px; width: 50px; height: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-weight: bold;">"</div>
+                  
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px; justify-content: center;">
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
                 </div>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1rem; margin-bottom: 0; text-align: center; font-style: italic;">"From day one, their team made the onboarding process seamless. Our brand visibility increased by 220% and we've seen consistent growth month over month. Truly exceptional service!"</p>
+                  </div>
+                  
+                  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612e01a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Ms. Smriti" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);" loading="lazy">
+                    <div style="text-align: left;">
+                      <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin: 0 0 5px 0;">Ms. Smriti</h4>
+                      <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;">Marketing Executive, Pride of India</p>
+                    </div>
+                  </div>
             </div>
         </div>
         
-        <!-- Inline JavaScript for Testimonials -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Testimonial data
-                const testimonials = [
-                    {
-                        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-                        quote: '"1StopFirm completely transformed our brand identity. Their strategic approach helped us clearly define our positioning and connect with our target audience. The new visual identity they created perfectly captures our company\'s personality and values. Since the rebrand, we\'ve seen a 40% increase in brand recognition and a significant boost in customer engagement."',
-                        name: 'Michael Thompson',
-                        position: 'CEO, EcoTech Solutions'
-                    },
-                    {
-                        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-                        quote: '"Working with 1StopFirm on our rebrand was one of the best business decisions we\'ve made. They took the time to understand our business and our goals, and delivered a brand identity that resonates perfectly with our customers. The comprehensive brand guidelines have made it easy for our team to maintain consistency across all touchpoints. We\'re thrilled with the results!"',
-                        name: 'Sarah Johnson',
-                        position: 'Marketing Director, Pure Harvest'
-                    },
-                    {
-                        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-                        quote: '"As a startup, we needed a brand that would help us stand out in a crowded market. 1StopFirm delivered beyond our expectations. Their strategic approach to brand development gave us a clear understanding of our unique value proposition, and the visual identity they created has helped us make a strong impression with investors and early customers. I highly recommend their services to any business looking to establish a powerful brand."',
-                        name: 'David Chen',
-                        position: 'Founder, Lunar Finance'
-                    },
-                    {
-                        image: 'https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-                        quote: '"After struggling with inconsistent branding for years, we partnered with 1StopFirm and they revolutionized our entire brand identity. Their team took the time to understand our unique challenges and developed a cohesive strategy that aligned perfectly with our values. The new brand has resonated so well with our audience that we\'ve seen a 75% increase in social media engagement and a 50% boost in customer retention."',
-                        name: 'Amanda Williams',
-                        position: 'CMO, GreenLeaf Organics'
-                    },
-                    {
-                        image: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-                        quote: '"When we decided to expand our business internationally, we knew our brand needed a refresh. 1StopFirm helped us create a global brand identity that maintained our core values while appealing to diverse markets. Their research-driven approach and attention to cultural nuances were impressive. Within six months of launching our new brand, we successfully entered three new markets and exceeded our revenue targets by 35%."',
-                        name: 'Raj Patel',
-                        position: 'Founder & CEO, Nexus Technologies'
-                    }
-                ];
-                
-                // DOM elements
-                const testimonialContainer = document.getElementById('testimonialContainer');
-                const prevButton = document.getElementById('prevTestimonial');
-                const nextButton = document.getElementById('nextTestimonial');
-                const indicatorsContainer = document.getElementById('testimonialIndicators');
-                
-                let currentIndex = 0;
-                
-                // Initialize indicators
-                testimonials.forEach((_, index) => {
-                    const indicator = document.createElement('span');
-                    indicator.style.width = '12px';
-                    indicator.style.height = '12px';
-                    indicator.style.borderRadius = '50%';
-                    indicator.style.background = index === 0 ? '#ff3e6c' : 'rgba(255, 62, 108, 0.3)';
-                    indicator.style.cursor = 'pointer';
-                    indicator.style.transition = 'all 0.3s ease';
-                    indicator.dataset.index = index;
-                    
-                    indicator.addEventListener('click', function() {
-                        currentIndex = parseInt(this.dataset.index);
-                        updateTestimonial();
-                    });
-                    
-                    indicatorsContainer.appendChild(indicator);
-                });
-                
-                // Function to update testimonial content
-                function updateTestimonial() {
-                    const currentTestimonial = testimonials[currentIndex];
-                    
-                    testimonialContainer.innerHTML = `
-                        <div style="font-size: 3rem; color: #ff3e6c; opacity: 0.1; position: absolute; top: 20px; left: 20px;">
-                            <i class="fas fa-quote-left"></i>
+              <!-- Continue with remaining testimonials following same pattern... -->
+              <div class="swiper-slide">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.5s ease-in-out; position: relative; min-height: 300px;">
+                  <div style="position: absolute; top: -10px; left: 40px; width: 50px; height: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-weight: bold;">"</div>
+                  
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px; justify-content: center;">
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1rem; margin-bottom: 0; text-align: center; font-style: italic;">"The smooth onboarding and strategic implementation delivered remarkable results. Our operational efficiency improved by 160% and client satisfaction reached new heights. Highly recommended!"</p>
+                  </div>
+                  
+                  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Amit Shrivastav" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);" loading="lazy">
+                    <div style="text-align: left;">
+                      <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin: 0 0 5px 0;">Amit Shrivastav</h4>
+                      <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;">Manager, Lucien Solutions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 4 -->
+              <div class="swiper-slide">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.5s ease-in-out; position: relative; min-height: 300px;">
+                  <div style="position: absolute; top: -10px; left: 40px; width: 50px; height: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-weight: bold;">"</div>
+                  
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px; justify-content: center;">
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1rem; margin-bottom: 0; text-align: center; font-style: italic;">"The team's expertise and smooth onboarding process exceeded our expectations. We achieved 250% growth in our tech solutions business and secured better market positioning. Excellent results!"</p>
+                  </div>
+                  
+                  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+                    <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Tech team" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);" loading="lazy">
+                    <div style="text-align: left;">
+                      <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin: 0 0 5px 0;">Tech team</h4>
+                      <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;">CEO, Insuretech</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 5 -->
+              <div class="swiper-slide">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.5s ease-in-out; position: relative; min-height: 300px;">
+                  <div style="position: absolute; top: -10px; left: 40px; width: 50px; height: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-weight: bold;">"</div>
+                  
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px; justify-content: center;">
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
                         </div>
-                        <div style="display: flex; gap: 30px; align-items: flex-start;">
-                            <div style="flex-shrink: 0;">
-                                <img src="${currentTestimonial.image}" alt="${currentTestimonial.name}" style="width: 100px; height: 100px; border-radius: 12px; object-fit: cover; border: 5px solid white; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1rem; margin-bottom: 0; text-align: center; font-style: italic;">"Working with 1 Stop Firm was a game-changer for our university department. The seamless onboarding and strategic guidance helped us achieve remarkable growth in research collaborations and student outcomes."</p>
                             </div>
-                            <div>
-                                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; color: #555; font-style: italic;">
-                                    ${currentTestimonial.quote}
-                                </p>
-                                <div>
-                                    <h4 style="margin: 0 0 5px 0; color: #1a1a2e; font-weight: 700; font-size: 1.2rem;">${currentTestimonial.name}</h4>
-                                    <p style="margin: 0; color: #666; font-size: 0.95rem;">${currentTestimonial.position}</p>
+                  
+                  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Dr. Ahamad" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);" loading="lazy">
+                    <div style="text-align: left;">
+                      <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin: 0 0 5px 0;">Dr. Ahamad</h4>
+                      <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;">HOD Physics, SRM University</p>
                                 </div>
                             </div>
                         </div>
-                    `;
-                    
-                    // Update indicators
-                    const indicators = indicatorsContainer.querySelectorAll('span');
-                    indicators.forEach((indicator, index) => {
-                        indicator.style.background = index === currentIndex ? '#ff3e6c' : 'rgba(255, 62, 108, 0.3)';
-                    });
-                }
-                
-                // Event listeners for navigation
-                prevButton.addEventListener('click', function() {
-                    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-                    updateTestimonial();
-                });
-                
-                nextButton.addEventListener('click', function() {
-                    currentIndex = (currentIndex + 1) % testimonials.length;
-                    updateTestimonial();
-                });
-                
-                // Initialize with first testimonial
-                updateTestimonial();
-                
-                // Optional: Auto-rotate testimonials
-                setInterval(function() {
-                    currentIndex = (currentIndex + 1) % testimonials.length;
-                    updateTestimonial();
-                }, 8000);
+              </div>
+              
+              <!-- Testimonial 6 -->
+              <div class="swiper-slide">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.5s ease-in-out; position: relative; min-height: 300px;">
+                  <div style="position: absolute; top: -10px; left: 40px; width: 50px; height: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-weight: bold;">"</div>
+                  
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px; justify-content: center;">
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                      <i class="fas fa-star" style="color: #FFD700; font-size: 16px;"></i>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1rem; margin-bottom: 0; text-align: center; font-style: italic;">"The onboarding experience was exceptional and the results speak for themselves. Our brand reached new heights with 300% growth in market presence. Their professional approach made all the difference!"</p>
+                  </div>
+                  
+                  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612e01a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Ms. Smriti" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);" loading="lazy">
+                    <div style="text-align: left;">
+                      <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin: 0 0 5px 0;">Ms. Smriti</h4>
+                      <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;">Marketing Executive, Pride of India</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pagination Dots -->
+          <div class="swiper-pagination" style="position: relative; margin-top: 30px;"></div>
+        </div>
+        
+        <!-- CTA -->
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#contact" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #333; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; font-size: 1.1rem;">
+            <span>Become Our Next Success Story</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+      </div>
+      
+      <!-- Testimonial Slider Styles and Scripts -->
+      <style>
+        .testimonial-prev:hover,
+        .testimonial-next:hover {
+          background: rgba(255,255,255,0.2);
+          transform: translateY(-50%) scale(1.1);
+        }
+        
+        .swiper-pagination-bullet {
+          background: rgba(255,255,255,0.5);
+          opacity: 1;
+          width: 12px;
+          height: 12px;
+          margin: 0 6px;
+          transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background: #FFD700;
+          transform: scale(1.3);
+        }
+        
+        .testimonial-swiper .swiper-slide {
+          transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-swiper:hover .swiper-slide:not(.swiper-slide-active) {
+          transform: scale(0.95);
+          opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+          .testimonial-prev,
+          .testimonial-next {
+            display: none;
+          }
+        }
+      </style>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Initialize Swiper with accessibility and keyboard support
+          const testimonialSwiper = new Swiper('.testimonial-swiper', {
+            loop: true,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            },
+            speed: 500,
+            effect: 'slide',
+            centeredSlides: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            
+            // Navigation
+            navigation: {
+              nextEl: '.testimonial-next',
+              prevEl: '.testimonial-prev',
+            },
+            
+            // Pagination
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+              dynamicBullets: true,
+            },
+            
+            // Keyboard control
+            keyboard: {
+              enabled: true,
+              onlyInViewport: true,
+            },
+            
+            // Accessibility
+            a11y: {
+              enabled: true,
+              prevSlideMessage: 'Previous testimonial',
+              nextSlideMessage: 'Next testimonial',
+              firstSlideMessage: 'This is the first testimonial',
+              lastSlideMessage: 'This is the last testimonial',
+            },
+            
+            // Lazy loading
+            lazy: {
+              loadPrevNext: true,
+            },
+          });
+          
+          // Pause autoplay on focus for accessibility
+          const swiperContainer = document.querySelector('.testimonial-swiper');
+          swiperContainer.addEventListener('focus', () => testimonialSwiper.autoplay.stop());
+          swiperContainer.addEventListener('blur', () => testimonialSwiper.autoplay.start());
             });
         </script>
     </section>
@@ -1459,11 +1594,11 @@
             
             <!-- Quick Contact Buttons -->
             <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-              <a href="tel:+919876543210" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
+              <a href="tel:+918527119684" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a1a2e; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(255,215,0,0.3);">
                 <i class="fas fa-phone"></i>
                 <span>Call Now</span>
               </a>
-              <a href="mailto:hello@1stopfirm.com" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 15px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease;">
+              <a href="mailto:contact.1stopfirm@gmail.com" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 15px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease;">
                 <i class="fas fa-envelope"></i>
                 <span>Email Us</span>
               </a>
@@ -1474,15 +1609,15 @@
               <div style="display: flex; flex-direction: column; gap: 15px;">
                 <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
                   <i class="fas fa-phone" style="color: #FFD700; font-size: 16px;"></i>
-                  <span style="font-size: 1.1rem; font-weight: 600;">+91 9876543210</span>
+                  <span style="font-size: 1.1rem; font-weight: 600;">+91 8527119684</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9);">
                   <i class="fas fa-envelope" style="color: #FFD700; font-size: 16px;"></i>
-                  <span style="font-size: 1.1rem; font-weight: 600;">hello@1stopfirm.com</span>
+                  <span style="font-size: 1.1rem; font-weight: 600;">contact.1stopfirm@gmail.com</span>
                 </div>
                 <div style="display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.9);">
                   <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 16px; margin-top: 2px;"></i>
-                  <span style="font-size: 1rem; line-height: 1.4;">123 Business Street, Mumbai, India</span>
+                  <span style="font-size: 1rem; line-height: 1.4;">Kota, Rajasthan, India</span>
                 </div>
               </div>
             </div>
@@ -1523,7 +1658,7 @@
                   <select id="service" name="service" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; transition: all 0.3s ease; background: #f8f9fa; color: #666;">
                     <option value="" disabled selected>Which service interests you most? *</option>
                     <option value="digital-marketing">Digital Marketing</option>
-                    <option value="website-development">Website Development</option>
+                    <option value="web-development">Website Development</option>
                     <option value="brand-development">Brand Development</option>
                     <option value="strategy-consultation">Strategy Consultation</option>
                     <option value="complete-package">Complete Business Package</option>
@@ -1674,10 +1809,10 @@
           <div>
             <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Services</h4>
             <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 10px;"><a href="digital-marketing.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Digital Marketing</a></li>
-              <li style="margin-bottom: 10px;"><a href="fresh-website-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Website Development</a></li>
-              <li style="margin-bottom: 10px;"><a href="brand-development.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Brand Development</a></li>
-              <li style="margin-bottom: 10px;"><a href="strategy-consultation.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Strategy Consultation</a></li>
+              <li style="margin-bottom: 10px;"><a href="digital-marketing" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Digital Marketing</a></li>
+                              <li style="margin-bottom: 10px;"><a href="/web-development" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Website Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="brand-development" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Brand Development</a></li>
+              <li style="margin-bottom: 10px;"><a href="strategy-consultation" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Strategy Consultation</a></li>
             </ul>
           </div>
           
@@ -1685,10 +1820,10 @@
           <div>
             <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Company</h4>
             <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 10px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
-              <li style="margin-bottom: 10px;"><a href="services.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Our Services</a></li>
-              <li style="margin-bottom: 10px;"><a href="blogs.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Blog</a></li>
-              <li style="margin-bottom: 10px;"><a href="contact-us.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
+              <li style="margin-bottom: 10px;"><a href="about" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+              <li style="margin-bottom: 10px;"><a href="services" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Our Services</a></li>
+              <li style="margin-bottom: 10px;"><a href="/blogs" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Blog</a></li>
+              <li style="margin-bottom: 10px;"><a href="contact-us" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
             </ul>
           </div>
           
@@ -1696,18 +1831,18 @@
           <div>
             <h4 style="color: #FFD700; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Contact</h4>
             <div style="margin-bottom: 15px;">
-              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <i class="fas fa-phone" style="color: #FFD700; font-size: 14px;"></i>
-                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">+91 9876543210</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <i class="fas fa-envelope" style="color: #FFD700; font-size: 14px;"></i>
-                <span style="color: rgba(255,255,255,0.8); font-size: 14px;">hello@1stopfirm.com</span>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 10px;">
-                <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 14px; margin-top: 2px;"></i>
-                <span style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.4;">123 Business Street, Mumbai, India</span>
-              </div>
+                          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="fas fa-phone" style="color: #FFD700; font-size: 14px;"></i>
+              <span style="color: rgba(255,255,255,0.8); font-size: 14px;">+91 8527119684</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="fas fa-envelope" style="color: #FFD700; font-size: 14px;"></i>
+              <span style="color: rgba(255,255,255,0.8); font-size: 14px;">contact.1stopfirm@gmail.com</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <i class="fas fa-map-marker-alt" style="color: #FFD700; font-size: 14px; margin-top: 2px;"></i>
+              <span style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.4;">Kota, Rajasthan, India</span>
+            </div>
             </div>
           </div>
           
@@ -1759,4 +1894,3 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/brand-development.js"></script>
 </body>
-</html>
