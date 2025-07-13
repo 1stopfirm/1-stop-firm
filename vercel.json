@@ -1,18 +1,7 @@
 {
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/home", "dest": "/index.html" },
-    { "src": "/services", "dest": "/services.html" },
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/contact", "dest": "/contact-us.html" },
-    { "src": "/blogs", "dest": "/blogs.html" },
-    { "src": "/insights", "dest": "/blogs.html" },
-    { "src": "/brand-development", "dest": "/brand-development.html" },
-    { "src": "/digital-marketing", "dest": "/digital-marketing-service.html" },
-    { "src": "/web-development", "dest": "/fresh-website-development.html" },
-    { "src": "/website-development", "dest": "/fresh-website-development.html" },
-    { "src": "/strategy-consultation", "dest": "/strategy-consultation.html" },
-    { "src": "/thank-you", "dest": "/thank-you.html" },
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
-  ]
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "installCommand": "",
+  "devCommand": "",
+  "framework": null
 } 
