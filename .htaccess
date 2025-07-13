@@ -1,3 +1,25 @@
 RewriteEngine On
+
+# Security headers
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+
+# Specific route mappings
+RewriteRule ^home/?$ index.html [NC,L]
+RewriteRule ^services/?$ services.html [NC,L]
+RewriteRule ^about/?$ about.html [NC,L]
+RewriteRule ^contact/?$ contact-us.html [NC,L]
+RewriteRule ^blogs/?$ blogs.html [NC,L]
+RewriteRule ^insights/?$ blogs.html [NC,L]
+RewriteRule ^brand-development/?$ brand-development.html [NC,L]
+RewriteRule ^digital-marketing/?$ digital-marketing-service.html [NC,L]
+RewriteRule ^web-development/?$ fresh-website-development.html [NC,L]
+RewriteRule ^website-development/?$ fresh-website-development.html [NC,L]
+RewriteRule ^strategy-consultation/?$ strategy-consultation.html [NC,L]
+RewriteRule ^thank-you/?$ thank-you.html [NC,L]
+
+# General rule for other files (fallback)
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L] 
