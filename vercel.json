@@ -1,19 +1,7 @@
 {
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/home",
-      "destination": "/index.html"
-    },
     {
       "source": "/services",
       "destination": "/services.html"
@@ -57,6 +45,16 @@
     {
       "source": "/thank-you",
       "destination": "/thank-you.html"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/sitemap.xml",
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/robots.txt"
     }
   ]
 }
