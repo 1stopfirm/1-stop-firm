@@ -1,60 +1,69 @@
 {
+  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/services",
-      "destination": "/services.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/about.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact-us.html"
-    },
-    {
-      "source": "/blogs",
-      "destination": "/blogs.html"
-    },
-    {
-      "source": "/insights",
-      "destination": "/blogs.html"
-    },
-    {
-      "source": "/brand-development",
-      "destination": "/brand-development.html"
-    },
-    {
-      "source": "/digital-marketing",
-      "destination": "/digital-marketing-service.html"
-    },
-    {
-      "source": "/web-development",
-      "destination": "/fresh-website-development.html"
-    },
-    {
-      "source": "/website-development",
-      "destination": "/fresh-website-development.html"
-    },
-    {
-      "source": "/strategy-consultation",
-      "destination": "/strategy-consultation.html"
-    },
-    {
-      "source": "/thank-you",
-      "destination": "/thank-you.html"
-    }
-  ],
   "routes": [
     {
       "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
+      "dest": "/sitemap.xml",
+      "headers": {
+        "Content-Type": "application/xml"
+      }
     },
     {
       "src": "/robots.txt",
-      "dest": "/robots.txt"
+      "dest": "/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain"
+      }
+    },
+    {
+      "src": "/services",
+      "dest": "/services.html"
+    },
+    {
+      "src": "/about",
+      "dest": "/about.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/contact-us.html"
+    },
+    {
+      "src": "/blogs",
+      "dest": "/blogs.html"
+    },
+    {
+      "src": "/insights",
+      "dest": "/blogs.html"
+    },
+    {
+      "src": "/brand-development",
+      "dest": "/brand-development.html"
+    },
+    {
+      "src": "/digital-marketing",
+      "dest": "/digital-marketing-service.html"
+    },
+    {
+      "src": "/web-development",
+      "dest": "/fresh-website-development.html"
+    },
+    {
+      "src": "/website-development",
+      "dest": "/fresh-website-development.html"
+    },
+    {
+      "src": "/strategy-consultation",
+      "dest": "/strategy-consultation.html"
+    },
+    {
+      "src": "/thank-you",
+      "dest": "/thank-you.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
