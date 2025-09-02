@@ -1,69 +1,18 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
+  "headers": [
     {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml"
-      }
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml" }
+      ]
     },
     {
-      "src": "/robots.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain"
-      }
-    },
-    {
-      "src": "/services",
-      "dest": "/services.html"
-    },
-    {
-      "src": "/about",
-      "dest": "/about.html"
-    },
-    {
-      "src": "/contact",
-      "dest": "/contact-us.html"
-    },
-    {
-      "src": "/blogs",
-      "dest": "/blogs.html"
-    },
-    {
-      "src": "/insights",
-      "dest": "/blogs.html"
-    },
-    {
-      "src": "/brand-development",
-      "dest": "/brand-development.html"
-    },
-    {
-      "src": "/digital-marketing",
-      "dest": "/digital-marketing-service.html"
-    },
-    {
-      "src": "/web-development",
-      "dest": "/fresh-website-development.html"
-    },
-    {
-      "src": "/website-development",
-      "dest": "/fresh-website-development.html"
-    },
-    {
-      "src": "/strategy-consultation",
-      "dest": "/strategy-consultation.html"
-    },
-    {
-      "src": "/thank-you",
-      "dest": "/thank-you.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain" }
+      ]
     }
   ]
 }
