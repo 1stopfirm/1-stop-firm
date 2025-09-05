@@ -1,0 +1,14 @@
+{
+  "name": "1-stop-firm",
+  "version": "1.0.0",
+  "description": "1 Stop Firm - Premium Marketing & Business Growth Agency",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": ["marketing", "business", "agency", "web development"],
+  "author": "1 Stop Firm",
+  "license": "MIT"
+}
