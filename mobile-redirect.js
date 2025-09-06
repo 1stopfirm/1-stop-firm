@@ -1,13 +1,12 @@
 /**
  * Mobile Detection and Redirect Script for 1StopFirm
- * Redirects mobile users to m.1stopfirm.com while keeping desktop/tablet users on main site
+ * Redirects mobile users to 1stopfirm.com/mobile while keeping desktop/tablet users on main site
  */
 
 (function() {
     'use strict';
     
     // Configuration
-    const MOBILE_DOMAIN = 'm.1stopfirm.com';
     const DESKTOP_DOMAIN = '1stopfirm.com';
     
     /**
@@ -39,8 +38,7 @@
      * Check if user is already on mobile subdomain
      */
     function isOnMobileDomain() {
-        return window.location.hostname.includes(MOBILE_DOMAIN) || 
-               window.location.hostname.includes('mobile') ||
+        return window.location.pathname === '/mobile' ||
                window.location.pathname.startsWith('/mobile/');
     }
     
@@ -98,8 +96,8 @@
             return `${window.location.protocol}//${window.location.host}${mobilePath}${currentSearch}${currentHash}`;
         }
         
-        // For production
-        return `https://${MOBILE_DOMAIN}${mobilePath}${currentSearch}${currentHash}`;
+        // For production: serve mobile under main domain /mobile
+        return `https://${DESKTOP_DOMAIN}${mobilePath}${currentSearch}${currentHash}`;
     }
 
     /**
@@ -211,8 +209,8 @@
             return;
         }
         
-        // Only redirect mobile phones from desktop domain
-        if (isMobilePhone() && (isOnDesktopDomain() || window.location.hostname !== MOBILE_DOMAIN)) {
+        // Only redirect mobile phones when on main domain
+        if (isMobilePhone() && isOnDesktopDomain()) {
             // Check if user manually chose desktop version (via URL parameter)
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('desktop') === 'true') {

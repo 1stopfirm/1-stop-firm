@@ -7,6 +7,9 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/mobile", "destination": "/mobile/index.html" },
+    { "source": "/mobile/", "destination": "/mobile/index.html" },
+    { "source": "/mobile/(.*)", "destination": "/mobile/$1" },
     {
       "source": "/home",
       "destination": "/index.html"
