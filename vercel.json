@@ -5,10 +5,20 @@
   "devCommand": "",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": true,
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/mobile", "destination": "/mobile/index.html" },
     { "source": "/mobile/", "destination": "/mobile/index.html" },
+    { "source": "/mobile/about", "destination": "/mobile/about.html" },
+    { "source": "/mobile/services", "destination": "/mobile/services.html" },
+    { "source": "/mobile/digital-marketing", "destination": "/mobile/digital-marketing.html" },
+    { "source": "/mobile/website-development", "destination": "/mobile/website-development.html" },
+    { "source": "/mobile/brand-development", "destination": "/mobile/brand-development.html" },
+    { "source": "/mobile/strategy-consultation", "destination": "/mobile/strategy-consultation.html" },
+    { "source": "/mobile/blogs", "destination": "/mobile/blogs.html" },
+    { "source": "/mobile/contact", "destination": "/mobile/contact.html" },
+    { "source": "/mobile/thank-you", "destination": "/mobile/thank-you.html" },
+    { "source": "/mobile/(.*)", "destination": "/mobile/$1" },
     {
       "source": "/home",
       "destination": "/index.html"
