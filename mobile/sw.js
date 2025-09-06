@@ -3,7 +3,7 @@
  * Provides basic caching and offline functionality
  */
 
-const CACHE_NAME = '1stopfirm-mobile-v1';
+const CACHE_NAME = '1stopfirm-mobile-v2';
 const urlsToCache = [
   '/mobile/',
   '/mobile/index.html',
@@ -23,6 +23,7 @@ self.addEventListener('install', event => {
         return cache.addAll(urlsToCache);
       })
   );
+  self.skipWaiting();
 });
 
 // Fetch event - serve from cache when offline
@@ -49,6 +50,6 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });

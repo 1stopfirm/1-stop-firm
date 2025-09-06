@@ -66,7 +66,7 @@
         // Map desktop pages to mobile equivalents
         const pageMap = {
             // legacy .html
-            '/index.html': '/mobile/index.html',
+            '/index.html': '/mobile/',
             '/about.html': '/mobile/about.html',
             '/services.html': '/mobile/services.html',
             '/contact-us.html': '/mobile/contact.html',
@@ -77,7 +77,7 @@
             '/strategy-consultation.html': '/mobile/strategy-consultation.html',
             '/thank-you.html': '/mobile/thank-you.html',
             // clean slugs
-            '/': '/mobile/index.html',
+            '/': '/mobile/',
             '/about': '/mobile/about.html',
             '/services': '/mobile/services.html',
             '/contact': '/mobile/contact.html',

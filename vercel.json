@@ -5,7 +5,7 @@
   "devCommand": "",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false,
+  "trailingSlash": true,
   "rewrites": [
     { "source": "/mobile", "destination": "/mobile/index.html" },
     { "source": "/mobile/", "destination": "/mobile/index.html" },
@@ -57,5 +57,9 @@
       "source": "/thank-you",
       "destination": "/thank-you.html"
     }
+  ],
+  "redirects": [
+    { "source": "/mobile/index.html", "destination": "/mobile/", "permanent": true },
+    { "source": "/mobile/index", "destination": "/mobile/", "permanent": true }
   ]
 } 
