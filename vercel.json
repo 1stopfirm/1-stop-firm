@@ -9,7 +9,6 @@
   "rewrites": [
     { "source": "/mobile", "destination": "/mobile/index.html" },
     { "source": "/mobile/", "destination": "/mobile/index.html" },
-    { "source": "/mobile/(.*)", "destination": "/mobile/$1" },
     {
       "source": "/home",
       "destination": "/index.html"
@@ -58,9 +57,6 @@
       "source": "/thank-you",
       "destination": "/thank-you.html"
     },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
+    
   ]
 } 

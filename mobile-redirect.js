@@ -89,7 +89,8 @@
             '/thank-you': '/mobile/thank-you.html'
         };
         
-        const mobilePath = pageMap[currentPath] || '/mobile/index.html';
+        // Prefer directory path for homepage to avoid index.html edge cases
+        const mobilePath = pageMap[currentPath] || '/mobile/';
         
         // For development/local testing
         if (window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1')) {
