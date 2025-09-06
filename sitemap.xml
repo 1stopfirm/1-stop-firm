@@ -55,4 +55,10 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://1stopfirm.com/dadabari</loc>
+    <priority>0.6</priority>
+  </url>
+
+
 </urlset>
