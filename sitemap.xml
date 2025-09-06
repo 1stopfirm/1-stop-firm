@@ -60,5 +60,29 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://1stopfirm.com/talwandi</loc>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://1stopfirm.com/nayapura</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://1stopfirm.com/shastri-nagar</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://1stopfirm.com/bundi-road</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://1stopfirm.com/vigyan-nagar</loc>
+    <priority>0.6</priority>
+  </url>
 
 </urlset>
